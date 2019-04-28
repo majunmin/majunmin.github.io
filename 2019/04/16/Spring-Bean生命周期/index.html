@@ -104,20 +104,20 @@
 
 
 
-  <meta name="description" content="BeanFactory  当调用者调用 getBean() 想容器请求一个bean时,如果容器注册了 InstantiationAwareBeanPostProcessor(实现了BeanPostProcessor)接口,则实例化bean之前，调用该接口的 postProcessBeforeInstantiation()  根据配置调用bean的构造器/工厂方法 实例化bean  如果容器注册了">
+  <meta name="description" content="BeanFactory 这些方法大致可以归为四类：   ApplicationContext     BeanFactory#  当调用者调用 getBean() 想容器请求一个bean时,如果容器注册了 InstantiationAwareBeanPostProcessor(实现了BeanPostProcessor)接口,则实例化bean之前，调用该接口的 postProcessBefo">
 <meta name="keywords" content="spring,bean生命周期,ApplicationContext,BeanFactory">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Bean生命周期">
 <meta property="og:url" content="http://yoursite.com/2019/04/16/Spring-Bean生命周期/index.html">
 <meta property="og:site_name" content="majm的博客">
-<meta property="og:description" content="BeanFactory  当调用者调用 getBean() 想容器请求一个bean时,如果容器注册了 InstantiationAwareBeanPostProcessor(实现了BeanPostProcessor)接口,则实例化bean之前，调用该接口的 postProcessBeforeInstantiation()  根据配置调用bean的构造器/工厂方法 实例化bean  如果容器注册了">
+<meta property="og:description" content="BeanFactory 这些方法大致可以归为四类：   ApplicationContext     BeanFactory#  当调用者调用 getBean() 想容器请求一个bean时,如果容器注册了 InstantiationAwareBeanPostProcessor(实现了BeanPostProcessor)接口,则实例化bean之前，调用该接口的 postProcessBefo">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/04/16/Spring-Bean生命周期/BeanFactory中Bean生命周期.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/16/Spring-Bean生命周期/ApplicationContext中Bean的生命周期.jpg">
-<meta property="og:updated_time" content="2019-04-16T15:07:15.893Z">
+<meta property="og:updated_time" content="2019-04-16T15:13:38.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Bean生命周期">
-<meta name="twitter:description" content="BeanFactory  当调用者调用 getBean() 想容器请求一个bean时,如果容器注册了 InstantiationAwareBeanPostProcessor(实现了BeanPostProcessor)接口,则实例化bean之前，调用该接口的 postProcessBeforeInstantiation()  根据配置调用bean的构造器/工厂方法 实例化bean  如果容器注册了">
+<meta name="twitter:description" content="BeanFactory 这些方法大致可以归为四类：   ApplicationContext     BeanFactory#  当调用者调用 getBean() 想容器请求一个bean时,如果容器注册了 InstantiationAwareBeanPostProcessor(实现了BeanPostProcessor)接口,则实例化bean之前，调用该接口的 postProcessBefo">
 <meta name="twitter:image" content="http://yoursite.com/2019/04/16/Spring-Bean生命周期/BeanFactory中Bean生命周期.png">
 
 
@@ -381,7 +381,7 @@
                 
               
 
-              <time title="创建时间：2019-04-16 23:02:12 / 修改时间：23:07:15" itemprop="dateCreated datePublished" datetime="2019-04-16T23:02:12+08:00">2019-04-16</time>
+              <time title="创建时间：2019-04-16 23:02:12 / 修改时间：23:13:38" itemprop="dateCreated datePublished" datetime="2019-04-16T23:02:12+08:00">2019-04-16</time>
             
 
             
@@ -437,7 +437,20 @@
       
 
       
-        <h2 id="BeanFactory"><a href="#BeanFactory" class="headerlink" title="BeanFactory"></a>BeanFactory</h2><img src="/2019/04/16/Spring-Bean生命周期/BeanFactory中Bean生命周期.png" title="BeanFactory中Bean生命周期">
+        <div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#beanfactory">BeanFactory</a><ul>
+<li><a href="#zhe-xie-fang-fa-da-zhi-ke-yi-gui-wei-si-lei">这些方法大致可以归为四类：</a></li>
+</ul>
+</li>
+<li><a href="#applicationcontext">ApplicationContext</a></li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h2><span id="beanfactory">BeanFactory</span><a href="#beanfactory" class="header-anchor">#</a></h2><img src="/2019/04/16/Spring-Bean生命周期/BeanFactory中Bean生命周期.png" title="BeanFactory中Bean生命周期">
 <ol>
 <li><p>当调用者调用 <code>getBean()</code> 想容器请求一个bean时,如果容器注册了 InstantiationAwareBeanPostProcessor(实现了BeanPostProcessor)接口,<br>则实例化bean之前，调用该接口的 <code>postProcessBeforeInstantiation()</code></p>
 </li>
@@ -473,7 +486,7 @@
 <li><p>对于singleton的bean，如果bean通过destory-method属性指定了bean的销毁方法，那么在spring容器关闭的时候，就会执行该方法。</p>
 </li>
 </ol>
-<h3 id="这些方法大致可以归为四类："><a href="#这些方法大致可以归为四类：" class="headerlink" title="这些方法大致可以归为四类："></a>这些方法大致可以归为四类：</h3><ol>
+<h3><span id="zhe-xie-fang-fa-da-zhi-ke-yi-gui-wei-si-lei">这些方法大致可以归为四类：</span><a href="#zhe-xie-fang-fa-da-zhi-ke-yi-gui-wei-si-lei" class="header-anchor">#</a></h3><ol>
 <li>Bean自身的方法：自身的方法也就是在bean中通过init-method和destory-method指定的方法。</li>
 <li>Bean级生命周期接口方法：如BeanNameAware，BeanFactoryAware，InitializingBean和DisposableBean，这些接口方法由Bean类直接实现。</li>
 <li>容器级生命周期接口方法：InstantiationAwareBeanPostProcessor和BeanPostProcessor接口实现，一般称它们的实现类为“后处理器”。<ul>
@@ -484,7 +497,7 @@
 </li>
 <li>工厂处理器接口方法：包括AspectJWeavingEnabler，CustomAutowireConfigurer，ConfigurationClassPostProcessor等方法。工厂后处理器也是容器级的，在应用上下文装配文件后立即调用。</li>
 </ol>
-<h2 id="ApplicationContext"><a href="#ApplicationContext" class="headerlink" title="ApplicationContext"></a>ApplicationContext</h2><p>使用ApplicationContext &amp; bean(scope=singleton) ,name容器加载时这些bean 就会被实例化。好处是可以预先加载，缺点是耗内存<br>如果使用的是 BeanFactory, 当实例化bean时不会直接实例化，而是等到使用(调动 getBean(String beanName))时才会实例化. BeanFactory会延迟初始化所投的的Bean. 好处是节约内存, 缺点是速度慢</p>
+<h2><span id="applicationcontext">ApplicationContext</span><a href="#applicationcontext" class="header-anchor">#</a></h2><p>使用ApplicationContext &amp; bean(scope=singleton) ,name容器加载时这些bean 就会被实例化。好处是可以预先加载，缺点是耗内存<br>如果使用的是 BeanFactory, 当实例化bean时不会直接实例化，而是等到使用(调动 getBean(String beanName))时才会实例化. BeanFactory会延迟初始化所投的的Bean. 好处是节约内存, 缺点是速度慢</p>
 <p>一般没有特殊要求，使用ApplicationContext. ApplicationContext 实现了 ListableBeanFactory &amp; HierarchicalBeanFactory,具有BeanFactory的所有功能， 并且还额外提供了 许多高级功能</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ApplicationContext</span> <span class="keyword">extends</span> <span class="title">EnvironmentCapable</span>, <span class="title">ListableBeanFactory</span>, <span class="title">HierarchicalBeanFactory</span>,</span></span><br><span class="line"><span class="class">		<span class="title">MessageSource</span>, <span class="title">ApplicationEventPublisher</span>, <span class="title">ResourcePatternResolver</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -695,7 +708,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BeanFactory"><span class="nav-number">1.</span> <span class="nav-text">BeanFactory</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#这些方法大致可以归为四类："><span class="nav-number">1.1.</span> <span class="nav-text">这些方法大致可以归为四类：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ApplicationContext"><span class="nav-number">2.</span> <span class="nav-text">ApplicationContext</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">BeanFactory#</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">这些方法大致可以归为四类：#</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">ApplicationContext#</span></a></li></ol></div>
             
 
           </div>
