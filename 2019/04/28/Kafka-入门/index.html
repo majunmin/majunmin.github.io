@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="英文文档 | 中文文档  Kafka 是由 LinkedIn 开发的一个分布式的消息系统，使用 Scala 编写，它以可水平扩展和高吞吐率而被广泛使用。">
+<meta name="keywords" content="kafka">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka 入门">
+<meta property="og:url" content="http://yoursite.com/2019/04/28/Kafka-入门/index.html">
+<meta property="og:site_name" content="majm的博客">
+<meta property="og:description" content="英文文档 | 中文文档  Kafka 是由 LinkedIn 开发的一个分布式的消息系统，使用 Scala 编写，它以可水平扩展和高吞吐率而被广泛使用。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/04/28/Kafka-入门/speed.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/28/Kafka-入门/Kafka消息格式.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/28/Kafka-入门/topic-partation.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/28/Kafka-入门/消息位移与消费者位移.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/28/Kafka-入门/ISR.png">
+<meta property="og:updated_time" content="2019-04-28T07:19:23.155Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kafka 入门">
+<meta name="twitter:description" content="英文文档 | 中文文档  Kafka 是由 LinkedIn 开发的一个分布式的消息系统，使用 Scala 编写，它以可水平扩展和高吞吐率而被广泛使用。">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/28/Kafka-入门/speed.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/28/Kafka-入门/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Kafka 入门 | majm的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion .logo-line-before i { left: initial; }
+    .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <!--背景 动态线-->
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">majm的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/Kafka-入门/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="majm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="majm的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Kafka 入门
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-28 15:08:15 / 修改时间：15:19:23" itemprop="dateCreated datePublished" datetime="2019-04-28T15:08:15+08:00">2019-04-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/kafka/" itemprop="url" rel="index"><span itemprop="name">kafka</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://kafka.apache.org/" target="_blank" rel="noopener">英文文档</a> <em>|</em> <a href="http://kafka.apachecn.org/" target="_blank" rel="noopener">中文文档</a></p>
+<blockquote>
+<p>Kafka 是由 LinkedIn 开发的一个分布式的消息系统，使用 Scala 编写，它以可水平扩展和高吞吐率而被广泛使用。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="Mac-安装kafka"><a href="#Mac-安装kafka" class="headerlink" title="Mac 安装kafka"></a>Mac 安装kafka</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 会自动 安装会依赖zookeeper</span></span><br><span class="line">brew install kafka</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 zookeeper</span></span><br><span class="line">zookeeper-server-start /usr/<span class="built_in">local</span>/etc/kafka/zookeeper.properties &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 kafka</span></span><br><span class="line">kafka-server-start /usr/<span class="built_in">local</span>/etc/kafka/server.properties &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建 topic</span></span><br><span class="line">kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看创建的topic</span></span><br><span class="line">kafka-topics --list --zookeeper localhost:2181</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送消息 输入</span></span><br><span class="line">kafka-console-producer --broker-list localhost:9092 --topic <span class="built_in">test</span></span><br><span class="line"><span class="comment"># 在命令行输入消息并回车即可发送消息。</span></span><br><span class="line"><span class="comment"># 默认每一行都是一条消息</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#kafka也提供了一个命令行消费者，接受消息并打印到标准输出。</span></span><br><span class="line">kafka-console-consume --bootstrap-server localhost:2181 --topic <span class="built_in">test</span> --from-beginning</span><br></pre></td></tr></table></figure>
+<p>配置文件位置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/etc/kafka/server.properties</span><br><span class="line">/usr/local/etc/kafka/zookeeper.properties</span><br></pre></td></tr></table></figure>
+<h2 id="Kafka-架构"><a href="#Kafka-架构" class="headerlink" title="Kafka 架构"></a>Kafka 架构</h2><p><strong>BrokerKafka</strong> 集群包含一个或多个服务器，这种服务器被称为 broker<br><strong>Topic</strong> 逻辑上的概念,每条发布到 Kafka 集群的消息都有一个类别，这个类别被称为 Topic。（物理上不同 Topic 的消息分开存储，逻辑上一个 Topic 的消息虽然保存于一个或多个 broker 上但用户只需指定消息的 Topic 即可生产或消费数据而不必关心数据存于何处）<br><strong>Partition</strong> 是物理上的概念，每个 Topic 包含一个或多个 Partition.<br><strong>Producer</strong> 负责发布消息到 Kafka broker<br><strong>Consumer</strong> 消息消费者，向 Kafka broker 读取消息的客户端。<br><strong>Consumer Group</strong> 每个 Consumer 属于一个特定的 Consumer Group（可为每个 Consumer 指定 group name，若不指定 group name 则属于默认的 group）。</p>
+<blockquote>
+<p>对于传统的 message queue 而言，一般会删除已经被消费的消息，而 Kafka 集群会保留所有的消息，无论其被消费与否。<br>当然，因为磁盘限制，不可能永久保留所有数据（实际上也没必要），因此 Kafka 提供两种策略删除旧数据。</p>
+<blockquote>
+<p>一是基于时间，<br>二是基于 Partition 文件大小。</p>
+</blockquote>
+<p>例如可以通过配置 $KAFKA_HOME/config/server.properties，让 Kafka 删除一周前的数据，也可在 Partition 文件超过 1GB 时删除旧数据</p>
+</blockquote>
+<h2 id="Kafka-特性"><a href="#Kafka-特性" class="headerlink" title="Kafka 特性"></a>Kafka 特性</h2><ol>
+<li><p>高可用 HA</p>
+<p> 通过 Zookeeper, 主节点挂了，从节点进行选举</p>
+</li>
+<li><p>负载均衡 fail over</p>
+<p> 通过hash 算法 将 key 路由到 不同的分区<br> Zookeeper允许集群中节点失败（若副本数量为n,则允许n-1个节点失败）</p>
+</li>
+<li><p>可扩展</p>
+<p> kafka集群支持 broker 水平扩展，热扩展</p>
+</li>
+<li><p>高吞吐率,低延时</p>
+<p> kafka每秒可以处理几十万条消息，它的延迟最低只有几毫秒，每个topic可以分多个partition, consumer group 对partition进行consume操作。<br> 高吞吐率 与 延时 是两个 相悖的概念，如果没2ms 处理 1条消息， 吞吐率 = 500条消息/s<br> 如果采用批处理，延时8ms发送100 条消息，相当于 （8+2）ms发送了 100 条消息， 吞吐率 = 10,000/s</p>
+<p> Kafka 发送数据：</p>
+<ol>
+<li>kafka 收到消息 现将消息写入页缓存中，而后由操作系统将消息写入磁盘</li>
+<li>Kafka不予文件系统打交道,是交由操作系统将缓存中的数据写入磁盘</li>
+<li><p>将数据写入磁盘采用append方式，顺序写入磁盘，效率高</p>
+<p> <img src="./speed.png" alt="speed"><br>Kafka 消费数据：</p>
+</li>
+<li>kafka 消费数据 先从页缓存中读取，如果命中直接返回，不往硬盘中读取 零拷贝技术</li>
+</ol>
+</li>
+<li><p>可靠性</p>
+<p> 消息被持久化到本地磁盘，并且支持数据备份防止数据丢失</p>
+</li>
+<li><p>数据分区</p>
+<p> 消息可以被路由到不同的分区(hash 算法), 分区有 replica, 容错性</p>
+</li>
+<li><p>消费者多线程并行消费,高并发</p>
+<p> 支持数千个客户端同时读写</p>
+</li>
+</ol>
+<h2 id="Kafka-基本概念"><a href="#Kafka-基本概念" class="headerlink" title="Kafka 基本概念"></a>Kafka 基本概念</h2><h3 id="Message"><a href="#Message" class="headerlink" title="Message"></a>Message</h3><p><img src="./Kafka消息格式.jpg" alt="Kafka消息格式"></p>
+<p>key: 消息键值  分区时使用<br>value: 消息内容<br>timestamp: 消息发送时间戳,用于流式处理或其他依赖时间的处理语义</p>
+<p>属性: 1字节， 目前只是用了 最低三位 用于保存消息压缩类型，其余五位未使用。<br>     0 无压缩  1 gzip  2 Snappy 3 LZ4</p>
+<ul>
+<li><p>为什么 kafka 消息缓存放在了页缓存,而不是放在 java 堆上</p>
+<blockquote>
+<p>JMM 中,对象内存开销相当大。 堆上的数据量越大，GC的性能会下降很多<br>JAVA操作系统默认开启了页缓存机制，也就是说对上保存的对象很可能在页缓存中保留一份，开销大<br>Kafka 直接使用 ByteBuffer,而不是直接使用对象，占用空间少<br>大量使用页缓存而不是使用堆内存，当kafka broker进程崩溃时，堆上数据会消失一部分，而页缓存中的数据依然存在</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="topic"><a href="#topic" class="headerlink" title="topic"></a>topic</h3><p>Topic 是一个逻辑概念,是一个逻辑概念，我们通常用topic来区分业务，</p>
+<p>kafka 中的topic 会被多个消费者订阅，出于性能的考量，kafka 消息并不是 topic-message 两级结构，而是 topic-partation-message 三级结构来分散负载</p>
+<p>topic 下面可以有 多个 partation, 一般 partation 数目 大于等于 3</p>
+<h3 id="partation"><a href="#partation" class="headerlink" title="partation"></a>partation</h3><p><img src="./topic-partation.png" alt="topic-partation"><br>kafka 引入分区的概念 并没有太多的业务含义，而只是单纯的想提高吞吐量，因此创建kafka topic的时候， 可以根据集群配置设置具体的partation数，实现整体性最大化</p>
+<p>partation有自己专属的 分区号，用户唯一能对partation 的操作就是在partation尾部追加写入消息。partation 上的消息都有一个唯一的 offset.用来定位消息</p>
+<h3 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h3><p><img src="./消息位移与消费者位移.jpg" alt="消息位移与消费者位移"><br>显然，每条消息在 partation 的位置是固定的，但消费该partation 的消费者位移随着消费进度不断前移。</p>
+<p>综上，topic partation offset, 我们 可以通过 &lt;topic, partation, offset&gt; 唯一确定一条消息的位置。</p>
+<h3 id="replica"><a href="#replica" class="headerlink" title="replica"></a>replica</h3><p>kafka  partation 是 有序消息日志， 那么一定不能只有一份日志。否则一旦持有该partaion的broker down了，就会造成数据丢失。 分布式系统必然要实现高可靠性。目前有效地方式–&gt; 数据冗余，也就是备份多份日志。这些备份的日志 在 kafka里称谓 replic。</p>
+<ul>
+<li>当某个topic的replication-factor为N且N大于1时，每个Partition都会有N个副本(Replica)。kafka的replica包含leader与follower。</li>
+<li>Replica的个数小于等于Broker的个数，也就是说，对于每个Partition而言，每个Broker上最多只会有一个Replica，因此可以使用Broker id 指定Partition的Replica。</li>
+<li>所有Partition的Replica默认情况会均匀分布到所有Broker上。</li>
+</ul>
+<p>leader replica 供客户端读写，follower replica 读客户端不可见，一旦 leader replica 所在 broker宕机，就从follower 中通过选举方式 选出一个 leader.</p>
+<h3 id="Leader-和-follower"><a href="#Leader-和-follower" class="headerlink" title="Leader 和 follower"></a>Leader 和 follower</h3><p>kafka 的 replica 分为 leader 和 follower, (取代了 之前的 master slave)</p>
+<p>leader 负责对外提供读写 服务，<br>follower从 leader 同步数据，充当leader的 候补</p>
+<p>kafka保证 同一个 topic 的 多个 partation 一定不会再 同一个 broker上。</p>
+<h3 id="ISR"><a href="#ISR" class="headerlink" title="ISR"></a>ISR</h3><p>IN-SYNC Replica 与 leader replica 保持同步的 replica 集合</p>
+<p>kafka 承诺 只要这个集合中 至少存在一个 replica, 那些‘已提交’状态的数据就不会丢失。 两个关键点:</p>
+<ol>
+<li>ISR 中 至少存在一个 ‘活着的’ replica</li>
+<li>‘已提交’的消息</li>
+</ol>
+<p><img src="./ISR.png" alt="ISR"></p>
+<h2 id="Kafka-使用场景"><a href="#Kafka-使用场景" class="headerlink" title="Kafka 使用场景"></a>Kafka 使用场景</h2><h3 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h3><p>message Queue</p>
+<h3 id="网络行为日志追踪"><a href="#网络行为日志追踪" class="headerlink" title="网络行为日志追踪"></a>网络行为日志追踪</h3><p>重建用户行为追踪，用户对网站的点击量大，这时kafka的 超强吞吐量就有了用武之地</p>
+<h3 id="审计数据收集"><a href="#审计数据收集" class="headerlink" title="审计数据收集"></a>审计数据收集</h3><h3 id="日志收集"><a href="#日志收集" class="headerlink" title="日志收集"></a>日志收集</h3><p>kafka 最常用的 使用方式,日志收集 汇总 统计</p>
+<h3 id="Event-Sourcing"><a href="#Event-Sourcing" class="headerlink" title="Event Sourcing"></a>Event Sourcing</h3><h3 id="流式处理"><a href="#流式处理" class="headerlink" title="流式处理"></a>流式处理</h3><p>spark streaming, apache fliink, apache storm</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/kafka/" rel="tag"># kafka</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/16/Spring-Bean生命周期/" rel="next" title="Spring Bean生命周期">
+                <i class="fa fa-chevron-left"></i> Spring Bean生命周期
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/28/Apache-AB性能测试工具/" rel="prev" title="Apache-AB性能测试工具">
+                Apache-AB性能测试工具 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">majm</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-安装kafka"><span class="nav-number">1.</span> <span class="nav-text">Mac 安装kafka</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka-架构"><span class="nav-number">2.</span> <span class="nav-text">Kafka 架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka-特性"><span class="nav-number">3.</span> <span class="nav-text">Kafka 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka-基本概念"><span class="nav-number">4.</span> <span class="nav-text">Kafka 基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Message"><span class="nav-number">4.1.</span> <span class="nav-text">Message</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#topic"><span class="nav-number">4.2.</span> <span class="nav-text">topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#partation"><span class="nav-number">4.3.</span> <span class="nav-text">partation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#offset"><span class="nav-number">4.4.</span> <span class="nav-text">offset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#replica"><span class="nav-number">4.5.</span> <span class="nav-text">replica</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leader-和-follower"><span class="nav-number">4.6.</span> <span class="nav-text">Leader 和 follower</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ISR"><span class="nav-number">4.7.</span> <span class="nav-text">ISR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka-使用场景"><span class="nav-number">5.</span> <span class="nav-text">Kafka 使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#消息队列"><span class="nav-number">5.1.</span> <span class="nav-text">消息队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络行为日志追踪"><span class="nav-number">5.2.</span> <span class="nav-text">网络行为日志追踪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#审计数据收集"><span class="nav-number">5.3.</span> <span class="nav-text">审计数据收集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志收集"><span class="nav-number">5.4.</span> <span class="nav-text">日志收集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-Sourcing"><span class="nav-number">5.5.</span> <span class="nav-text">Event Sourcing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流式处理"><span class="nav-number">5.6.</span> <span class="nav-text">流式处理</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">majm</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.6.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+  
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
