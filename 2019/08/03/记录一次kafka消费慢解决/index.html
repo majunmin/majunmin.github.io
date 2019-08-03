@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="最近使用kafka, 消费者速度一直跟不上，造成线上消息堆积到了 101亿，困扰了好几天，终于解决了。（其实很简单，因为 kafka消费速度本来也不慢 😂😂😂😂,其实异步+ 批量消费就满可以达到要求了）  主要原因有两个，  对 @Async 注解的不理解 批量消费 – 还有就是通过这次事件，也了解了点 自动提交与 手动提交的概念  一般 kafka 消费慢的 解决思路有一下几种：  增">
+  <meta name="description" content="最近使用kafka, 消费者速度一直跟不上，造成线上消息堆积到了 101亿，困扰了好几天，终于解决了。（其实很简单，因为 kafka消费速度本来也不慢 😂😂😂😂,其实异步+ 批量消费就满可以达到要求了）">
 <meta name="keywords" content="kafka">
 <meta property="og:type" content="article">
 <meta property="og:title" content="记录一次kafka消费慢解决">
 <meta property="og:url" content="http://yoursite.com/2019/08/03/记录一次kafka消费慢解决/index.html">
 <meta property="og:site_name" content="majm的博客">
-<meta property="og:description" content="最近使用kafka, 消费者速度一直跟不上，造成线上消息堆积到了 101亿，困扰了好几天，终于解决了。（其实很简单，因为 kafka消费速度本来也不慢 😂😂😂😂,其实异步+ 批量消费就满可以达到要求了）  主要原因有两个，  对 @Async 注解的不理解 批量消费 – 还有就是通过这次事件，也了解了点 自动提交与 手动提交的概念  一般 kafka 消费慢的 解决思路有一下几种：  增">
+<meta property="og:description" content="最近使用kafka, 消费者速度一直跟不上，造成线上消息堆积到了 101亿，困扰了好几天，终于解决了。（其实很简单，因为 kafka消费速度本来也不慢 😂😂😂😂,其实异步+ 批量消费就满可以达到要求了）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-03T10:40:11.107Z">
+<meta property="og:updated_time" content="2019-08-03T10:49:19.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录一次kafka消费慢解决">
-<meta name="twitter:description" content="最近使用kafka, 消费者速度一直跟不上，造成线上消息堆积到了 101亿，困扰了好几天，终于解决了。（其实很简单，因为 kafka消费速度本来也不慢 😂😂😂😂,其实异步+ 批量消费就满可以达到要求了）  主要原因有两个，  对 @Async 注解的不理解 批量消费 – 还有就是通过这次事件，也了解了点 自动提交与 手动提交的概念  一般 kafka 消费慢的 解决思路有一下几种：  增">
+<meta name="twitter:description" content="最近使用kafka, 消费者速度一直跟不上，造成线上消息堆积到了 101亿，困扰了好几天，终于解决了。（其实很简单，因为 kafka消费速度本来也不慢 😂😂😂😂,其实异步+ 批量消费就满可以达到要求了）">
 
 
 
@@ -378,7 +378,7 @@
                 
               
 
-              <time title="创建时间：2019-08-03 18:37:02 / 修改时间：18:40:11" itemprop="dateCreated datePublished" datetime="2019-08-03T18:37:02+08:00">2019-08-03</time>
+              <time title="创建时间：2019-08-03 18:37:02 / 修改时间：18:49:19" itemprop="dateCreated datePublished" datetime="2019-08-03T18:37:02+08:00">2019-08-03</time>
             
 
             
@@ -455,6 +455,7 @@
         <blockquote>
 <p>最近使用kafka, 消费者速度一直跟不上，造成线上消息堆积到了 101亿，困扰了好几天，终于解决了。（其实很简单，因为 kafka消费速度本来也不慢 😂😂😂😂,其实异步+ 批量消费就满可以达到要求了）</p>
 </blockquote>
+<a id="more"></a>
 <p>主要原因有两个，</p>
 <ol>
 <li>对 @Async 注解的不理解</li>

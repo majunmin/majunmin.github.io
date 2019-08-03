@@ -15,4 +15,5 @@
 {"title":"Docker概念","url":"/2019/07/20/Docker概念/"},
 {"title":"Linux常用命令","url":"/2019/07/20/Linux常用命令/"},
 {"title":"redis-info命令详解","url":"/2019/07/22/redis-info命令详解/"},
+{"title":"记录一次kafka消费慢解决","url":"/2019/08/03/记录一次kafka消费慢解决/"},
 ]
