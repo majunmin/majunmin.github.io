@@ -1,136 +1,51 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html lang="zh-CN">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
-
-
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '6.6.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="记录一下 CentO7 中常用的命令">
-<meta name="keywords" content="linux,centos7">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux常用命令">
-<meta property="og:url" content="http://yoursite.com/2019/07/20/Linux常用命令/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/07/20/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="majm的博客">
 <meta property="og:description" content="记录一下 CentO7 中常用的命令">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://blog.chinaunix.net/uid-23302288-id-3785105.html">
-<meta property="og:updated_time" content="2019-07-20T07:05:44.045Z">
+<meta property="article:published_time" content="2019-07-20T07:03:53.000Z">
+<meta property="article:modified_time" content="2019-07-20T07:05:44.045Z">
+<meta property="article:author" content="majm">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="centos7">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux常用命令">
-<meta name="twitter:description" content="记录一下 CentO7 中常用的命令">
 <meta name="twitter:image" content="http://blog.chinaunix.net/uid-23302288-id-3785105.html">
 
+<link rel="canonical" href="http://yoursite.com/2019/07/20/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 
 
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2019/07/20/Linux常用命令/">
-
-
-
-<script id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -142,169 +57,88 @@
 
 
 
-
-
-
-
-
-
   <noscript>
   <style>
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion .logo-line-before i { left: initial; }
-    .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  <!--背景 动态线-->
-  
-  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-  
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">majm的博客</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-    
   </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">majm的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
   </div>
 </div>
 
 
 
+
 <nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
+        <li class="menu-item menu-item-tags">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-categories">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-archives">
 
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
-
-      
-      
-    </ul>
-  
-
-  
-    
-
-  
-
-  
+  </ul>
 </nav>
 
-
-
-  
 
 
 
@@ -312,120 +146,64 @@
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
           
-          <div id="content" class="content">
+
+          <div class="content post posts-expand">
             
 
-  <div id="posts" class="posts-expand">
     
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/20/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/20/Linux常用命令/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="majm">
       <meta itemprop="description" content="做一些简单的笔记">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="majm的博客">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">Linux常用命令
-
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          Linux常用命令
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
+              <span class="post-meta-item-text">发表于</span>
               
 
               <time title="创建时间：2019-07-20 15:03:53 / 修改时间：15:05:44" itemprop="dateCreated datePublished" datetime="2019-07-20T15:03:53+08:00">2019-07-20</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
-
-                
-                
-              
             </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
 
           
 
         </div>
       </header>
-    
 
     
     
@@ -433,16 +211,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
         <blockquote>
 <p>记录一下 CentO7 中常用的命令</p>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
 <p>命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -q package-name     #检查包是否被安装</span><br><span class="line">rpm -qa                 #列出所有安装的包</span><br></pre></td></tr></table></figure>
-<p>shell 脚本参数 传参数<a href="https://www.cnblogs.com/davygeek/p/5670212.html" target="_blank" rel="noopener">$$$</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -q package-name     #检查包是否被安装</span><br><span class="line">rpm -qa                 #列出所有安装的包</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>shell 脚本参数 传参数<a target="_blank" rel="noopener" href="https://www.cnblogs.com/davygeek/p/5670212.html">$$$</a></p>
 <table>
 <thead>
 <tr>
@@ -481,7 +256,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="Linux-corn"><a href="#Linux-corn" class="headerlink" title="Linux corn"></a>Linux corn</h2><p><a href="https://www.cnblogs.com/longjshz/p/5779215.html" target="_blank" rel="noopener">定时任务</a></p>
+<h2 id="Linux-corn"><a href="#Linux-corn" class="headerlink" title="Linux corn"></a>Linux corn</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/longjshz/p/5779215.html">定时任务</a></p>
 <table>
 <thead>
 <tr>
@@ -506,13 +281,13 @@
 </tr>
 </tbody>
 </table>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> For details see man 4 crontabs</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Example of job definition:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> .---------------- minute (0 - 59)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> | .------------- hour (0 - 23)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> | | .---------- day of month (1 - 31)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> | | | .------- month (1 - 12) OR jan,feb,mar,apr ...</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> | | | | |</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> * * * * * user-name <span class="built_in">command</span> to be executed</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> For details see man 4 crontabs</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Example of job definition:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> .---------------- minute (0 - 59)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> | .------------- hour (0 - 23)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> | | .---------- day of month (1 - 31)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> | | | .------- month (1 - 12) OR jan,feb,mar,apr ...</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> | | | | |</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> * * * * * user-name <span class="built_in">command</span> to be executed</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h2><p>sed命令是一个面向字符流的非交互式编辑器，也就是说<em>sed不允许用户与它进行交互操作</em>。sed是按行来处理文本内容的。在<strong>shell</strong>中，使用sed来批量修改文本内容是非常方便的。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">sed</span><br><span class="line">选项与参数：</span><br><span class="line">-n ：使用安静(silent)模式。在一般 sed 的用法中，所有来自 STDIN 的数据一般都会被列出到终端上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行(或者动作)才会被列出来。</span><br><span class="line">-e ：直接在命令列模式上进行 sed 的动作编辑；</span><br><span class="line">-f ：直接将 sed 的动作写在一个文件内， -f filename 则可以运行 filename 内的 sed 动作；</span><br><span class="line">-r ：sed 的动作支持的是延伸型正规表示法的语法。(默认是基础正规表示法语法)</span><br><span class="line">-i ：直接修改读取的文件内容，而不是输出到终端。</span><br><span class="line"></span><br><span class="line">function：</span><br><span class="line">a ：新增行， a 的后面可以是字串，而这些字串会在新的一行出现(目前的下一行)</span><br><span class="line">c ：取代行， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行</span><br><span class="line">d ：删除行，因为是删除，所以 d 后面通常不接任何参数，直接删除地址表示的行；</span><br><span class="line">i ：插入行， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；</span><br><span class="line">p ：列印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行</span><br><span class="line">s ：替换，可以直接进行替换的工作,通常这个 s 的动作可以搭配正规表示法，例如 1,20s/old/new/g 一般是替换符合条件的字符串而不是整行</span><br><span class="line"></span><br><span class="line">一般function的前面会有一个地址的限制，例如 [地址]function，表示我们的动作要操作的行。下面我们通过具体的例子直观的看看sed的使用方法。</span><br></pre></td></tr></table></figure>
 <h3 id="gt-gt-与-gt"><a href="#gt-gt-与-gt" class="headerlink" title="&gt;&gt; 与 &gt;"></a>&gt;&gt; 与 &gt;</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> : 会重写文件，如果文件里面有内容会覆盖。</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">   是定向输出到文件，如果文件不存在，就创建文件；如果文件存在，就将其清空。</span></span><br><span class="line">   一般我们备份清理日志文件的时候，就是这种方法：先备份日志，再用`&gt;`，将日志文件清空（文件大小变成0字节）。</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt; :追加文件，也就是如果文件里面有内容会把新内容追加到文件尾。</span></span><br><span class="line">    这个是将输出内容追加到目标文件中。如果文件不存在，就创建文件。</span><br></pre></td></tr></table></figure>
 <h3 id="shell-字符串"><a href="#shell-字符串" class="headerlink" title="shell 字符串"></a>shell 字符串</h3><p>“” 与 ‘’<br><strong>单引号</strong>里的任何字符都会原样输出，单引号字符串中的变量是无效的；<br><strong>单引号</strong>字串中不能出现单独一个的单引号（对单引号使用转义符后也不行），但可成对出现，作为字符串拼接使用。</p>
 <p><strong>双引号</strong>里可以有变量<br><strong>双引号</strong>里可以出现转义字符</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">home=tj</span><br><span class="line">echo "hello, $&#123;home&#125;"</span><br><span class="line">echo 'hello, $&#123;home&#125;'</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">home=tj</span><br><span class="line">echo &quot;hello, $&#123;home&#125;&quot;</span><br><span class="line">echo &#x27;hello, $&#123;home&#125;&#x27;</span><br></pre></td></tr></table></figure>
 <h3 id="命令-grep"><a href="#命令-grep" class="headerlink" title="命令 grep"></a>命令 grep</h3><ol>
 <li>作用<br>​    Linux系统中grep命令是一种强大的文本搜索工具，</li>
 <li>它能使用正则表达式搜索文本，并把匹 配的行打印出来。</li>
@@ -524,18 +299,18 @@
 <p>awk是行处理器: 相比较屏幕处理的优点，在处理庞大文件时不会出现内存溢出或是处理缓慢的问题，通常用来格式化文本信息</p>
 <p>awk处理过程: 依次对每一行进行处理，然后输出</p>
 <p>awk:（将一行分为多个字段做处理）（重点）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk [-F  field-separator]  'commands'  input-file(s)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk [-F  field-separator]  &#x27;commands&#x27;  input-file(s)</span><br></pre></td></tr></table></figure>
 <p>其中，<em>commands</em> 是真正<em>awk</em>命令，<em>[-F域分隔符]</em>是可选的。default : 空格 <em> input-file(s) </em>是待处理的文件。<br>在awk中，文件的每一行中，由域分隔符分开的每一项称为一个域。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">last -n 5 | awk  '&#123;print $1&#125;' # 去除最后5行  打印第一个字段(域)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$0           表示整个当前行</span><br><span class="line">$1           每行第一个字段</span><br><span class="line">NF          字段数量变量</span><br><span class="line">NR          每行的记录号，多文件记录递增</span><br><span class="line">FNR        与NR类似，不过多文件记录不递增，每个文件都从1开始</span><br><span class="line">\t            制表符</span><br><span class="line">\n           换行符</span><br><span class="line">FS          BEGIN时定义分隔符</span><br><span class="line">RS       输入的记录分隔符， 默认为换行符(即文本是按一行一行输入)</span><br><span class="line">~            匹配，与==相比不是精确比较</span><br><span class="line">!~           不匹配，不精确比较</span><br><span class="line">==         等于，必须全部相等，精确比较</span><br><span class="line">!=           不等于，精确比较</span><br><span class="line">&amp;&amp;　     逻辑与</span><br><span class="line">||             逻辑或</span><br><span class="line">+            匹配时表示1个或1个以上</span><br><span class="line">/[0-9][0-9]+/   两个或两个以上数字</span><br><span class="line">/[0-9][0-9]*/    一个或一个以上数字</span><br><span class="line">FILENAME 文件名</span><br><span class="line">OFS      输出字段分隔符， 默认也是空格，可以改为制表符等</span><br><span class="line">ORS        输出的记录分隔符，默认为换行符,即处理结果也是一行一行输出到屏幕</span><br><span class="line">-F&apos;[:#/]&apos;   定义三个分隔符</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">last -n 5 | awk  &#x27;&#123;print $1&#125;&#x27; # 去除最后5行  打印第一个字段(域)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$0           表示整个当前行</span><br><span class="line">$1           每行第一个字段</span><br><span class="line">NF          字段数量变量</span><br><span class="line">NR          每行的记录号，多文件记录递增</span><br><span class="line">FNR        与NR类似，不过多文件记录不递增，每个文件都从1开始</span><br><span class="line">\t            制表符</span><br><span class="line">\n           换行符</span><br><span class="line">FS          BEGIN时定义分隔符</span><br><span class="line">RS       输入的记录分隔符， 默认为换行符(即文本是按一行一行输入)</span><br><span class="line">~            匹配，与==相比不是精确比较</span><br><span class="line">!~           不匹配，不精确比较</span><br><span class="line">==         等于，必须全部相等，精确比较</span><br><span class="line">!=           不等于，精确比较</span><br><span class="line">&amp;&amp;　     逻辑与</span><br><span class="line">||             逻辑或</span><br><span class="line">+            匹配时表示1个或1个以上</span><br><span class="line">/[0-9][0-9]+/   两个或两个以上数字</span><br><span class="line">/[0-9][0-9]*/    一个或一个以上数字</span><br><span class="line">FILENAME 文件名</span><br><span class="line">OFS      输出字段分隔符， 默认也是空格，可以改为制表符等</span><br><span class="line">ORS        输出的记录分隔符，默认为换行符,即处理结果也是一行一行输出到屏幕</span><br><span class="line">-F&#x27;[:#/]&#x27;   定义三个分隔符</span><br></pre></td></tr></table></figure>
 <h3 id="curl-命令"><a href="#curl-命令" class="headerlink" title="curl 命令"></a>curl 命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">常见参数</span></span><br><span class="line">    -A/--user-agent &lt;string&gt; 设置用户代理发送给服务器，即告诉服务器浏览器为什么</span><br><span class="line">    -basic 使用HTTP基本验证</span><br><span class="line">    --tcp-nodelay 使用TCP_NODELAY选项</span><br><span class="line">    -e/--referer &lt;URL&gt; 来源网址，跳转过来的网址</span><br><span class="line">    --cacert &lt;file&gt; 指定CA证书 (SSL)</span><br><span class="line">    --compressed 要求返回是压缩的形势，如果文件本身为一个压缩文件，则可以下载至本地</span><br><span class="line">    -H/--header &lt;line&gt;自定义头信息传递给服务器</span><br><span class="line">    -I/--head 只显示响应报文首部信息</span><br><span class="line">    --limit-rate &lt;rate&gt; 设置传输速度</span><br><span class="line">    -u/--user &lt;user[:password]&gt;设置服务器的用户和密码</span><br><span class="line">    -0/--http1.0 使用HTTP 1.0</span><br><span class="line">    -o/--output	把输出写到该文件中(必须指定文件绝对路径)</span><br><span class="line">    -s/--silent	静默模式。不输出任何东西</span><br></pre></td></tr></table></figure>
 <p>举例：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">取URL返回状态码：</span></span><br><span class="line">curl -s -m 10 -o /dev/null -w %&#123;http_code&#125; https://www.baidu.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">检查一批URL的HTTP状态：</span></span><br><span class="line">cat url.txt|while read line; do curl -I $line -m 5 --connect-timeout 5 -o /dev/null -s -w "$line "%&#123;http_code&#125;"\n"; done&gt;ok.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">取URL返回状态码：</span></span><br><span class="line">curl -s -m 10 -o /dev/null -w %&#123;http_code&#125; https://www.baidu.com</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">检查一批URL的HTTP状态：</span></span><br><span class="line">cat url.txt|while read line; do curl -I $line -m 5 --connect-timeout 5 -o /dev/null -s -w &quot;$line &quot;%&#123;http_code&#125;&quot;\n&quot;; done&gt;ok.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="linux中-dev-null命令"><a href="#linux中-dev-null命令" class="headerlink" title="linux中 /dev/null命令"></a>linux中 /dev/null命令</h3><p>/dev/null ：代表空设备文件<br>0 :表示键盘输入(stdin) </p>
 <blockquote>
 <p>：代表重定向到哪里，例如：echo “123” &gt; /home/123.txt<br>1  ：表示标准输出（stdout），系统默认值是1，所以”&gt;/dev/null”等同于”1&gt;/dev/null”<br>2  ：表示标准错误(stderr)<br>&amp;  ：表示等同于的意思，2&gt;&amp;1，表示2的输出重定向等同于1</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">1、禁止标准输出</span></span><br><span class="line"></span><br><span class="line">[root@zhoucentos log]# cat filename</span><br><span class="line">wo ai wo jia</span><br><span class="line">[root@zhoucentos log]# cat filename &gt;/dev/null</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">2、禁止标准错误</span></span><br><span class="line"></span><br><span class="line">[root@zhoucentos log]# rm filename1 </span><br><span class="line">rm: 无法删除"filename1": 没有那个文件或目录</span><br><span class="line">[root@zhoucentos log]# rm filename1 2&gt;/dev/null</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">3、禁止标准输出和标准错误</span></span><br><span class="line"></span><br><span class="line">[root@zhoucentos log]# rm filename1</span><br><span class="line">rm: 无法删除"filename1": 没有那个文件或目录</span><br><span class="line">[root@zhoucentos log]# rm filename1 &gt;/dev/null 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">4、清除文件的内容</span></span><br><span class="line"></span><br><span class="line">[root@zhoucentos log]# cat filename</span><br><span class="line">wo ai wo jia</span><br><span class="line">[root@zhoucentos log]# cat /dev/null &gt; filename</span><br><span class="line">[root@zhoucentos log]# cat filename</span><br><span class="line"></span><br><span class="line">command &gt;/dev/null 2&gt;&amp;1 &amp; == command 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">1)<span class="built_in">command</span>:表示shell命令或者为一个可执行程序</span></span><br><span class="line"><span class="meta">#</span><span class="bash">2)&gt;:表示重定向到哪里</span></span><br><span class="line"><span class="meta">#</span><span class="bash">3)/dev/null:表示Linux的空设备文件</span></span><br><span class="line"><span class="meta">#</span><span class="bash">4)2:表示标准错误输出</span></span><br><span class="line"><span class="meta">#</span><span class="bash">5)&amp;1:&amp;表示等同于的意思,2&gt;&amp;1,表示2的输出重定向等于于1</span></span><br><span class="line"><span class="meta">#</span><span class="bash">6)&amp;:表示后台执行,即这条指令执行在后台运行</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">1&gt;/dev/null:表示标准输出重定向到空设备文件,也就是不输出任何信息到终端,不显示任何信息。 </span></span><br><span class="line"><span class="meta">#</span><span class="bash">2&gt;&amp;1:表示标准错误输出重定向等同于标准输出,因为之前标准输出已经重定向到了空设备文件,所以标准错误输出也重定向到空设备文件。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">这条命令的意思就是在后台执行这个程序,并将错误输出2重定向到标准输出1,然后将标准输出1全部放到/dev/null文件,也就是清空. </span></span><br><span class="line"><span class="meta">#</span><span class="bash">所以可以看出” &gt;/dev/null 2&gt;&amp;1 “常用来避免shell命令或者程序等运行中有内容输出。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">1、禁止标准输出</span></span><br><span class="line"></span><br><span class="line">[root@zhoucentos log]# cat filename</span><br><span class="line">wo ai wo jia</span><br><span class="line">[root@zhoucentos log]# cat filename &gt;/dev/null</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">2、禁止标准错误</span></span><br><span class="line"></span><br><span class="line">[root@zhoucentos log]# rm filename1 </span><br><span class="line">rm: 无法删除&quot;filename1&quot;: 没有那个文件或目录</span><br><span class="line">[root@zhoucentos log]# rm filename1 2&gt;/dev/null</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">3、禁止标准输出和标准错误</span></span><br><span class="line"></span><br><span class="line">[root@zhoucentos log]# rm filename1</span><br><span class="line">rm: 无法删除&quot;filename1&quot;: 没有那个文件或目录</span><br><span class="line">[root@zhoucentos log]# rm filename1 &gt;/dev/null 2&gt;&amp;1</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">4、清除文件的内容</span></span><br><span class="line"></span><br><span class="line">[root@zhoucentos log]# cat filename</span><br><span class="line">wo ai wo jia</span><br><span class="line">[root@zhoucentos log]# cat /dev/null &gt; filename</span><br><span class="line">[root@zhoucentos log]# cat filename</span><br><span class="line"></span><br><span class="line">command &gt;/dev/null 2&gt;&amp;1 &amp; == command 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">1)<span class="built_in">command</span>:表示shell命令或者为一个可执行程序</span></span><br><span class="line"><span class="meta">#</span><span class="bash">2)&gt;:表示重定向到哪里</span></span><br><span class="line"><span class="meta">#</span><span class="bash">3)/dev/null:表示Linux的空设备文件</span></span><br><span class="line"><span class="meta">#</span><span class="bash">4)2:表示标准错误输出</span></span><br><span class="line"><span class="meta">#</span><span class="bash">5)&amp;1:&amp;表示等同于的意思,2&gt;&amp;1,表示2的输出重定向等于于1</span></span><br><span class="line"><span class="meta">#</span><span class="bash">6)&amp;:表示后台执行,即这条指令执行在后台运行</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">1&gt;/dev/null:表示标准输出重定向到空设备文件,也就是不输出任何信息到终端,不显示任何信息。</span> </span><br><span class="line"><span class="meta">#</span><span class="bash">2&gt;&amp;1:表示标准错误输出重定向等同于标准输出,因为之前标准输出已经重定向到了空设备文件,所以标准错误输出也重定向到空设备文件。</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">这条命令的意思就是在后台执行这个程序,并将错误输出2重定向到标准输出1,然后将标准输出1全部放到/dev/null文件,也就是清空.</span> </span><br><span class="line"><span class="meta">#</span><span class="bash">所以可以看出” &gt;/dev/null 2&gt;&amp;1 “常用来避免shell命令或者程序等运行中有内容输出。</span></span><br></pre></td></tr></table></figure>
 <h2 id="if-判断"><a href="#if-判断" class="headerlink" title="if 判断"></a>if 判断</h2><ol>
 <li>条件测试的表达式：</li>
 </ol>
@@ -553,351 +328,189 @@
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-z string 测试指定字符是否为空，空着真，非空为假</span><br><span class="line">-n string 测试指定字符串是否为不空，空为假 非空为真</span><br><span class="line">-e FILE 测试文件是否存在</span><br><span class="line">-f file 测试文件是否为普通文件</span><br><span class="line">-d file 测试指定路径是否为目录</span><br><span class="line">-r file 测试文件对当前用户是否可读</span><br><span class="line">-w file 测试文件对当前用户是否可写</span><br><span class="line">-x file 测试文件对当前用户是都可执行</span><br><span class="line">-z  是否为空  为空则为真</span><br><span class="line">-a  是否不空</span><br></pre></td></tr></table></figure>
 <h2 id="iconv-命令"><a href="#iconv-命令" class="headerlink" title="iconv 命令"></a>iconv 命令</h2><p><code>iconv</code> 命令是<code>linux</code>下用于文件转编码的常用命令，对于同时使用windows系统和linux系统的同学来说文件转编码也是经常遇到的操作。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"> #</span><span class="bash"> 输入/输出格式规范：</span></span><br><span class="line">  -f, --from-code=名称     #原始文本编$$码</span><br><span class="line">  -t, --to-code=名称         #输出编码</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 信息：</span></span><br><span class="line">  -l, --list                 　　 #列举所有已知的字符集</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 输出控制：</span></span><br><span class="line">  -c                         　　#从输出中忽略无效的字符</span><br><span class="line">  -o, --output=FILE        #输出文件</span><br><span class="line">  -s, --silent                   #关闭警告</span><br><span class="line">      --verbose                #打印进度信息</span><br><span class="line">  -?, --help                    #给出该系统求助列表</span><br><span class="line">      --usage                   #给出简要的用法信息</span><br><span class="line">  -V, --version                #打印程序版本号</span><br></pre></td></tr></table></figure>
-<h2 id="SCP"><a href="#SCP" class="headerlink" title="SCP"></a>SCP</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">  本地向服务器上传文件</span></span><br><span class="line">scp -r /path/to/file username@host:/path/to.file</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 从服务器下载文件</span></span><br><span class="line"></span><br><span class="line">scp -r username@host:/path/to.file /path/to/file</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"> #</span><span class="bash"> 输入/输出格式规范：</span></span><br><span class="line">  -f, --from-code=名称     #原始文本编$$码</span><br><span class="line">  -t, --to-code=名称         #输出编码</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 信息：</span></span><br><span class="line">  -l, --list                 　　 #列举所有已知的字符集</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 输出控制：</span></span><br><span class="line">  -c                         　　#从输出中忽略无效的字符</span><br><span class="line">  -o, --output=FILE        #输出文件</span><br><span class="line">  -s, --silent                   #关闭警告</span><br><span class="line">      --verbose                #打印进度信息</span><br><span class="line">  -?, --help                    #给出该系统求助列表</span><br><span class="line">      --usage                   #给出简要的用法信息</span><br><span class="line">  -V, --version                #打印程序版本号</span><br></pre></td></tr></table></figure>
+<h2 id="SCP"><a href="#SCP" class="headerlink" title="SCP"></a>SCP</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">  本地向服务器上传文件</span></span><br><span class="line">scp -r /path/to/file username@host:/path/to.file</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 从服务器下载文件</span></span><br><span class="line"></span><br><span class="line">scp -r username@host:/path/to.file /path/to/file</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-      
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-      
     
     
 
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/linux/" rel="tag"># linux</a>
-          
-            <a href="/tags/centos7/" rel="tag"># centos7</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/07/17/Kafka-Consumer/" rel="next" title="Kafka-Consumer">
-                <i class="fa fa-chevron-left"></i> Kafka-Consumer
-              </a>
-            
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/centos7/" rel="tag"># centos7</a>
           </div>
 
-          <span class="post-nav-divider"></span>
+        
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/20/Docker概念/" rel="prev" title="Docker概念">
-                Docker概念 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/07/17/Kafka-Consumer/" rel="prev" title="Kafka-Consumer">
+      <i class="fa fa-chevron-left"></i> Kafka-Consumer
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/07/20/Docker%E6%A6%82%E5%BF%B5/" rel="next" title="Docker概念">
+      Docker概念 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-
-  </div>
 
 
           </div>
           
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">majm</p>
-              <p class="site-description motion-element" itemprop="description">做一些简单的笔记</p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">12</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">29</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-corn"><span class="nav-number">1.</span> <span class="nav-text">Linux corn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sed"><span class="nav-number">2.</span> <span class="nav-text">sed</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-gt-与-gt"><span class="nav-number">2.1.</span> <span class="nav-text">&gt;&gt; 与 &gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell-字符串"><span class="nav-number">2.2.</span> <span class="nav-text">shell 字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令-grep"><span class="nav-number">2.3.</span> <span class="nav-text">命令 grep</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主要参数"><span class="nav-number">2.3.1.</span> <span class="nav-text">主要参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#awk"><span class="nav-number">2.4.</span> <span class="nav-text">awk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#curl-命令"><span class="nav-number">2.5.</span> <span class="nav-text">curl 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux中-dev-null命令"><span class="nav-number">2.6.</span> <span class="nav-text">linux中 /dev/null命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if-判断"><span class="nav-number">3.</span> <span class="nav-text">if 判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iconv-命令"><span class="nav-number">4.</span> <span class="nav-text">iconv 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SCP"><span class="nav-number">5.</span> <span class="nav-text">SCP</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">majm</span>
-
-  
-
-  
-</div>
-
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.6.0</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-    
-
-    
-  </div>
-
-  
 
 <script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-corn"><span class="nav-number">1.</span> <span class="nav-text">Linux corn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sed"><span class="nav-number">2.</span> <span class="nav-text">sed</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-gt-%E4%B8%8E-gt"><span class="nav-number">2.1.</span> <span class="nav-text">&gt;&gt; 与 &gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">2.2.</span> <span class="nav-text">shell 字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4-grep"><span class="nav-number">2.3.</span> <span class="nav-text">命令 grep</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E5%8F%82%E6%95%B0"><span class="nav-number">2.3.1.</span> <span class="nav-text">主要参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#awk"><span class="nav-number">2.4.</span> <span class="nav-text">awk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#curl-%E5%91%BD%E4%BB%A4"><span class="nav-number">2.5.</span> <span class="nav-text">curl 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux%E4%B8%AD-dev-null%E5%91%BD%E4%BB%A4"><span class="nav-number">2.6.</span> <span class="nav-text">linux中 &#x2F;dev&#x2F;null命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if-%E5%88%A4%E6%96%AD"><span class="nav-number">3.</span> <span class="nav-text">if 判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iconv-%E5%91%BD%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">iconv 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SCP"><span class="nav-number">5.</span> <span class="nav-text">SCP</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">majm</p>
+  <div class="site-description" itemprop="description">做一些简单的笔记</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">majm</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
 
 
 
@@ -912,110 +525,8 @@
 
 
   
-    
-      
-  
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
 
   
 
-
-  <script src="/js/src/utils.js?v=6.6.0"></script>
-
-  <script src="/js/src/motion.js?v=6.6.0"></script>
-
-
-
-  
-  
-
-  
-  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
-<script src="/js/src/post-details.js?v=6.6.0"></script>
-
-
-
-  
-
-
-  <script src="/js/src/bootstrap.js?v=6.6.0"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
