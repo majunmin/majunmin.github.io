@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -27,14 +27,14 @@
 <meta property="og:site_name" content="majm的博客">
 <meta property="og:description" content="kafka-consumer">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2019/07/17/Kafka-Consumer/自动提交与手动提交对比.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/17/Kafka-Consumer/%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4%E4%B8%8E%E6%89%8B%E5%8A%A8%E6%8F%90%E4%BA%A4%E5%AF%B9%E6%AF%94.jpg">
 <meta property="article:published_time" content="2019-07-17T12:22:08.000Z">
-<meta property="article:modified_time" content="2019-07-17T12:25:15.000Z">
+<meta property="article:modified_time" content="2022-03-03T15:50:06.276Z">
 <meta property="article:author" content="majm">
 <meta property="article:tag" content="kafka">
 <meta property="article:tag" content="consumer">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2019/07/17/Kafka-Consumer/自动提交与手动提交对比.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/17/Kafka-Consumer/%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4%E4%B8%8E%E6%89%8B%E5%8A%A8%E6%8F%90%E4%BA%A4%E5%AF%B9%E6%AF%94.jpg">
 
 <link rel="canonical" href="http://yoursite.com/2019/07/17/Kafka-Consumer/">
 
@@ -186,10 +186,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-07-17 20:22:08 / 修改时间：20:25:15" itemprop="dateCreated datePublished" datetime="2019-07-17T20:22:08+08:00">2019-07-17</time>
+              <time title="创建时间：2019-07-17 20:22:08" itemprop="dateCreated datePublished" datetime="2019-07-17T20:22:08+08:00">2019-07-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-03 23:50:06" itemprop="dateModified" datetime="2022-03-03T23:50:06+08:00">2022-03-03</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -211,7 +217,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>kafka-consumer<br><span id="more"></span></p>
+        <p>kafka-consumer</p>
+<span id="more"></span>
+
 <h2 id="参数配置-以及默认值"><a href="#参数配置-以及默认值" class="headerlink" title="参数配置 以及默认值"></a>参数配置 以及默认值</h2><p><a target="_blank" rel="noopener" href="http://kafka.apache.org/documentation/#consumerconfigs">参数配置以及默认值</a></p>
 <h2 id="Consumer-一些概念"><a href="#Consumer-一些概念" class="headerlink" title="Consumer 一些概念"></a>Consumer 一些概念</h2><h3 id="消费者-Consumer"><a href="#消费者-Consumer" class="headerlink" title="消费者 Consumer"></a>消费者 Consumer</h3><p>kafka 消费者，消费kafka队列里的消息，可以有多种语言实现， <code>python</code>  <code>java</code>  <code>scala</code> <code>Go</code> …,</p>
 <p><code>consumer group</code>  即是由多个独立消费者组成，消费 Topic 下的消息， 独立消费者 <code>standalong consumer</code> 执行独立的消费。</p>
@@ -223,7 +231,7 @@
 </ul>
 <p>kafkaConsuemr 是非线程安全的，与 kafkaProducer 是不同的。<br>所以无法在多线程中使用同一个 kafkaConsuemr 进行消费。</p>
 <ol>
-<li>每个线程维护一个 kafkaonsumer<br>用户创建多线程消费kafka分区数据， 每个线程中创建一个单独的 kafkaConsumer 实例。</li>
+<li>每个线程维护一个 kafkaonsumer<br>  用户创建多线程消费kafka分区数据， 每个线程中创建一个单独的 kafkaConsumer 实例。</li>
 </ol>
 <blockquote>
 <p>为什么要使用 <code>Consumer Group</code>?<br><code>consumer Group</code> 是实现高伸缩性，高容错性的 <code>consumer</code> 机制，而且一旦某个 <code>consumer</code> 挂了，<code>cosnuemr Group</code> 会立即将已经崩溃的  <code>consumer</code> 负责的分区转交给 其他 <code>consumer</code> 负责，从而保证了整个 group 可以继续工作，不丢失数据，这个过程被称为–<code>重平衡(reblance)</code></p>
@@ -266,7 +274,7 @@
 <p><strong>kafka poll 为什么会有一个超时参数?</strong><br>poll()满足以下任一个条件，即可返回<br>1：获取足够多的可用数据<br>2：等待时间超过指定的超时时间。<br>目的在于让Consumer主线程定期的””苏醒”去做其他事情。比如：定期的执行常规任务，（比如写日志，写库等）。</p>
 </blockquote>
 <h2 id="位移管理"><a href="#位移管理" class="headerlink" title="位移管理"></a>位移管理</h2><blockquote>
-<p>kafka 要为每个他要读取的 分区保存消费进度，即分区当中的当前消费信息的位置 ==&gt; 位移 offset<br>consumer定期向kafak 提交自己的位置信息。</p>
+<p>kafka 要为每个他要读取的 分区保存消费进度，即分区当中的当前消费信息的位置 &#x3D;&#x3D;&gt; 位移 offset<br>consumer定期向kafak 提交自己的位置信息。</p>
 </blockquote>
 <p>offset 对于 kafka consuemr非常重要，因为他是实现消息交语义的保证(message semantic)。常见的三种消息交付语义：</p>
 <ul>
@@ -276,7 +284,7 @@
 </ul>
 <h3 id="自动提交-与-手动提交"><a href="#自动提交-与-手动提交" class="headerlink" title="自动提交 与 手动提交"></a>自动提交 与 手动提交</h3><p>自动提交默认时间间隔 为 5s<br>自动提交减少了开发成本，但不能细粒度的控制处理位移的提交，特别是<strong>精确一次</strong>处理语义时，在这种情况下，用户可以使用手动提交位移。<br>通过设置 <code>auto.commit.interval.ms</code> 参数可以控制自动提交的时间间隔</p>
 <p>手动提交：<br>参数配置： <code>enable.auto.commit = false</code><br>然后调用 <code>commitSync()</code> <code>commitAsync()</code></p>
-<p><img src="./自动提交与手动提交对比.jpg" alt="自动提交与手动提交对比"></p>
+<p><img src="/2019/07/17/Kafka-Consumer/%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4%E4%B8%8E%E6%89%8B%E5%8A%A8%E6%8F%90%E4%BA%A4%E5%AF%B9%E6%AF%94.jpg" alt="自动提交与手动提交对比"></p>
 <h2 id="重平衡-rebalance"><a href="#重平衡-rebalance" class="headerlink" title="重平衡 rebalance"></a>重平衡 rebalance</h2><p>rebalance 分区分配策略：</p>
 <ol>
 <li>range 策略</li>
@@ -385,20 +393,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

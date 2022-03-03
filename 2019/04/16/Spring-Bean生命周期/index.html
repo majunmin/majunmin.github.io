@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -224,11 +224,13 @@
 <p>本篇文章记录一下Spring中,BeanFactory 与 ApplicationContext 中 bean 的生命周期过程，参考网上资料,总结如下</p>
 </blockquote>
 <span id="more"></span>
+
 <h2 id="BeanFactory"><a href="#BeanFactory" class="headerlink" title="BeanFactory"></a>BeanFactory</h2><img src="/2019/04/16/Spring-Bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/BeanFactory%E4%B8%ADBean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" class="" title="BeanFactory中Bean生命周期">
+
 <ol>
 <li><p>当调用者调用 <code>getBean()</code> 想容器请求一个bean时,如果容器注册了 InstantiationAwareBeanPostProcessor(实现了BeanPostProcessor)接口,<br>则实例化bean之前，调用该接口的 <code>postProcessBeforeInstantiation()</code></p>
 </li>
-<li><p>根据配置调用bean的构造器/工厂方法 实例化bean</p>
+<li><p>根据配置调用bean的构造器&#x2F;工厂方法 实例化bean</p>
 </li>
 <li><p>如果容器注册了 InstantiationAwareBeanPostProcessor(实现了BeanPostProcessor)接口, 则实例化bean之后，调用该接口的 <code>postProcessAfterInstantiation()</code></p>
 </li>
@@ -253,7 +255,7 @@
 </li>
 <li><p>BeanPostProcessor 后处理利器定义了两个方法， postProcessBeforeInitialization(8 中调用)  postProcessAfterInitialization(Object bean, String beanName)<br>此方法调用时 spring 再次获得 对bean进行加工处理的机会</p>
 </li>
-<li><p>如果 <bean> 中定义 bean 的作用范围是 scope=’prototype’, 则将bean返回给调用者，由调用者负责bean后续生命周期管理，spring不在管理这个bean的生命周期<br>如果 <bean> 中定义 bean 的作用范围是 scope=’singleton’,当将bean 放入SpringIOC容器的缓存池中， 并将 bean 引用返回给调用者，spring继续对 bean 进行后续的生命周期管理</p>
+<li><p>如果 <bean> 中定义 bean 的作用范围是 scope&#x3D;’prototype’, 则将bean返回给调用者，由调用者负责bean后续生命周期管理，spring不在管理这个bean的生命周期<br>如果 <bean> 中定义 bean 的作用范围是 scope&#x3D;’singleton’,当将bean 放入SpringIOC容器的缓存池中， 并将 bean 引用返回给调用者，spring继续对 bean 进行后续的生命周期管理</p>
 </li>
 <li><p>如果当前的bean的作用范围是singleton，且bean实现了DisposableBean接口，在容器关闭的时候，则将调用接口的destory方法。</p>
 </li>
@@ -271,9 +273,11 @@
 </li>
 <li>工厂处理器接口方法：包括AspectJWeavingEnabler，CustomAutowireConfigurer，ConfigurationClassPostProcessor等方法。工厂后处理器也是容器级的，在应用上下文装配文件后立即调用。</li>
 </ol>
-<h2 id="ApplicationContext"><a href="#ApplicationContext" class="headerlink" title="ApplicationContext"></a>ApplicationContext</h2><p>使用ApplicationContext &amp; bean(scope=singleton) ,name容器加载时这些bean 就会被实例化。好处是可以预先加载，缺点是耗内存<br>如果使用的是 BeanFactory, 当实例化bean时不会直接实例化，而是等到使用(调动 getBean(String beanName))时才会实例化. BeanFactory会延迟初始化所投的的Bean. 好处是节约内存, 缺点是速度慢</p>
+<h2 id="ApplicationContext"><a href="#ApplicationContext" class="headerlink" title="ApplicationContext"></a>ApplicationContext</h2><p>使用ApplicationContext &amp; bean(scope&#x3D;singleton) ,name容器加载时这些bean 就会被实例化。好处是可以预先加载，缺点是耗内存<br>如果使用的是 BeanFactory, 当实例化bean时不会直接实例化，而是等到使用(调动 getBean(String beanName))时才会实例化. BeanFactory会延迟初始化所投的的Bean. 好处是节约内存, 缺点是速度慢</p>
 <p>一般没有特殊要求，使用ApplicationContext. ApplicationContext 实现了 ListableBeanFactory &amp; HierarchicalBeanFactory,具有BeanFactory的所有功能， 并且还额外提供了 许多高级功能</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ApplicationContext</span> <span class="keyword">extends</span> <span class="title">EnvironmentCapable</span>, <span class="title">ListableBeanFactory</span>, <span class="title">HierarchicalBeanFactory</span>,</span></span><br><span class="line"><span class="class">		<span class="title">MessageSource</span>, <span class="title">ApplicationEventPublisher</span>, <span class="title">ResourcePatternResolver</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ApplicationContext</span> <span class="keyword">extends</span> <span class="title class_">EnvironmentCapable</span>, ListableBeanFactory, HierarchicalBeanFactory,</span><br><span class="line">		MessageSource, ApplicationEventPublisher, ResourcePatternResolver &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 <ul>
 <li>提供文本解析工具，包括对国际化的支持</li>
 <li>提供载入资源文件的通用方法，图片</li>
@@ -284,6 +288,7 @@
 <p>此外如果配置文件中配置了工厂后处理器接口,<code>BeanFactoryPostProcessor</code> 的实现类,则应用上下文装配完配置文件之后,初始化bean之前，会调用这些BeanFactoryPostProcessor对配置信息进行加工处理,如<code>CustomerEditorConfigure</code>, <code>PropertyPlaceHolderConfigure</code>. 如果配置了多个最好实现 Order 接口,spring可以按顺序执行他们。这些实现的作用是什么呢？<br>工厂后处理器是容器级别的,仅在应用上下文初始化时调用一次,其目的是完成一些配置文件的加工处理工作。</p>
 <p>ApplicationContext在启动时,将首先为配置文件中的每个bean生成BeanDefination对象，BeanDefination<bean>在spirng容器中的内部表示。当配置文件中所有的bean都被解析成BeanDefination时，ApplicationContext将调用工厂后处理器方法。因此我们有机会通过程序的方式调整bean的配置信息。</p>
 <img src="/2019/04/16/Spring-Bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/ApplicationContext%E4%B8%ADBean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg" class="" title="ApplicationContext中bean的生命周期">
+
 <p>bean的生命周期不但和其实现的接口有关，还和它的作用范围相关。</p>
 
     </div>
@@ -385,20 +390,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

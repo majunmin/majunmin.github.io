@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -213,7 +213,9 @@
 <p>JDK8<br>jstat命令可以查看堆内存各部分的使用量，以及加载类的数量。命令的格式如下: </p>
 </blockquote>
 <span id="more"></span>
+
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jstat [-命令选项] [vmid] [间隔时间/毫秒] [查询次数]</span><br></pre></td></tr></table></figure>
+
 <h2 id="类加载统计"><a href="#类加载统计" class="headerlink" title="类加载统计"></a>类加载统计</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jstat -class [pid]</span><br><span class="line"></span><br><span class="line">Loaded  Bytes  Unloaded  Bytes     Time</span><br><span class="line"> 10701 20086.0        0     0.0       5.62</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Loaded: 加载class的数量</li>
@@ -258,6 +260,7 @@
 <li>GCT: 垃圾回收消耗总时间</li>
 </ul>
 <h2 id="堆内存统计"><a href="#堆内存统计" class="headerlink" title="堆内存统计"></a>堆内存统计</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jstat -gccapacity [pid]</span><br><span class="line"></span><br><span class="line"> NGCMN    NGCMX     NGC     S0C   S1C       EC      OGCMN      OGCMX       OGC         OC       MCMN     MCMX      MC     CCSMN    CCSMX     CCSC    YGC    FGC</span><br><span class="line">1572864.0 1572864.0 1572864.0 157248.0 157248.0 1258368.0  2621440.0  2621440.0  2621440.0  2621440.0      0.0 1083392.0  38528.0      0.0 1048576.0   5248.0      1     0</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>NGCMN: 新生代最小容量</li>
 <li>NGCMX: 新生代最大容量</li>
@@ -279,10 +282,15 @@
 <li>FGC: 老年代GC次数</li>
 </ul>
 <h2 id="新生代垃圾回收统计"><a href="#新生代垃圾回收统计" class="headerlink" title="新生代垃圾回收统计"></a>新生代垃圾回收统计</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jstat -gcnew [pid]</span><br><span class="line"></span><br><span class="line"> S0C    S1C    S0U    S1U   TT MTT  DSS      EC       EU     YGC     YGCT</span><br><span class="line">157248.0 157248.0    0.0 42754.5  6   6 78624.0 1258368.0 1143777.8      1    0.041</span><br></pre></td></tr></table></figure>
+
 <h2 id="新生代内存统计"><a href="#新生代内存统计" class="headerlink" title="新生代内存统计"></a>新生代内存统计</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jstat -gcnewcapacity [pid]</span><br><span class="line"></span><br><span class="line">  NGCMN      NGCMX       NGC      S0CMX     S0C     S1CMX     S1C       ECMX        EC      YGC   FGC</span><br><span class="line"> 1572864.0  1572864.0  1572864.0 157248.0 157248.0 157248.0 157248.0  1258368.0  1258368.0     1     0</span><br></pre></td></tr></table></figure>
+
 <h2 id="老年代垃圾回收统计"><a href="#老年代垃圾回收统计" class="headerlink" title="老年代垃圾回收统计"></a>老年代垃圾回收统计</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jstat -gcold [pid]</span><br><span class="line"></span><br><span class="line">   MC       MU      CCSC     CCSU       OC          OU       YGC    FGC    FGCT     GCT</span><br><span class="line"> 38528.0  36701.5   5248.0   4838.0   2621440.0         0.0      1     0    0.000    0.041</span><br></pre></td></tr></table></figure>
+
 <h2 id="老年代内存统计"><a href="#老年代内存统计" class="headerlink" title="老年代内存统计"></a>老年代内存统计</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jstat -gcoldcapacity [pid]</span><br><span class="line"></span><br><span class="line">   OGCMN       OGCMX        OGC         OC       YGC   FGC    FGCT     GCT</span><br><span class="line">  2621440.0   2621440.0   2621440.0   2621440.0     1     0    0.000    0.041</span><br></pre></td></tr></table></figure>
+
 <h2 id="元数据空间统计"><a href="#元数据空间统计" class="headerlink" title="元数据空间统计"></a>元数据空间统计</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jstat -gcmetacapacity [pid]</span><br><span class="line"></span><br><span class="line">   MCMN       MCMX        MC       CCSMN      CCSMX       CCSC     YGC   FGC    FGCT     GCT</span><br><span class="line">       0.0  1083392.0    38528.0        0.0  1048576.0     5248.0     1     0    0.000    0.041</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>MCMN: 最小元数据容量</li>
 <li>MCMX: 最大元数据容量</li>
@@ -296,6 +304,7 @@
 <li>GCT: 垃圾回收消耗总时间</li>
 </ul>
 <h2 id="垃圾回收统计-1"><a href="#垃圾回收统计-1" class="headerlink" title="垃圾回收统计"></a>垃圾回收统计</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jstat -gcutil [pid]</span><br><span class="line"></span><br><span class="line">  S0     S1     E      O      M     CCS    YGC     YGCT    FGC    FGCT     GCT</span><br><span class="line">  0.00  27.19  90.89   0.00  95.26  92.19      1    0.041     0    0.000    0.041</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>S0: 幸存1区当前使用比例</li>
 <li>S1: 幸存2区当前使用比例</li>
@@ -309,6 +318,7 @@
 <li>GCT: 垃圾回收消耗总时间</li>
 </ul>
 <h2 id="JVM编译方法统计"><a href="#JVM编译方法统计" class="headerlink" title="JVM编译方法统计"></a>JVM编译方法统计</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jstat -printcompilation [pid]</span><br><span class="line"></span><br><span class="line">Compiled  Size  Type Method</span><br><span class="line">    5773     18    1 com/alibaba/fastjson/serializer/SerializeWriter isEnabled</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>Compiled: 最近编译方法的数量</li>
 <li>Size: 最近编译方法的字节码数量</li>
@@ -413,20 +423,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

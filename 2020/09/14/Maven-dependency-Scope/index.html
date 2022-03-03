@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -210,15 +210,16 @@
       
         <p><a target="_blank" rel="noopener" href="http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Dependency_Scope">官网-scope描述</a></p>
 <span id="more"></span>
+
 <h2 id="Maven-的作用域分为6种"><a href="#Maven-的作用域分为6种" class="headerlink" title="Maven 的作用域分为6种"></a>Maven 的作用域分为6种</h2><blockquote>
 <p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903987322290189">optional(可选的)</a></p>
 </blockquote>
 <ol>
-<li><p>compile</p>
-<p>默认的scope，表示 dependency 都可以在整个生命周期(<code>编译</code> <code>运行</code> <code>测试</code>)中使用. 而且这些dependencies  可以<code>传递依赖</code></p>
-</li>
-<li><p>provided</p>
-</li>
+<li>compile</li>
+</ol>
+<p>  默认的scope，表示 dependency 都可以在整个生命周期(<code>编译</code> <code>运行</code> <code>测试</code>)中使用. 而且这些dependencies  可以<code>传递依赖</code></p>
+<ol start="2">
+<li>provided</li>
 </ol>
 <p>跟compile相似，但是表明了dependency 由JDK或者容器提供，例如Servlet API和一些Java EE APIs。这个scope 只能作用在<code>编译</code>和<code>测试</code>时，同时<code>没有传递性</code>。<br>使用这个时，<strong>不会将包打入本项目中，只是依赖过来</strong>.<br>使用默认或其他时，会将依赖的项目打成jar包，放入本项目的Lib里</p>
 <blockquote>
@@ -235,7 +236,9 @@
 <ol start="5">
 <li>system (不推荐)</li>
 </ol>
-<p>跟provided 相似，但是在系统中要以外部JAR包的形式提供，maven不会在repository查找它,与 systemPath 配合使用<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">　　　<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.sql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">　　　<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jdbc-stdext<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">　　　<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">　　　<span class="tag">&lt;<span class="name">scope</span>&gt;</span>system<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">　　　<span class="tag">&lt;<span class="name">systemPath</span>&gt;</span>$&#123;java.home&#125;/lib/rt.jar<span class="tag">&lt;/<span class="name">systemPath</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>跟provided 相似，但是在系统中要以外部JAR包的形式提供，maven不会在repository查找它,与 systemPath 配合使用</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">　　　<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.sql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">　　　<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jdbc-stdext<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">　　　<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">　　　<span class="tag">&lt;<span class="name">scope</span>&gt;</span>system<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">　　　<span class="tag">&lt;<span class="name">systemPath</span>&gt;</span>$&#123;java.home&#125;/lib/rt.jar<span class="tag">&lt;/<span class="name">systemPath</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <ol start="6">
 <li>import (Maven 2.0.9 之后新增)</li>
 </ol>
@@ -337,20 +340,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

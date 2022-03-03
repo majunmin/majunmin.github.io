@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -27,15 +27,15 @@
 <meta property="og:site_name" content="majm的博客">
 <meta property="og:description" content="INNODB 存储引擎中的锁">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2019/06/13/Mysql%E9%94%81%E6%A6%82%E5%BF%B5/非锁定一致性读的问题.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/06/13/Mysql%E9%94%81%E6%A6%82%E5%BF%B5/%E9%9D%9E%E9%94%81%E5%AE%9A%E4%B8%80%E8%87%B4%E6%80%A7%E8%AF%BB%E7%9A%84%E9%97%AE%E9%A2%98.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/06/13/Mysql%E9%94%81%E6%A6%82%E5%BF%B5/SELECT_FOR_UPDATE.jpg">
 <meta property="article:published_time" content="2019-06-13T12:31:15.000Z">
-<meta property="article:modified_time" content="2021-09-25T17:24:45.000Z">
+<meta property="article:modified_time" content="2022-03-03T15:50:36.095Z">
 <meta property="article:author" content="majm">
 <meta property="article:tag" content="mysql">
 <meta property="article:tag" content="锁">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2019/06/13/Mysql%E9%94%81%E6%A6%82%E5%BF%B5/非锁定一致性读的问题.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/13/Mysql%E9%94%81%E6%A6%82%E5%BF%B5/%E9%9D%9E%E9%94%81%E5%AE%9A%E4%B8%80%E8%87%B4%E6%80%A7%E8%AF%BB%E7%9A%84%E9%97%AE%E9%A2%98.jpg">
 
 <link rel="canonical" href="http://yoursite.com/2019/06/13/Mysql%E9%94%81%E6%A6%82%E5%BF%B5/">
 
@@ -195,7 +195,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-26 01:24:45" itemprop="dateModified" datetime="2021-09-26T01:24:45+08:00">2021-09-26</time>
+                <time title="修改时间：2022-03-03 23:50:36" itemprop="dateModified" datetime="2022-03-03T23:50:36+08:00">2022-03-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -223,6 +223,7 @@
 
       
         <h2 id="INNODB-存储引擎中的锁"><a href="#INNODB-存储引擎中的锁" class="headerlink" title="INNODB 存储引擎中的锁"></a>INNODB 存储引擎中的锁</h2><span id="more"></span>
+
 <h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><p>InnoDB 实现了如下两种类型的行锁：</p>
 <ul>
 <li><p>共享锁(S Lock)<br>允许事务读取一行数据</p>
@@ -242,8 +243,7 @@
 <th>S</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>X</td>
 <td>不兼容</td>
 <td>不兼容</td>
@@ -253,8 +253,7 @@
 <td>不兼容</td>
 <td>兼容</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>X S 锁都是行锁，兼容指的是对同一条记录(row)锁的兼容性</p>
 <p>此外，<code>InnoDB存储引擎</code>还支持<code>多粒度(granular)锁定</code>，这种锁定允许事务在 行级上的锁 和 表级上的锁 同时锁定。<br>为了支持在不同粒度上的进行加锁操作，<code>InnoDB存储引擎</code>支持一种额外的加锁方式 <code>意向锁(Intention Lock)</code>.<br><code>意向锁</code>将锁定的对象分为多个层次，<code>意向锁</code>意味着事务希望在更细粒度上进行加锁。</p>
 <ul>
@@ -272,8 +271,7 @@
 <th>X</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>IS</td>
 <td>兼容</td>
 <td>兼容</td>
@@ -301,8 +299,7 @@
 <td>不兼容</td>
 <td>不兼容</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h3 id="InnoDB-加锁方式"><a href="#InnoDB-加锁方式" class="headerlink" title="InnoDB 加锁方式"></a>InnoDB 加锁方式</h3><ul>
 <li>意向锁是 InnoDB 自动加的， 不需用户干预。</li>
 <li>对于 UPDATE、 DELETE 和 INSERT 语句， InnoDB<br>会自动给涉及数据集加排他锁（X)；</li>
@@ -314,22 +311,23 @@
 </ul>
 <h3 id="一致性非锁定读"><a href="#一致性非锁定读" class="headerlink" title="一致性非锁定读"></a>一致性非锁定读</h3><p>一致性非锁定读是InnoDB存储引擎通过<code>多版本控制（multi versioning</code> 的方式来读取当前执行时间数据库中的数据。如果被读的数据行被加了<code>排他锁</code>，在读取这行数据的时候并不会等待锁释放，而是读取该行的一个<code>快照数据</code>。 之所以称为非锁定读，因为不需要等待被访问行的<code>X锁</code>的释放。<code>快照数据</code>是指修改行之前的数据版本，该实现通过<code>undo段</code>来完成。<code>非锁定读</code>的方式极大提高了数据库的并发性。<strong>在InnoDB存储引擎中，这是默认的读取方式。</strong></p>
 <p><code>快照数据</code>其实就是当前行数据的一个历史版本，每行记录可能有多个版本。这种技术成为行多版本技术。由此带来的并发控制，称为<code>多版本并发控制(MVCC)</code></p>
-<p>在事务的隔离级别 <code>READ COMMITED</code>和<code>REPEATABLE READ</code> <em>(InnoDB存储引擎默认的事物隔离级别)</em>下，对<code>快照数据</code>的定义不同。</p>
+<p>在事务的隔离级别 <code>READ COMMITED</code>和<code>REPEATABLE READ</code> *(InnoDB存储引擎默认的事物隔离级别)*下，对<code>快照数据</code>的定义不同。</p>
 <ul>
 <li>在<code>READ COMMITTED</code>事务隔离级别下<br>同一事务内的一致性读均会读取到该事务中第一个读创建的快照，其他事务在之后<code>提交或未提交的更新</code>对当前事务的读均不可见，除非提交了该事务并开启新事务发起新查询。</li>
 <li>在<code>REPEATABLE READ</code>事务隔离级别下<br>事务内的每个一致性读均会设置和读取自己新鲜的快照。其他事务在之后<code>提交的更新</code>对当前事务的读可见，<code>未提交的更新</code>对当前事务不可见。</li>
 </ul>
 <p>一致性读 是 InnoDB引擎 处理 <code>READ COMMIT</code> 和 <code>REPEATABLE READ</code> 隔离级别中 <code>SELECT</code> 的默认方式，不需要对 <code>SELECT</code> 访问的对象加锁，其他 session 中的事务可以在另一 session 中的事务读去的同时自由的修改相关对象，因此称为<code>非锁定一致性读</code>。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 查看当前数据库的 事务隔离级别</span><br><span class="line"><span class="keyword">SELECT</span> @<span class="variable">@tx</span>_isolation</span><br></pre></td></tr></table></figure>
-<p><img src="./非锁定一致性读的问题.jpg" alt="非锁定一致性读的问题"></p>
-<p>起初事务的隔离级别均为<code>REPEATABLE-READ</code>。SESSION 读取的内容为i=1,2,3的行，在 SESSION B 中的事务更新了 i=3 的行后 SESSION A 查询到的内容并没有改变，即时在 SESSION B 提交了该更新后 SESSION A 仍只能看到最开始的一致性读创建的快照。但是，在 SESSION A 中的事务执行<code>UPDATE语句</code>更新了被 SESSION B 更新的记录后（数据库快照只适用于<code>SELECT</code>语句，不适用与<code>DML语句</code>，所以事务中的<code>DML语句</code>是可以看到 其他session 中的事务的更新的，即使<code>SELECT</code>并不能看到这些）再次执行<code>SELECT语句</code>不仅可以看到快照中的数据，还可以看到更新后的数据。</p>
-<p>上述提到的一致性读由多版本并发控制（MVCC）原理实现（利用了InnoDB的undo log）。需要注意的是，一致性读不适用于特定的DDL语句如DROP TABLE、ALTER TABLE。另外，对于 INSERT INTO … SELECT, UPDATE … (SELECT)和CREATE TABLE … SELECT 中未指定FOR UPDATE或LOCK IN SHARE MODE的SELECT默认情况下行为和READ COMMIT隔离级别下的普通SELECT一样，同一事务内设置和读取自己的新鲜快照。</p>
-<h3 id="一致性锁定读"><a href="#一致性锁定读" class="headerlink" title="一致性锁定读"></a>一致性锁定读</h3><p><code>锁定读</code>。顾名思义，非锁定一致性读在某个事务读取记录时不加任何锁其他事务可以修改记录，而锁定读意味着某个事务读取记录时会加锁。锁定读分为两种类型：<code>SELECT...FOR UPDATE</code> 和 <code>SELECT...LOCK IN SHARE MODE</code>，前者会对读取的记录加<code>X锁</code>，阻塞其他事务的读请求和修改请求，直至事务提交释放锁资源；后者会对读取的记录加<code>S锁</code>，阻塞其他事务的修改请求但不会阻塞读取请求，直至事务提交释放锁资源。也正因为<code>SELECT...FOR UPDATE</code> 和 <code>SELECT...LOCK IN SHARE MODE</code> 分别需要对查询的记录加<code>X锁</code>和<code>S锁</code>，因此分别会被其他正在读写和写的事务阻塞，直到这些事务结束。需要注意的是<code>SELECT...FOR UPDATE</code>仅适用于<code>autocommit=0</code> 或者通过<code>START TRANSACTION</code>明确开启事务的情况。</p>
+
+<p><img src="/2019/06/13/Mysql%E9%94%81%E6%A6%82%E5%BF%B5/%E9%9D%9E%E9%94%81%E5%AE%9A%E4%B8%80%E8%87%B4%E6%80%A7%E8%AF%BB%E7%9A%84%E9%97%AE%E9%A2%98.jpg" alt="非锁定一致性读的问题"></p>
+<p>起初事务的隔离级别均为<code>REPEATABLE-READ</code>。SESSION 读取的内容为i&#x3D;1,2,3的行，在 SESSION B 中的事务更新了 i&#x3D;3 的行后 SESSION A 查询到的内容并没有改变，即时在 SESSION B 提交了该更新后 SESSION A 仍只能看到最开始的一致性读创建的快照。但是，在 SESSION A 中的事务执行<code>UPDATE语句</code>更新了被 SESSION B 更新的记录后（数据库快照只适用于<code>SELECT</code>语句，不适用与<code>DML语句</code>，所以事务中的<code>DML语句</code>是可以看到 其他session 中的事务的更新的，即使<code>SELECT</code>并不能看到这些）再次执行<code>SELECT语句</code>不仅可以看到快照中的数据，还可以看到更新后的数据。</p>
+<p>上述提到的一致性读由多版本并发控制（MVCC）原理实现（利用了InnoDB的undo log）。需要注意的是，一致性读不适用于特定的DDL语句如DROP TABLE、ALTER TABLE。另外，对于 INSERT INTO … SELECT, UPDATE … (SELECT)和CREATE TABLE … SELECT 中未指定FOR UPDATE或LOCK IN SHARE MODE的SELECT默认情况下行为和READ COMMIT隔离级别下的普通SELECT一样，同一事务内设置和读取自己的新鲜快照。</p>
+<h3 id="一致性锁定读"><a href="#一致性锁定读" class="headerlink" title="一致性锁定读"></a>一致性锁定读</h3><p><code>锁定读</code>。顾名思义，非锁定一致性读在某个事务读取记录时不加任何锁其他事务可以修改记录，而锁定读意味着某个事务读取记录时会加锁。锁定读分为两种类型：<code>SELECT...FOR UPDATE</code> 和 <code>SELECT...LOCK IN SHARE MODE</code>，前者会对读取的记录加<code>X锁</code>，阻塞其他事务的读请求和修改请求，直至事务提交释放锁资源；后者会对读取的记录加<code>S锁</code>，阻塞其他事务的修改请求但不会阻塞读取请求，直至事务提交释放锁资源。也正因为<code>SELECT...FOR UPDATE</code> 和 <code>SELECT...LOCK IN SHARE MODE</code> 分别需要对查询的记录加<code>X锁</code>和<code>S锁</code>，因此分别会被其他正在读写和写的事务阻塞，直到这些事务结束。需要注意的是<code>SELECT...FOR UPDATE</code>仅适用于<code>autocommit=0</code> 或者通过<code>START TRANSACTION</code>明确开启事务的情况。</p>
 <p>因为锁定读会阻塞其他事务的修改请求，因此可以有效解决<code>非锁定一致性读</code>中提到的”异常”，也即，一个事务执行了普通<code>SELECT</code>后若其他的事务更新、插入了记录并提交，那么该事务内执行<code>DML操作</code>更新被其他事务更新或插入的记录后再次执行<code>SELECT</code>操作会看到更新后的结果。(非锁定一致性读的示例)</p>
 <h4 id="锁定读的一个典型应用常场景"><a href="#锁定读的一个典型应用常场景" class="headerlink" title="锁定读的一个典型应用常场景"></a>锁定读的一个典型应用常场景</h4><p>(先查询, 后更新 的操作)</p>
-<p>假如要往子表插入一条记录，插入前首先要确认一下父表有无相关记录，只有在父表有对应记录时插入才能满足引用完整性约束。如果使用<code>一致性读</code>来查询父表来验证相关行存在，此时往子表插入时 其他的session 有可能更新或者删除刚才父表中查到的行，这样在子表中插入后就违反了引用完整性约束。为了避免该问题可使用<code>锁定读SELECT...LOCK IN SHARE MODE</code>，在事务中读取父表进行验证时，对相关记录加S锁，这样其他事务无法对相关记录进行<code>DML操作</code>，此时可在事务中安全的插入相关记录，待此操作完成并提交或回滚后其他事务才能对记录进行<code>DML操作</code>。</p>
-<p>还有一种情况，比如有 两个session 需要读取某表中的一行，在成功读取后在同一事务中更新该行，并在另外的表中插入刚开始读取到的行。若此时使用<code>SELECT...LOCK IN SHARE MODE</code>则会对读取到的记录加<code>S锁</code>，两个session在同时申请<code>X锁</code>进行更新时便发生死锁。另外，由于读取到了同一行内容，两个session在向同一表插入数据时会导致键重复的错误。这种情况下用SELECT…FOR UPDATE较合适，在读取的时候阻塞其他事物的读和更新请求。</p>
-<p><img src="./SELECT_FOR_UPDATE.jpg" alt="SELECT_FOR_UPDATE"></p>
+<p>假如要往子表插入一条记录，插入前首先要确认一下父表有无相关记录，只有在父表有对应记录时插入才能满足引用完整性约束。如果使用<code>一致性读</code>来查询父表来验证相关行存在，此时往子表插入时 其他的session 有可能更新或者删除刚才父表中查到的行，这样在子表中插入后就违反了引用完整性约束。为了避免该问题可使用<code>锁定读SELECT...LOCK IN SHARE MODE</code>，在事务中读取父表进行验证时，对相关记录加S锁，这样其他事务无法对相关记录进行<code>DML操作</code>，此时可在事务中安全的插入相关记录，待此操作完成并提交或回滚后其他事务才能对记录进行<code>DML操作</code>。</p>
+<p>还有一种情况，比如有 两个session 需要读取某表中的一行，在成功读取后在同一事务中更新该行，并在另外的表中插入刚开始读取到的行。若此时使用<code>SELECT...LOCK IN SHARE MODE</code>则会对读取到的记录加<code>S锁</code>，两个session在同时申请<code>X锁</code>进行更新时便发生死锁。另外，由于读取到了同一行内容，两个session在向同一表插入数据时会导致键重复的错误。这种情况下用SELECT…FOR UPDATE较合适，在读取的时候阻塞其他事物的读和更新请求。</p>
+<p><img src="/2019/06/13/Mysql%E9%94%81%E6%A6%82%E5%BF%B5/SELECT_FOR_UPDATE.jpg" alt="SELECT_FOR_UPDATE"></p>
 <hr>
 <p>[参考]<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zyz511919766/article/details/49451255">（三）MySQL InnoDB非锁定一致性读与锁定读</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/paopaopotter/article/details/79259686">数据库第一类第二类丢失更新</a></p>
 
@@ -430,20 +428,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
