@@ -157,6 +157,219 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/06/20/docker-compose-etcd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="majm">
+      <meta itemprop="description" content="做一些简单的笔记">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="majm的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/06/20/docker-compose-etcd/" class="post-title-link" itemprop="url">docker-compose etcd</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-06-20 16:53:05 / 修改时间：16:59:50" itemprop="dateCreated datePublished" datetime="2022-06-20T16:53:05+08:00">2022-06-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><p><strong>docker-compose.yml</strong></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">etcd-net:</span></span><br><span class="line">    <span class="attr">driver:</span> <span class="string">bridge</span> <span class="comment"># 网桥模式</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">etcd1_data:</span>       <span class="comment"># 挂在到 本地数据卷 名</span></span><br><span class="line">    <span class="attr">driver:</span> <span class="string">local</span></span><br><span class="line">  <span class="attr">etcd2_data:</span></span><br><span class="line">    <span class="attr">driver:</span> <span class="string">local</span></span><br><span class="line">  <span class="attr">etcd3_data:</span></span><br><span class="line">    <span class="attr">driver:</span> <span class="string">local</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">etcd1:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.io/bitnami/etcd:3</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">etcd1</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">etcd-net</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;20000:2379&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;20001:2380&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ALLOW_NONE_AUTHENTICATION=yes</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_NAME=etcd1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_INITIAL_ADVERTISE_PEER_URLS=http://etcd1:2380</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_LISTEN_PEER_URLS=http://0.0.0.0:2380</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_ADVERTISE_CLIENT_URLS=http://etcd1:2379</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_INITIAL_CLUSTER_TOKEN=etcd-cluster</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_INITIAL_CLUSTER=etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_INITIAL_CLUSTER_STATE=new</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">etcd1_data:/bitnami/etcd</span></span><br><span class="line">  <span class="attr">etcd2:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.io/bitnami/etcd:3</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">etcd2</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">etcd-net</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;20002:2379&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;20003:2380&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ALLOW_NONE_AUTHENTICATION=yes</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_NAME=etcd2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_INITIAL_ADVERTISE_PEER_URLS=http://etcd2:2380</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_LISTEN_PEER_URLS=http://0.0.0.0:2380</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_ADVERTISE_CLIENT_URLS=http://etcd2:2379</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_INITIAL_CLUSTER_TOKEN=etcd-cluster</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_INITIAL_CLUSTER=etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_INITIAL_CLUSTER_STATE=new</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">etcd2_data:/bitnami/etcd</span></span><br><span class="line">  <span class="attr">etcd3:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.io/bitnami/etcd:3</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">etcd3</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">etcd-net</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;20004:2379&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;20005:2380&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ALLOW_NONE_AUTHENTICATION=yes</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_NAME=etcd3</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_INITIAL_ADVERTISE_PEER_URLS=http://etcd3:2380</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_LISTEN_PEER_URLS=http://0.0.0.0:2380</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_ADVERTISE_CLIENT_URLS=http://etcd3:2379</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_INITIAL_CLUSTER_TOKEN=etcd-cluster</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_INITIAL_CLUSTER=etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ETCD_INITIAL_CLUSTER_STATE=new</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">etcd3_data:/bitnami/etcd</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看运行状态"><a href="#查看运行状态" class="headerlink" title="查看运行状态"></a>查看运行状态</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br><span class="line"></span><br><span class="line">docket inspect etcd1</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.jsdelivr.net/gh/majunmin/image/etcd/20220620165715.png"></p>
+<hr>
+<p>[参考]<br><a target="_blank" rel="noopener" href="https://github.com/bitnami/bitnami-docker-etcd">bitnami-docker-etcd</a><br><a target="_blank" rel="noopener" href="https://www.qetool.com/scripts/view/19416.html">docker-compose 部署etcd集群</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/04/golang-ChecksumMismath-Problem-Resolve/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="majm">
+      <meta itemprop="description" content="做一些简单的笔记">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="majm的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/04/golang-ChecksumMismath-Problem-Resolve/" class="post-title-link" itemprop="url">golang ChecksumMismath Problem Resolve</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-04 18:31:53" itemprop="dateCreated datePublished" datetime="2022-03-04T18:31:53+08:00">2022-03-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/03/hexo%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="majm">
+      <meta itemprop="description" content="做一些简单的笔记">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="majm的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/03/hexo%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">hexo中插入图片</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-03 23:52:29" itemprop="dateCreated datePublished" datetime="2022-03-03T23:52:29+08:00">2022-03-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-04 00:35:40" itemprop="dateModified" datetime="2022-03-04T00:35:40+08:00">2022-03-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在 hexo 中使用 图片, 有如下几种方式:</p>
+<h2 id="1-在-资源目录下-创建图片"><a href="#1-在-资源目录下-创建图片" class="headerlink" title="1. 在 资源目录下 创建图片"></a>1. 在 资源目录下 创建图片</h2><ol>
+<li>hexo 配置文件 <code>_config.yml</code></li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span>  <span class="comment"># 创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹</span></span><br></pre></td></tr></table></figure>
+
+<p>当执行命令 <code>hexo new &quot;title&quot;</code> 会创建一个 与文章名相同的目录, 这个目录也称为 文章资源文件.<br>在资源文件下创建 一张图片 <code>image.png</code>,在文章中 按理说 <code>![image](image.png)</code>这样引用就可以了,但是 现在好像不能用了. 需要引入其他的插件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-marked</span><br></pre></td></tr></table></figure>
+
+<p>安装后,在 <code>_config.yml</code> 文件写入如下配置:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span>  <span class="comment"># 创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹</span></span><br><span class="line"><span class="attr">marked:</span></span><br><span class="line">  <span class="attr">prependRoot:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postAsset:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>之后就可以在使用<code>![](image.png)</code>的方式愉快的插入图片了.</p>
+<h2 id="2-使用图床"><a href="#2-使用图床" class="headerlink" title="2. 使用图床"></a>2. 使用图床</h2><h2 id="3-picGo-github-JsDeliver-构建免费图床"><a href="#3-picGo-github-JsDeliver-构建免费图床" class="headerlink" title="3. picGo +  github + JsDeliver  构建免费图床"></a>3. picGo +  github + JsDeliver  构建免费图床</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/03/%E5%8D%87%E7%BA%A7hexo-cli%E7%9A%84%E7%89%88%E6%9C%AC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -708,247 +921,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/20/Docker%E6%A6%82%E5%BF%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="majm">
-      <meta itemprop="description" content="做一些简单的笔记">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="majm的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/20/Docker%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">Docker概念</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-07-20 15:30:19" itemprop="dateCreated datePublished" datetime="2019-07-20T15:30:19+08:00">2019-07-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-03 23:49:51" itemprop="dateModified" datetime="2022-03-03T23:49:51+08:00">2022-03-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>了解一下Docker 概念，如今容器技术在互联网行业发展的已经相当成熟，<br>springBoot 微服务 结合 k8s 部署线上服务，安全 高效，充分利用机器资源</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/07/20/Docker%E6%A6%82%E5%BF%B5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/20/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="majm">
-      <meta itemprop="description" content="做一些简单的笔记">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="majm的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/20/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Linux常用命令</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-07-20 15:03:53 / 修改时间：15:05:44" itemprop="dateCreated datePublished" datetime="2019-07-20T15:03:53+08:00">2019-07-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>记录一下 CentO7 中常用的命令</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/07/20/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/17/Kafka-Consumer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="majm">
-      <meta itemprop="description" content="做一些简单的笔记">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="majm的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/17/Kafka-Consumer/" class="post-title-link" itemprop="url">Kafka-Consumer</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-07-17 20:22:08" itemprop="dateCreated datePublished" datetime="2019-07-17T20:22:08+08:00">2019-07-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-03 23:50:06" itemprop="dateModified" datetime="2022-03-03T23:50:06+08:00">2022-03-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/kafka/" itemprop="url" rel="index"><span itemprop="name">kafka</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>kafka-consumer</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/07/17/Kafka-Consumer/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1018,7 +990,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1031,7 +1003,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
