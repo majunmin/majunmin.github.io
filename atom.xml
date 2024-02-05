@@ -71,17 +71,20 @@
     <link href="https://majunmin.github.io/post/golang%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96.html"/>
     <id>https://majunmin.github.io/post/golang%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96.html</id>
     <published>2022-11-18T13:12:04.000Z</published>
-    <updated>2022-11-18T13:18:17.634Z</updated>
+    <updated>2024-02-05T08:23:22.791Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;p&gt;golang 包引用之间不允许循环依赖.&lt;br&gt;循环依赖的本质上是一个错误的设计, 在 golang中 循环依赖是 会产生编译时错误.&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
+&lt;p&gt;&lt;img src=&quot;/post/golang%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/dependency-cycle.png&quot; alt=&quot;dependency-cycle&quot;&gt;&lt;/p&gt;
+&lt;p&gt;golang中为什么不允许循环依赖呢?&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;1. 没有支持循环导入,目的是迫使 Go 程序员更多地考虑程序的依赖关系.
+  - 保持依赖关系图的简洁。
+  - 快速的程序构建。
+2. 如果支持循环导入，很容易会造成懒惰、不良的依赖性管理和缓慢的构建。这是设计者不希望看见的。
+  - 混乱的依赖关系。
+  - 缓慢的程序构建&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;golang中的循环依赖对编译的性能 和  程序的依赖关系的清晰非常不利, 所以在程序设计上,要保持 干净的 &lt;code&gt;DAG&lt;/code&gt;.&lt;/p&gt;</summary>
     
     
     
@@ -379,17 +382,16 @@
     <link href="https://majunmin.github.io/post/golang-sync-Pool%E8%A7%A3%E6%9E%90.html"/>
     <id>https://majunmin.github.io/post/golang-sync-Pool%E8%A7%A3%E6%9E%90.html</id>
     <published>2022-08-11T17:15:26.000Z</published>
-    <updated>2022-08-15T16:11:27.997Z</updated>
+    <updated>2024-02-05T08:24:14.805Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;p&gt;sync.Pool是sync包下的一个组件,可以作为临时取还对象的一个 &lt;code&gt;池子&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;作用: 对于很多需要重复分配、回收内存的地方,&lt;code&gt;sync.Pool&lt;/code&gt; 是一个很好的选择.频繁地分配、回收内存会给 GC</summary>
-        
-      
+&lt;p&gt;作用: 对于很多需要重复分配、回收内存的地方,&lt;code&gt;sync.Pool&lt;/code&gt; 是一个很好的选择.频繁地分配、回收内存会给 GC 带来一定的负担,严重的时候会引起 CPU 的毛刺,&lt;strong&gt;而 &lt;code&gt;sync.Pool&lt;/code&gt; 可以将暂时不用的对象缓存起来m待下次需要的时候直接使用,不用再次经过内存分配,复用对象的内存,减轻 GC 的压力,提升系统的性能.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用场景:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;当多个 goroutine 都需要创建同⼀个对象的时候，如果 goroutine 数过多,导致对象的创建数⽬剧增,进⽽导致 GC 压⼒增大.形成”并发⼤－占⽤内存⼤－GC 缓慢－处理并发能⼒降低－并发更⼤”这样的恶性循环.&lt;/li&gt;
+&lt;li&gt;关键思想就是对象的复用,避免重复创建.销毁.&lt;/li&gt;
+&lt;/ol&gt;</summary>
     
     
     
@@ -422,17 +424,12 @@
     <link href="https://majunmin.github.io/post/go-build-%E5%AE%9E%E7%8E%B0%E5%8C%85%E5%88%87%E6%8D%A2.html"/>
     <id>https://majunmin.github.io/post/go-build-%E5%AE%9E%E7%8E%B0%E5%8C%85%E5%88%87%E6%8D%A2.html</id>
     <published>2022-08-03T04:18:02.000Z</published>
-    <updated>2022-09-03T07:45:16.171Z</updated>
+    <updated>2024-02-05T08:24:02.051Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;p&gt;参考 &lt;a href=&quot;https://github.com/gin-gonic/gin&quot;&gt;Gin&lt;/a&gt; 的实现&lt;/p&gt;
-&lt;p&gt;gin 在  &lt;code&gt;internal/json&lt;/code&gt;包中实现了多个 json 包的序列化能力,</summary>
-        
-      
+&lt;p&gt;gin 在  &lt;code&gt;internal/json&lt;/code&gt;包中实现了多个 json 包的序列化能力, 默认使用官方&lt;code&gt;encoding/json&lt;/code&gt;包. 如何保证这些包不会冲突呢?&lt;/p&gt;
+&lt;p&gt;这里用到了  &lt;code&gt;go build -tags&lt;/code&gt; 的能力.&lt;/p&gt;</summary>
     
     
     
