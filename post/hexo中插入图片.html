@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"majunmin.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"majunmin.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="在 hexo 中使用 图片, 有如下几种方式: 1. 在 资源目录下 创建图片 hexo 配置文件 _config.yml  post_asset_folder: true  # 创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹  当执行命令 hexo new &quot;title&quot; 会创建一个 与文章名相同的目录, 这个目录也称为 文章资源文件.在资源文件下创建 一张图片">
@@ -78,6 +78,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="majm的博客" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -133,6 +134,11 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -232,7 +238,21 @@
                 </span>
             </span>
 
-          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>233</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -247,16 +267,16 @@
 <h2 id="1-在-资源目录下-创建图片"><a href="#1-在-资源目录下-创建图片" class="headerlink" title="1. 在 资源目录下 创建图片"></a>1. 在 资源目录下 创建图片</h2><ol>
 <li>hexo 配置文件 <code>_config.yml</code></li>
 </ol>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">post_asset_folder: true  # 创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">post_asset_folder</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment"># 创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>当执行命令 <code>hexo new &quot;title&quot;</code> 会创建一个 与文章名相同的目录, 这个目录也称为 文章资源文件.<br>在资源文件下创建 一张图片 <code>image.png</code>,在文章中 按理说 <code>![image](image.png)</code>这样引用就可以了,但是 现在好像不能用了. 需要引入其他的插件</p>
 <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">npm install hexo-renderer-marked<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>安装后,在 <code>_config.yml</code> 文件写入如下配置:</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">post_asset_folder: true  # 创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹
-marked:
-  prependRoot: true
-  postAsset: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">post_asset_folder</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment"># 创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹</span>
+<span class="token key atrule">marked</span><span class="token punctuation">:</span>
+  <span class="token key atrule">prependRoot</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">postAsset</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>之后就可以在使用<code>![](image.png)</code>的方式愉快的插入图片了.</p>
 <h2 id="2-使用图床"><a href="#2-使用图床" class="headerlink" title="2. 使用图床"></a>2. 使用图床</h2><h2 id="3-picGo-github-JsDeliver-构建免费图床"><a href="#3-picGo-github-JsDeliver-构建免费图床" class="headerlink" title="3. picGo +  github + JsDeliver  构建免费图床"></a>3. picGo +  github + JsDeliver  构建免费图床</h2>
@@ -265,6 +285,25 @@ marked:
     
     
     
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
 
       <footer class="post-footer">
           <div class="post-tags">
@@ -375,10 +414,6 @@ marked:
       </div>
   </nav>
 </div>
-  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
-    Chat
-  </a>
-  </div>
 
 
 
@@ -406,6 +441,18 @@ marked:
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">majm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">60k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:40</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
@@ -425,6 +472,7 @@ marked:
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 

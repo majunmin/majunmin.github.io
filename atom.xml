@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>majm的博客</title>
+  <icon>https://majunmin.github.io/icon.png</icon>
+  
+  <link href="https://majunmin.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://majunmin.github.io/"/>
+  <updated>2023-05-06T07:52:35.049Z</updated>
+  <id>https://majunmin.github.io/</id>
+  
+  <author>
+    <name>majm</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fastcache源码分析</title>
+    <link href="https://majunmin.github.io/post/fastcache%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.html"/>
+    <id>https://majunmin.github.io/post/fastcache%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.html</id>
+    <published>2023-05-06T07:52:35.000Z</published>
+    <updated>2023-05-06T07:52:35.049Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/VictoriaMetrics/fastcache&quot;&gt;fastcache&lt;/a&gt; &lt;/p&gt;
+&lt;h2 id=&quot;特性&quot;&gt;&lt;a href=&quot;#特性&quot; class=&quot;headerlink&quot; title=&quot;特性:&quot;&gt;&lt;/a&gt;特性:&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;快速, 高性能, 多 CPU上 可扩展&lt;/li&gt;
+&lt;li&gt;线程安全.  多个 goroutine 可以同时读写一个cache 实例&lt;/li&gt;
+&lt;li&gt;fastcache 设计为 在存储大量的 entry 的场景下 GC free&lt;/li&gt;
+&lt;li&gt;fastcache 当 缓存数量达到阈值时 可以自动 清理 old entry &lt;/li&gt;
+&lt;li&gt;简单的API&lt;/li&gt;
+&lt;li&gt;简单的源代码&lt;/li&gt;
+&lt;li&gt;cacheData 可以 保存到文件(从文件中加载)&lt;/li&gt;
+&lt;li&gt;在 &lt;a href=&quot;https://cloud.google.com/appengine/docs/go/&quot;&gt;Google App Engine&lt;/a&gt; 上工作&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    
+    <category term="cache" scheme="https://majunmin.github.io/tags/cache/"/>
+    
+    <category term="go" scheme="https://majunmin.github.io/tags/go/"/>
+    
+    <category term="fastcache" scheme="https://majunmin.github.io/tags/fastcache/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据-数据仓库大宽表</title>
+    <link href="https://majunmin.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE-%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%A4%A7%E5%AE%BD%E8%A1%A8.html"/>
+    <id>https://majunmin.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE-%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%A4%A7%E5%AE%BD%E8%A1%A8.html</id>
+    <published>2023-03-01T13:17:02.000Z</published>
+    <updated>2023-03-01T15:59:43.086Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;什么是大宽表, 为什么要使用大宽表, 大宽表有什么优缺点,  设计大宽表要注意什么?&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="bigdata" scheme="https://majunmin.github.io/categories/bigdata/"/>
+    
+    
+    <category term="bigdata" scheme="https://majunmin.github.io/tags/bigdata/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>golang如何避免循环依赖</title>
+    <link href="https://majunmin.github.io/post/golang%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96.html"/>
+    <id>https://majunmin.github.io/post/golang%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96.html</id>
+    <published>2022-11-18T13:12:04.000Z</published>
+    <updated>2022-11-18T13:18:17.634Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;golang 包引用之间不允许循环依赖.&lt;br&gt;循环依赖的本质上是一个错误的设计, 在 golang中 循环依赖是 会产生编译时错误.&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="golang" scheme="https://majunmin.github.io/categories/golang/"/>
+    
+    
+    <category term="golang" scheme="https://majunmin.github.io/tags/golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Go-Test-Gomonkey使用</title>
+    <link href="https://majunmin.github.io/post/Go-Test-Gomonkey%E4%BD%BF%E7%94%A8.html"/>
+    <id>https://majunmin.github.io/post/Go-Test-Gomonkey%E4%BD%BF%E7%94%A8.html</id>
+    <published>2022-11-14T11:54:08.000Z</published>
+    <updated>2022-11-14T11:54:08.621Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;golang的单测, 有一些约定, 例如文件名是  xxx.go, 测试文件名必须是 xxx_test.go, 且测试函数的方法名 都是以 &lt;code&gt;Test&lt;/code&gt;开头, 使用&lt;code&gt;go test&lt;/code&gt; 命令,</summary>
+        
+      
+    
+    
+    
+    <category term="golang" scheme="https://majunmin.github.io/categories/golang/"/>
+    
+    
+    <category term="golang" scheme="https://majunmin.github.io/tags/golang/"/>
+    
+    <category term="test" scheme="https://majunmin.github.io/tags/test/"/>
+    
+    <category term="gomonkey" scheme="https://majunmin.github.io/tags/gomonkey/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Go-Test-Convey使用</title>
+    <link href="https://majunmin.github.io/post/Go-Test-Convey%E4%BD%BF%E7%94%A8.html"/>
+    <id>https://majunmin.github.io/post/Go-Test-Convey%E4%BD%BF%E7%94%A8.html</id>
+    <published>2022-11-14T11:53:51.000Z</published>
+    <updated>2022-11-14T11:53:51.655Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/smartystreets/goconvey&quot;&gt;Convey&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/smartystreets/goconvey/wiki&quot;&gt;Wiki&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Feature:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接与  &lt;code&gt;go test&lt;/code&gt; 集成&lt;/li&gt;
+&lt;li&gt;全自动的 WEBUI(与 go test 一起工作)&lt;/li&gt;
+&lt;li&gt;大量的回归测试&lt;/li&gt;
+&lt;li&gt;展示测试覆盖率&lt;/li&gt;
+&lt;li&gt;可读的,彩色控制台输出(可以被其他人理解)&lt;/li&gt;
+&lt;li&gt;测试代码自动生成&lt;/li&gt;
+&lt;li&gt;桌面通知(optional)&lt;/li&gt;
+&lt;li&gt;立即打开问题行.&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="golang" scheme="https://majunmin.github.io/categories/golang/"/>
+    
+    
+    <category term="golang" scheme="https://majunmin.github.io/tags/golang/"/>
+    
+    <category term="test" scheme="https://majunmin.github.io/tags/test/"/>
+    
+    <category term="convey" scheme="https://majunmin.github.io/tags/convey/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Go-Test-gomock使用</title>
+    <link href="https://majunmin.github.io/post/Go-Test-gomock%E4%BD%BF%E7%94%A8.html"/>
+    <id>https://majunmin.github.io/post/Go-Test-gomock%E4%BD%BF%E7%94%A8.html</id>
+    <published>2022-11-14T11:53:38.000Z</published>
+    <updated>2022-11-14T11:53:38.199Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;写出可测试 的代码 至关重要.  可以保证代码的稳定性.  帮助程序员减少bug.&lt;/p&gt;
+&lt;p&gt;gomock 是一个go官方的模拟框架.&lt;br&gt;gomock的使用场景:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;IO类型的数据, 本地文件,数据库,网络API,RPC等&lt;/li&gt;
+&lt;li&gt;依赖的服务还没有开发好, 这时候可以自己模拟一个服务, 加快开发进度提升开发效率&lt;/li&gt;
+&lt;li&gt;压力性能测试的时候屏蔽外部依赖, 专注测试本模块&lt;/li&gt;
+&lt;li&gt;依赖的内部函数非常复杂, 要构造数据非常不方便，这也是一种&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/golang/mock&quot;&gt;gomock&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="golang" scheme="https://majunmin.github.io/categories/golang/"/>
+    
+    
+    <category term="golang" scheme="https://majunmin.github.io/tags/golang/"/>
+    
+    <category term="test" scheme="https://majunmin.github.io/tags/test/"/>
+    
+    <category term="gomock" scheme="https://majunmin.github.io/tags/gomock/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>freecache源码解析</title>
+    <link href="https://majunmin.github.io/post/freecache%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.html"/>
+    <id>https://majunmin.github.io/post/freecache%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.html</id>
+    <published>2022-10-10T15:59:17.000Z</published>
+    <updated>2022-10-10T17:01:20.789Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/coocood/freecache&quot;&gt;代码仓库地址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;freeCache 相比较  golang 的原生map实现缓存,可以&lt;code&gt;通过减少指针的数量避免 GC压力&lt;/code&gt;,无论存储了多少数据,内部只会占用 512个指针,&lt;br&gt; 数据集 通过 hash(key) 被分片256个 &lt;code&gt;segment&lt;/code&gt;,每个 &lt;code&gt;segment&lt;/code&gt; 有两个指针,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一个存储键和值的唤醒缓冲区&lt;/li&gt;
+&lt;li&gt;另一个是用于查找索引条目的索引切片&lt;br&gt;每个 &lt;code&gt;segment&lt;/code&gt; 都有自己的  &lt;code&gt;sync.Mutex&lt;/code&gt;,所以支持多线程访问.&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    
+    <category term="golang" scheme="https://majunmin.github.io/tags/golang/"/>
+    
+    <category term="cache" scheme="https://majunmin.github.io/tags/cache/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bigcache源码解析</title>
+    <link href="https://majunmin.github.io/post/bigcache%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.html"/>
+    <id>https://majunmin.github.io/post/bigcache%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.html</id>
+    <published>2022-10-10T15:58:44.000Z</published>
+    <updated>2022-10-10T17:02:41.761Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;Bigcache-的特点&quot;&gt;&lt;a href=&quot;#Bigcache-的特点&quot; class=&quot;headerlink&quot; title=&quot;Bigcache 的特点:&quot;&gt;&lt;/a&gt;Bigcache 的特点:&lt;/h2&gt;&lt;p&gt;并发支持,快速, 过期大量条目而不影响性能.&lt;br&gt;bigcache将 缓存条目放在了堆上,节省了GC. 为了实现这一点. 需要对字节切片进行操作. 因此涉及到缓存条目的序列化与反序列化.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/allegro/bigcache-bench&quot;&gt;bigcache, freecache 和 map 的基准测试&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="golang" scheme="https://majunmin.github.io/tags/golang/"/>
+    
+    <category term="cache" scheme="https://majunmin.github.io/tags/cache/"/>
+    
+    <category term="bigcache" scheme="https://majunmin.github.io/tags/bigcache/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据相关的一些名词</title>
+    <link href="https://majunmin.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3%E7%9A%84%E4%B8%80%E4%BA%9B%E5%90%8D%E8%AF%8D.html"/>
+    <id>https://majunmin.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3%E7%9A%84%E4%B8%80%E4%BA%9B%E5%90%8D%E8%AF%8D.html</id>
+    <published>2022-09-09T16:36:11.000Z</published>
+    <updated>2023-05-11T06:03:44.625Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;据仓库(data warehouse) 也可以简称为 &lt;code&gt;DW&lt;/code&gt; &lt;code&gt;DH&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="bigdata" scheme="https://majunmin.github.io/categories/bigdata/"/>
+    
+    
+    <category term="bigdata" scheme="https://majunmin.github.io/tags/bigdata/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Go Context 使用场景</title>
+    <link href="https://majunmin.github.io/post/Go-Context-%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF.html"/>
+    <id>https://majunmin.github.io/post/Go-Context-%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF.html</id>
+    <published>2022-08-31T03:04:55.000Z</published>
+    <updated>2022-09-03T07:45:14.726Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;context-使用场景&quot;&gt;&lt;a href=&quot;#context-使用场景&quot; class=&quot;headerlink&quot; title=&quot;context 使用场景&quot;&gt;&lt;/a&gt;context 使用场景&lt;/h2&gt;&lt;h3 id=&quot;1-超时控制&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="golang" scheme="https://majunmin.github.io/tags/golang/"/>
+    
+    <category term="context" scheme="https://majunmin.github.io/tags/context/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Go源码-context</title>
+    <link href="https://majunmin.github.io/post/Go%E6%BA%90%E7%A0%81-context.html"/>
+    <id>https://majunmin.github.io/post/Go%E6%BA%90%E7%A0%81-context.html</id>
+    <published>2022-08-30T15:39:07.000Z</published>
+    <updated>2022-10-11T04:01:23.554Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在go服务器中,通常 每个传入的请求都会在自己的&lt;code&gt;goroutine&lt;/code&gt;中进行处理. 请求处理程序通常会启动额外的&lt;code&gt;goroutine&lt;/code&gt;来访问数据库 或者第三方服务.&lt;br&gt;处理请求的一组&lt;code&gt;goroutine&lt;/code&gt;通常需要访问特定于请求的值: 例如&lt;code&gt;userid&lt;/code&gt;, &lt;code&gt;request_id&lt;/code&gt;, &lt;code&gt;token&lt;/code&gt;,&lt;code&gt;timeout&lt;/code&gt;…,当请求被取消或者超时时,所有处理该请求的goroutine都应该快速退出. 以便系统可以快速回收他们正在使用的任何资源.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://pkg.go.dev/context&quot;&gt;context&lt;/a&gt; 是 go 1.14 引入 的一个概念. 用于解决上述问题.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="golang" scheme="https://majunmin.github.io/tags/golang/"/>
+    
+    <category term="context" scheme="https://majunmin.github.io/tags/context/"/>
+    
+    <category term="源码剖析" scheme="https://majunmin.github.io/tags/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微服务 Trace</title>
+    <link href="https://majunmin.github.io/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Trace.html"/>
+    <id>https://majunmin.github.io/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Trace.html</id>
+    <published>2022-08-18T04:46:07.000Z</published>
+    <updated>2022-08-29T08:51:32.897Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Spection-Trace-语义&quot;&gt;&lt;a href=&quot;#Spection-Trace-语义&quot; class=&quot;headerlink&quot; title=&quot;Spection  Trace 语义&quot;&gt;&lt;/a&gt;Spection  Trace 语义&lt;/h2&gt;&lt;h3</summary>
+        
+      
+    
+    
+    
+    
+    <category term="微服务" scheme="https://majunmin.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+    <category term="trace" scheme="https://majunmin.github.io/tags/trace/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微服务:API Gateway</title>
+    <link href="https://majunmin.github.io/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1-API-Gateway.html"/>
+    <id>https://majunmin.github.io/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1-API-Gateway.html</id>
+    <published>2022-08-17T02:52:25.000Z</published>
+    <updated>2022-08-29T08:55:33.248Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;什么是-API网关&quot;&gt;&lt;a href=&quot;#什么是-API网关&quot; class=&quot;headerlink&quot; title=&quot;什么是 API网关&quot;&gt;&lt;/a&gt;什么是 API网关&lt;/h2&gt;&lt;p&gt;API网关是一个服务器,是系统的唯一入口. </summary>
+        
+      
+    
+    
+    
+    
+    <category term="微服务" scheme="https://majunmin.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+    <category term="gateway" scheme="https://majunmin.github.io/tags/gateway/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>awesome-blog</title>
+    <link href="https://majunmin.github.io/post/awesome-blog.html"/>
+    <id>https://majunmin.github.io/post/awesome-blog.html</id>
+    <published>2022-08-16T12:45:48.000Z</published>
+    <updated>2022-09-08T05:02:48.272Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;golang&quot;&gt;&lt;a href=&quot;#golang&quot; class=&quot;headerlink&quot; title=&quot;golang&quot;&gt;&lt;/a&gt;golang&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://geektutu.com/&quot;&gt;极客兔兔&lt;/a&gt;&lt;br&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="blog" scheme="https://majunmin.github.io/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>golang-sync.Pool解析</title>
+    <link href="https://majunmin.github.io/post/golang-sync-Pool%E8%A7%A3%E6%9E%90.html"/>
+    <id>https://majunmin.github.io/post/golang-sync-Pool%E8%A7%A3%E6%9E%90.html</id>
+    <published>2022-08-11T17:15:26.000Z</published>
+    <updated>2022-08-15T16:11:27.997Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;sync.Pool是sync包下的一个组件,可以作为临时取还对象的一个 &lt;code&gt;池子&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;作用: 对于很多需要重复分配、回收内存的地方,&lt;code&gt;sync.Pool&lt;/code&gt; 是一个很好的选择.频繁地分配、回收内存会给 GC</summary>
+        
+      
+    
+    
+    
+    
+    <category term="golang" scheme="https://majunmin.github.io/tags/golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>clickhouse-原理</title>
+    <link href="https://majunmin.github.io/post/clickhouse-%E5%8E%9F%E7%90%86.html"/>
+    <id>https://majunmin.github.io/post/clickhouse-%E5%8E%9F%E7%90%86.html</id>
+    <published>2022-08-11T17:00:53.000Z</published>
+    <updated>2022-09-08T05:05:51.621Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Clickhouse 是一个 用于联机分析(OLAP)的 列式存储数据库管理系统(DBMS).&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+    <category term="clickhouse" scheme="https://majunmin.github.io/tags/clickhouse/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>go build 实现包切换</title>
+    <link href="https://majunmin.github.io/post/go-build-%E5%AE%9E%E7%8E%B0%E5%8C%85%E5%88%87%E6%8D%A2.html"/>
+    <id>https://majunmin.github.io/post/go-build-%E5%AE%9E%E7%8E%B0%E5%8C%85%E5%88%87%E6%8D%A2.html</id>
+    <published>2022-08-03T04:18:02.000Z</published>
+    <updated>2022-09-03T07:45:16.171Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;参考 &lt;a href=&quot;https://github.com/gin-gonic/gin&quot;&gt;Gin&lt;/a&gt; 的实现&lt;/p&gt;
+&lt;p&gt;gin 在  &lt;code&gt;internal/json&lt;/code&gt;包中实现了多个 json 包的序列化能力,</summary>
+        
+      
+    
+    
+    
+    
+    <category term="go" scheme="https://majunmin.github.io/tags/go/"/>
+    
+    <category term="go build" scheme="https://majunmin.github.io/tags/go-build/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>洋葱架构</title>
+    <link href="https://majunmin.github.io/post/%E6%B4%8B%E8%91%B1%E6%9E%B6%E6%9E%84.html"/>
+    <id>https://majunmin.github.io/post/%E6%B4%8B%E8%91%B1%E6%9E%B6%E6%9E%84.html</id>
+    <published>2022-07-23T06:23:04.000Z</published>
+    <updated>2022-07-23T07:38:07.305Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/./%E6%B4%8B%E8%91%B1%E6%9E%B6%E6%9E%84/%E6%B4%8B%E8%91%B1%E6%9E%B6%E6%9E%84.webp&quot; alt=&quot;洋葱架构&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="架构" scheme="https://majunmin.github.io/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>六边形架构</title>
+    <link href="https://majunmin.github.io/post/%E5%85%AD%E8%BE%B9%E5%BD%A2%E6%9E%B6%E6%9E%84.html"/>
+    <id>https://majunmin.github.io/post/%E5%85%AD%E8%BE%B9%E5%BD%A2%E6%9E%B6%E6%9E%84.html</id>
+    <published>2022-07-23T02:47:02.000Z</published>
+    <updated>2022-07-23T03:26:42.646Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;分层架构是一种架构风格,本质是避免耦合,使边界清晰.&lt;br&gt;六边形架构 遵循了分层架构的所有约束与特性，其实使用 端口与适配器这个名字更加合适.因为六边形架构的 边数没有意义.&lt;/p&gt;
+&lt;p&gt;六边形架构能够充分地区分 领域模型与 输入输出设备之间的界限.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/./%E5%85%AD%E8%BE%B9%E5%BD%A2%E6%9E%B6%E6%9E%84/%E5%85%AD%E8%BE%B9%E5%BD%A2%E6%9E%B6%E6%9E%84.png&quot; alt=&quot;六边形架构&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="架构" scheme="https://majunmin.github.io/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>位运算-基础</title>
+    <link href="https://majunmin.github.io/post/%E4%BD%8D%E8%BF%90%E7%AE%97-%E5%9F%BA%E7%A1%80.html"/>
+    <id>https://majunmin.github.io/post/%E4%BD%8D%E8%BF%90%E7%AE%97-%E5%9F%BA%E7%A1%80.html</id>
+    <published>2022-07-19T15:29:47.000Z</published>
+    <updated>2022-07-23T04:15:53.391Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+
+&lt;h2 id=&quot;异或操作&quot;&gt;&lt;a href=&quot;#异或操作&quot; class=&quot;headerlink&quot; title=&quot;异或操作&quot;&gt;&lt;/a&gt;异或操作&lt;/h2&gt;&lt;pre class=&quot;line-numbers</summary>
+        
+      
+    
+    
+    
+    
+    <category term="算法" scheme="https://majunmin.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="位运算" scheme="https://majunmin.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+    
+  </entry>
+  
+</feed>

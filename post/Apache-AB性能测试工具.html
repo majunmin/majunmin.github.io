@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"majunmin.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"majunmin.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="ApacheAB 官方Doc  Apache AB 性能测试工具，这是 apache 免费自带的 性能测试工具, 就在 apache bin目录下，他能模拟多个并发请求，主要用来测试你的 服务每秒能承受多少并发请求。">
@@ -79,6 +79,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="majm的博客" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -134,6 +135,11 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -218,7 +224,21 @@
               <time title="创建时间：2019-04-28 18:03:21 / 修改时间：18:08:30" itemprop="dateCreated datePublished" datetime="2019-04-28T18:03:21+08:00">2019-04-28</time>
             </span>
 
-          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>980</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -235,21 +255,21 @@
 </blockquote>
 <span id="more"></span>
 
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ab -n 3000 -c 3000 http:&#x2F;&#x2F;www.test.com&#x2F;
-# -c 3000 每次发送3000 个请求
-# -n 3000 共3000 个请求
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ab -n <span class="token number">3000</span> -c <span class="token number">3000</span> http://www.test.com/
+<span class="token comment"># -c 3000 每次发送3000 个请求</span>
+<span class="token comment"># -n 3000 共3000 个请求</span>
 
-ab -t 60 -c 100 http:&#x2F;&#x2F;www.test.com&#x2F;
-# -t 60 在 60s内发送请求，每次发送 100 个请求
+ab -t <span class="token number">60</span> -c <span class="token number">100</span> http://www.test.com/
+<span class="token comment"># -t 60 在 60s内发送请求，每次发送 100 个请求</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="带参数的的请求"><a href="#带参数的的请求" class="headerlink" title="带参数的的请求"></a>带参数的的请求</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ab -t 60 -c 100 -T &quot;application&#x2F;x-www-form-urlencoded&quot; p p.txt http:&#x2F;&#x2F;www.test.com&#x2F;
-# application&#x2F;x-www-form-urlencoded (默认值)
-#  就是设置表单传输的编码,典型的post请求
-# multipart&#x2F;form-data
-#  用来指定传输数据的特殊类型的，主要就是我们上传的非文本的内容，比如图片、mp3,文件等等
-# text&#x2F;plain
-#  是纯文本传输的意思<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="带参数的的请求"><a href="#带参数的的请求" class="headerlink" title="带参数的的请求"></a>带参数的的请求</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ab -t <span class="token number">60</span> -c <span class="token number">100</span> -T <span class="token string">"application/x-www-form-urlencoded"</span> p p.txt http://www.test.com/
+<span class="token comment"># application/x-www-form-urlencoded (默认值)</span>
+<span class="token comment">#  就是设置表单传输的编码,典型的post请求</span>
+<span class="token comment"># multipart/form-data</span>
+<span class="token comment">#  用来指定传输数据的特殊类型的，主要就是我们上传的非文本的内容，比如图片、mp3,文件等等</span>
+<span class="token comment"># text/plain</span>
+<span class="token comment">#  是纯文本传输的意思</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="发送-json-数据"><a href="#发送-json-数据" class="headerlink" title="发送 json 数据"></a>发送 json 数据</h2><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">ab -n 100000 -c 400 -p tempPara.txt -T application&#x2F;json http:&#x2F;&#x2F;www.test.com&#x2F;
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -258,97 +278,116 @@ ab -t 60 -c 100 http:&#x2F;&#x2F;www.test.com&#x2F;
 &#123;"driverId": 17,"pageNo": 1,"pageSize": 20,"status": 1&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="常用参数说明"><a href="#常用参数说明" class="headerlink" title="常用参数说明"></a>常用参数说明</h2><p><a target="_blank" rel="noopener" href="https://httpd.apache.org/docs/2.4/programs/ab.html">参数说明</a></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">-A auth-username:password
-# 对服务器提供BASIC认证信任。 
-# 用户名和密码由一个:隔开，并以base64编码形式发送。 无论服务器是否需要(即, 是否发送了401认证需求代码)，此字符串都会被发送。
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-A auth-username:password
+<span class="token comment"># 对服务器提供BASIC认证信任。 </span>
+<span class="token comment"># 用户名和密码由一个:隔开，并以base64编码形式发送。 无论服务器是否需要(即, 是否发送了401认证需求代码)，此字符串都会被发送。</span>
 
 -c concurrency
-#  一次产生的请求个数。默认是一次一个。
+<span class="token comment">#  一次产生的请求个数。默认是一次一个。</span>
 
 -n
-# 一共请求多少次
+<span class="token comment"># 一共请求多少次</span>
 
 -t timelimit 
-# 测试所进行的最大秒数。
-# 其内部隐含值是-n 50000。 它可以使对服务器的测试限制在一个固定的总时间以内。默认时，没有时间限制。
+<span class="token comment"># 测试所进行的最大秒数。</span>
+<span class="token comment"># 其内部隐含值是-n 50000。 它可以使对服务器的测试限制在一个固定的总时间以内。默认时，没有时间限制。</span>
 
 -T 
-# content-type POST数据所使用的Content-type头信息。
+<span class="token comment"># content-type POST数据所使用的Content-type头信息。</span>
 
 -p 
-# POST-file包含了需要POST的数据的文件.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># POST-file包含了需要POST的数据的文件.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="结果解析"><a href="#结果解析" class="headerlink" title="结果解析"></a>结果解析</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">This is ApacheBench, Version 2.3
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http:&#x2F;&#x2F;www.zeustech.net&#x2F;
-Licensed to The Apache Software Foundation, http:&#x2F;&#x2F;www.apache.org&#x2F;
+<h2 id="结果解析"><a href="#结果解析" class="headerlink" title="结果解析"></a>结果解析</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">This is ApacheBench, Version <span class="token number">2.3</span>
+Copyright <span class="token number">1996</span> Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
 
-Benchmarking 192.168.80.157 (be patient)
-Completed 400 requests
-Completed 800 requests
-Completed 1200 requests
-Completed 1600 requests
-Completed 2000 requests
-Completed 2400 requests
-Completed 2800 requests
-Completed 3200 requests
-Completed 3600 requests
-Completed 4000 requests
-Finished 4000 requests
+Benchmarking <span class="token number">192.168</span>.80.157 <span class="token punctuation">(</span>be patient<span class="token punctuation">)</span>
+Completed <span class="token number">400</span> requests
+Completed <span class="token number">800</span> requests
+Completed <span class="token number">1200</span> requests
+Completed <span class="token number">1600</span> requests
+Completed <span class="token number">2000</span> requests
+Completed <span class="token number">2400</span> requests
+Completed <span class="token number">2800</span> requests
+Completed <span class="token number">3200</span> requests
+Completed <span class="token number">3600</span> requests
+Completed <span class="token number">4000</span> requests
+Finished <span class="token number">4000</span> requests
 
-Server Software: Apache&#x2F;2.2.15
-Server Hostname: 192.168.80.157
-Server Port: 80
+Server Software: Apache/2.2.15
+Server Hostname: <span class="token number">192.168</span>.80.157
+Server Port: <span class="token number">80</span>
 
-Document Path: &#x2F;phpinfo.php
-#测试的页面
-Document Length: 50797 bytes
-#页面大小
+Document Path: /phpinfo.php
+<span class="token comment">#测试的页面</span>
+Document Length: <span class="token number">50797</span> bytes
+<span class="token comment">#页面大小</span>
 
-Concurrency Level: 1000
-#测试的并发数
-Time taken for tests: 11.846 seconds
-#整个测试持续的时间
-Complete requests: 4000
-#完成的请求数量
-Failed requests: 0
-#失败的请求数量
-Write errors: 0
-Total transferred: 204586997 bytes
-#整个过程中的网络传输量
-HTML transferred: 203479961 bytes
-#整个过程中的HTML内容传输量
-Requests per second: 337.67 [#&#x2F;sec] (mean)
-#最重要的指标之一，相当于LR中的每秒事务数，后面括号中的mean表示这是一个平均值
-Time per request: 2961.449 [ms] (mean)
-#最重要的指标之二，相当于LR中的平均事务响应时间，后面括号中的mean表示这是一个平均值
-Time per request: 2.961 [ms] (mean, across all concurrent requests)
-#每个连接请求实际运行时间的平均值
-Transfer rate: 16866.07 [Kbytes&#x2F;sec] received
-#平均每秒网络上的流量，可以帮助排除是否存在网络流量过大导致响应时间延长的问题
-Connection Times (ms)
-min mean[+&#x2F;-sd] median max
-Connect: 0 483 1773.5 11 9052
-Processing: 2 556 1459.1 255 11763
-Waiting: 1 515 1459.8 220 11756
-Total: 139 1039 2296.6 275 11843
-#网络上消耗的时间的分解，各项数据的具体算法还不是很清楚
+Concurrency Level: <span class="token number">1000</span>
+<span class="token comment">#测试的并发数</span>
+Time taken <span class="token keyword">for</span> tests: <span class="token number">11.846</span> seconds
+<span class="token comment">#整个测试持续的时间</span>
+Complete requests: <span class="token number">4000</span>
+<span class="token comment">#完成的请求数量</span>
+Failed requests: <span class="token number">0</span>
+<span class="token comment">#失败的请求数量</span>
+Write errors: <span class="token number">0</span>
+Total transferred: <span class="token number">204586997</span> bytes
+<span class="token comment">#整个过程中的网络传输量</span>
+HTML transferred: <span class="token number">203479961</span> bytes
+<span class="token comment">#整个过程中的HTML内容传输量</span>
+Requests per second: <span class="token number">337.67</span> <span class="token punctuation">[</span><span class="token comment">#/sec] (mean)</span>
+<span class="token comment">#最重要的指标之一，相当于LR中的每秒事务数，后面括号中的mean表示这是一个平均值</span>
+Time per request: <span class="token number">2961.449</span> <span class="token punctuation">[</span>ms<span class="token punctuation">]</span> <span class="token punctuation">(</span>mean<span class="token punctuation">)</span>
+<span class="token comment">#最重要的指标之二，相当于LR中的平均事务响应时间，后面括号中的mean表示这是一个平均值</span>
+Time per request: <span class="token number">2.961</span> <span class="token punctuation">[</span>ms<span class="token punctuation">]</span> <span class="token punctuation">(</span>mean, across all concurrent requests<span class="token punctuation">)</span>
+<span class="token comment">#每个连接请求实际运行时间的平均值</span>
+Transfer rate: <span class="token number">16866.07</span> <span class="token punctuation">[</span>Kbytes/sec<span class="token punctuation">]</span> received
+<span class="token comment">#平均每秒网络上的流量，可以帮助排除是否存在网络流量过大导致响应时间延长的问题</span>
+Connection Times <span class="token punctuation">(</span>ms<span class="token punctuation">)</span>
+min mean<span class="token punctuation">[</span>+/-sd<span class="token punctuation">]</span> median max
+Connect: <span class="token number">0</span> <span class="token number">483</span> <span class="token number">1773.5</span> <span class="token number">11</span> <span class="token number">9052</span>
+Processing: <span class="token number">2</span> <span class="token number">556</span> <span class="token number">1459.1</span> <span class="token number">255</span> <span class="token number">11763</span>
+Waiting: <span class="token number">1</span> <span class="token number">515</span> <span class="token number">1459.8</span> <span class="token number">220</span> <span class="token number">11756</span>
+Total: <span class="token number">139</span> <span class="token number">1039</span> <span class="token number">2296.6</span> <span class="token number">275</span> <span class="token number">11843</span>
+<span class="token comment">#网络上消耗的时间的分解，各项数据的具体算法还不是很清楚</span>
 
-Percentage of the requests served within a certain time (ms)
-50% 275
-66% 298
-75% 328
-80% 373
-90% 3260
-95% 9075
-98% 9267
-99% 11713
-100% 11843 (longest request)
-#整个场景中所有请求的响应情况。在场景中每个请求都有一个响应时间，其中50％的用户响应时间小于275毫秒，66％的用户响应时间小于298毫秒，最大的响应时间小于11843毫秒。对于并发请求，cpu实际上并不是同时处理的，而是按照每个请求获得的时间片逐个轮转处理的，所以基本上第一个Time per request时间约等于第二个Time per request时间乘以并发请求数。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+Percentage of the requests served within a certain <span class="token function">time</span> <span class="token punctuation">(</span>ms<span class="token punctuation">)</span>
+<span class="token number">50</span>% <span class="token number">275</span>
+<span class="token number">66</span>% <span class="token number">298</span>
+<span class="token number">75</span>% <span class="token number">328</span>
+<span class="token number">80</span>% <span class="token number">373</span>
+<span class="token number">90</span>% <span class="token number">3260</span>
+<span class="token number">95</span>% <span class="token number">9075</span>
+<span class="token number">98</span>% <span class="token number">9267</span>
+<span class="token number">99</span>% <span class="token number">11713</span>
+<span class="token number">100</span>% <span class="token number">11843</span> <span class="token punctuation">(</span>longest request<span class="token punctuation">)</span>
+<span class="token comment">#整个场景中所有请求的响应情况。在场景中每个请求都有一个响应时间，其中50％的用户响应时间小于275毫秒，66％的用户响应时间小于298毫秒，最大的响应时间小于11843毫秒。对于并发请求，cpu实际上并不是同时处理的，而是按照每个请求获得的时间片逐个轮转处理的，所以基本上第一个Time per request时间约等于第二个Time per request时间乘以并发请求数。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
     </div>
 
     
     
     
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
 
       <footer class="post-footer">
           <div class="post-tags">
@@ -460,10 +499,6 @@ Percentage of the requests served within a certain time (ms)
       </div>
   </nav>
 </div>
-  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
-    Chat
-  </a>
-  </div>
 
 
 
@@ -491,6 +526,18 @@ Percentage of the requests served within a certain time (ms)
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">majm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">60k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:40</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
@@ -510,6 +557,7 @@ Percentage of the requests served within a certain time (ms)
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 

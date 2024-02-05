@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"majunmin.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"majunmin.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="记录一下 CentO7 中常用的命令">
@@ -80,6 +80,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="majm的博客" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -135,6 +136,11 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -234,7 +240,21 @@
                 </span>
             </span>
 
-          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>13 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -251,8 +271,8 @@
 <span id="more"></span>
 
 <p>命令：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rpm -q package-name     #检查包是否被安装
-rpm -qa                 #列出所有安装的包
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -q package-name     <span class="token comment">#检查包是否被安装</span>
+<span class="token function">rpm</span> -qa                 <span class="token comment">#列出所有安装的包</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>shell 脚本参数 传参数<a target="_blank" rel="noopener" href="https://www.cnblogs.com/davygeek/p/5670212.html">$$$</a></p>
@@ -315,48 +335,48 @@ rpm -qa                 #列出所有安装的包
 <td>需要执行的命令</td>
 </tr>
 </tbody></table>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># For details see man 4 crontabs
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># For details see man 4 crontabs</span>
 
-# Example of job definition:
-# .---------------- minute (0 - 59)
-# | .------------- hour (0 - 23)
-# | | .---------- day of month (1 - 31)
-# | | | .------- month (1 - 12) OR jan,feb,mar,apr ...
-# | | | | .---- day of week (0 - 6) (Sunday&#x3D;0 or 7) OR sun,mon,tue,wed,thu,fri,sat
-# | | | | |
-# * * * * * user-name command to be executed
+<span class="token comment"># Example of job definition:</span>
+<span class="token comment"># .---------------- minute (0 - 59)</span>
+<span class="token comment"># | .------------- hour (0 - 23)</span>
+<span class="token comment"># | | .---------- day of month (1 - 31)</span>
+<span class="token comment"># | | | .------- month (1 - 12) OR jan,feb,mar,apr ...</span>
+<span class="token comment"># | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span>
+<span class="token comment"># | | | | |</span>
+<span class="token comment"># * * * * * user-name command to be executed</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h2><p>sed命令是一个面向字符流的非交互式编辑器，也就是说<em>sed不允许用户与它进行交互操作</em>。sed是按行来处理文本内容的。在<strong>shell</strong>中，使用sed来批量修改文本内容是非常方便的。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sed
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sed</span>
 选项与参数：
--n ：使用安静(silent)模式。在一般 sed 的用法中，所有来自 STDIN 的数据一般都会被列出到终端上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行(或者动作)才会被列出来。
--e ：直接在命令列模式上进行 sed 的动作编辑；
--f ：直接将 sed 的动作写在一个文件内， -f filename 则可以运行 filename 内的 sed 动作；
--r ：sed 的动作支持的是延伸型正规表示法的语法。(默认是基础正规表示法语法)
+-n ：使用安静<span class="token punctuation">(</span>silent<span class="token punctuation">)</span>模式。在一般 <span class="token function">sed</span> 的用法中，所有来自 STDIN 的数据一般都会被列出到终端上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行<span class="token punctuation">(</span>或者动作<span class="token punctuation">)</span>才会被列出来。
+-e ：直接在命令列模式上进行 <span class="token function">sed</span> 的动作编辑；
+-f ：直接将 <span class="token function">sed</span> 的动作写在一个文件内， -f filename 则可以运行 filename 内的 <span class="token function">sed</span> 动作；
+-r ：sed 的动作支持的是延伸型正规表示法的语法。<span class="token punctuation">(</span>默认是基础正规表示法语法<span class="token punctuation">)</span>
 -i ：直接修改读取的文件内容，而不是输出到终端。
 
 function：
-a ：新增行， a 的后面可以是字串，而这些字串会在新的一行出现(目前的下一行)
+a ：新增行， a 的后面可以是字串，而这些字串会在新的一行出现<span class="token punctuation">(</span>目前的下一行<span class="token punctuation">)</span>
 c ：取代行， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行
 d ：删除行，因为是删除，所以 d 后面通常不接任何参数，直接删除地址表示的行；
-i ：插入行， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；
-p ：列印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行
-s ：替换，可以直接进行替换的工作,通常这个 s 的动作可以搭配正规表示法，例如 1,20s&#x2F;old&#x2F;new&#x2F;g 一般是替换符合条件的字符串而不是整行
+i ：插入行， i 的后面可以接字串，而这些字串会在新的一行出现<span class="token punctuation">(</span>目前的上一行<span class="token punctuation">)</span>；
+p ：列印，亦即将某个选择的数据印出。通常 p 会与参数 <span class="token function">sed</span> -n 一起运行
+s ：替换，可以直接进行替换的工作,通常这个 s 的动作可以搭配正规表示法，例如 <span class="token number">1</span>,20s/old/new/g 一般是替换符合条件的字符串而不是整行
 
-一般function的前面会有一个地址的限制，例如 [地址]function，表示我们的动作要操作的行。下面我们通过具体的例子直观的看看sed的使用方法。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+一般function的前面会有一个地址的限制，例如 <span class="token punctuation">[</span>地址<span class="token punctuation">]</span>function，表示我们的动作要操作的行。下面我们通过具体的例子直观的看看sed的使用方法。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="gt-gt-与-gt"><a href="#gt-gt-与-gt" class="headerlink" title="&gt;&gt; 与 &gt;"></a>&gt;&gt; 与 &gt;</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">&gt; : 会重写文件，如果文件里面有内容会覆盖。
-&gt;   是定向输出到文件，如果文件不存在，就创建文件；如果文件存在，就将其清空。
-   一般我们备份清理日志文件的时候，就是这种方法：先备份日志，再用&#96;&gt;&#96;，将日志文件清空（文件大小变成0字节）。
-&gt;&gt; :追加文件，也就是如果文件里面有内容会把新内容追加到文件尾。
+<h3 id="gt-gt-与-gt"><a href="#gt-gt-与-gt" class="headerlink" title="&gt;&gt; 与 &gt;"></a>&gt;&gt; 与 &gt;</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">></span> <span class="token builtin class-name">:</span> 会重写文件，如果文件里面有内容会覆盖。
+<span class="token operator">></span>   是定向输出到文件，如果文件不存在，就创建文件；如果文件存在，就将其清空。
+   一般我们备份清理日志文件的时候，就是这种方法：先备份日志，再用<span class="token variable"><span class="token variable">`</span><span class="token operator">></span><span class="token variable">`</span></span>，将日志文件清空（文件大小变成0字节）。
+<span class="token operator">>></span> :追加文件，也就是如果文件里面有内容会把新内容追加到文件尾。
     这个是将输出内容追加到目标文件中。如果文件不存在，就创建文件。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="shell-字符串"><a href="#shell-字符串" class="headerlink" title="shell 字符串"></a>shell 字符串</h3><p>“” 与 ‘’<br><strong>单引号</strong>里的任何字符都会原样输出，单引号字符串中的变量是无效的；<br><strong>单引号</strong>字串中不能出现单独一个的单引号（对单引号使用转义符后也不行），但可成对出现，作为字符串拼接使用。</p>
 <p><strong>双引号</strong>里可以有变量<br><strong>双引号</strong>里可以出现转义字符</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">home&#x3D;tj
-echo &quot;hello, $&#123;home&#125;&quot;
-echo &#39;hello, $&#123;home&#125;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">home</span><span class="token operator">=</span>tj
+<span class="token builtin class-name">echo</span> <span class="token string">"hello, <span class="token variable">$&#123;home&#125;</span>"</span>
+<span class="token builtin class-name">echo</span> <span class="token string">'hello, $&#123;home&#125;'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="命令-grep"><a href="#命令-grep" class="headerlink" title="命令 grep"></a>命令 grep</h3><ol>
 <li>作用<br>​    Linux系统中grep命令是一种强大的文本搜索工具，</li>
@@ -369,10 +389,10 @@ echo &#39;hello, $&#123;home&#125;&#39;<span aria-hidden="true" class="line-numb
 <p>awk是行处理器: 相比较屏幕处理的优点，在处理庞大文件时不会出现内存溢出或是处理缓慢的问题，通常用来格式化文本信息</p>
 <p>awk处理过程: 依次对每一行进行处理，然后输出</p>
 <p>awk:（将一行分为多个字段做处理）（重点）</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">awk [-F  field-separator]  &#39;commands&#39;  input-file(s)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">awk</span> <span class="token punctuation">[</span>-F  field-separator<span class="token punctuation">]</span>  <span class="token string">'commands'</span>  input-file<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>其中，<em>commands</em> 是真正<em>awk</em>命令，*[-F域分隔符]*是可选的。default : 空格 * input-file(s) *是待处理的文件。<br>在awk中，文件的每一行中，由域分隔符分开的每一项称为一个域。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">last -n 5 | awk  &#39;&#123;print $1&#125;&#39; # 去除最后5行  打印第一个字段(域)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">last -n <span class="token number">5</span> <span class="token operator">|</span> <span class="token function">awk</span>  <span class="token string">'&#123;print $1&#125;'</span> <span class="token comment"># 去除最后5行  打印第一个字段(域)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <pre class="line-numbers language-一些注意的地方" data-language="一些注意的地方"><code class="language-一些注意的地方">$0           表示整个当前行
 $1           每行第一个字段
@@ -397,149 +417,149 @@ OFS      输出字段分隔符， 默认也是空格，可以改为制表符等
 ORS        输出的记录分隔符，默认为换行符,即处理结果也是一行一行输出到屏幕
 -F&#39;[:#&#x2F;]&#39;   定义三个分隔符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="curl-命令"><a href="#curl-命令" class="headerlink" title="curl 命令"></a>curl 命令</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#常见参数
-    -A&#x2F;--user-agent &lt;string&gt; 设置用户代理发送给服务器，即告诉服务器浏览器为什么
+<h3 id="curl-命令"><a href="#curl-命令" class="headerlink" title="curl 命令"></a>curl 命令</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#常见参数</span>
+    -A/--user-agent <span class="token operator">&lt;</span>string<span class="token operator">></span> 设置用户代理发送给服务器，即告诉服务器浏览器为什么
     -basic 使用HTTP基本验证
     --tcp-nodelay 使用TCP_NODELAY选项
-    -e&#x2F;--referer &lt;URL&gt; 来源网址，跳转过来的网址
-    --cacert &lt;file&gt; 指定CA证书 (SSL)
+    -e/--referer <span class="token operator">&lt;</span>URL<span class="token operator">></span> 来源网址，跳转过来的网址
+    --cacert <span class="token operator">&lt;</span>file<span class="token operator">></span> 指定CA证书 <span class="token punctuation">(</span>SSL<span class="token punctuation">)</span>
     --compressed 要求返回是压缩的形势，如果文件本身为一个压缩文件，则可以下载至本地
-    -H&#x2F;--header &lt;line&gt;自定义头信息传递给服务器
-    -I&#x2F;--head 只显示响应报文首部信息
-    --limit-rate &lt;rate&gt; 设置传输速度
-    -u&#x2F;--user &lt;user[:password]&gt;设置服务器的用户和密码
-    -0&#x2F;--http1.0 使用HTTP 1.0
-    -o&#x2F;--output	把输出写到该文件中(必须指定文件绝对路径)
-    -s&#x2F;--silent	静默模式。不输出任何东西<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    -H/--header <span class="token operator">&lt;</span>line<span class="token operator">></span>自定义头信息传递给服务器
+    -I/--head 只显示响应报文首部信息
+    --limit-rate <span class="token operator">&lt;</span>rate<span class="token operator">></span> 设置传输速度
+    -u/--user <span class="token operator">&lt;</span>user<span class="token punctuation">[</span>:password<span class="token punctuation">]</span><span class="token operator">></span>设置服务器的用户和密码
+    -0/--http1.0 使用HTTP <span class="token number">1.0</span>
+    -o/--output	把输出写到该文件中<span class="token punctuation">(</span>必须指定文件绝对路径<span class="token punctuation">)</span>
+    -s/--silent	静默模式。不输出任何东西<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>举例：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#取URL返回状态码：
-curl -s -m 10 -o &#x2F;dev&#x2F;null -w %&#123;http_code&#125; https:&#x2F;&#x2F;www.baidu.com
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#取URL返回状态码：</span>
+<span class="token function">curl</span> -s -m <span class="token number">10</span> -o /dev/null -w %<span class="token punctuation">&#123;</span>http_code<span class="token punctuation">&#125;</span> https://www.baidu.com
 
-#检查一批URL的HTTP状态：
-cat url.txt|while read line; do curl -I $line -m 5 --connect-timeout 5 -o &#x2F;dev&#x2F;null -s -w &quot;$line &quot;%&#123;http_code&#125;&quot;\n&quot;; done&gt;ok.txt
+<span class="token comment">#检查一批URL的HTTP状态：</span>
+<span class="token function">cat</span> url.txt<span class="token operator">|</span><span class="token keyword">while</span> <span class="token builtin class-name">read</span> line<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token function">curl</span> -I <span class="token variable">$line</span> -m <span class="token number">5</span> --connect-timeout <span class="token number">5</span> -o /dev/null -s -w <span class="token string">"<span class="token variable">$line</span> "</span>%<span class="token punctuation">&#123;</span>http_code<span class="token punctuation">&#125;</span><span class="token string">"<span class="token entity" title="\n">\n</span>"</span><span class="token punctuation">;</span> done<span class="token operator">></span>ok.txt
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="linux中-x2F-dev-x2F-null命令"><a href="#linux中-x2F-dev-x2F-null命令" class="headerlink" title="linux中 &#x2F;dev&#x2F;null命令"></a>linux中 &#x2F;dev&#x2F;null命令</h3><p>&#x2F;dev&#x2F;null ：代表空设备文件<br>0 :表示键盘输入(stdin) </p>
 <blockquote>
 <p>：代表重定向到哪里，例如：echo “123” &gt; &#x2F;home&#x2F;123.txt<br>1  ：表示标准输出（stdout），系统默认值是1，所以”&gt;&#x2F;dev&#x2F;null”等同于”1&gt;&#x2F;dev&#x2F;null”<br>2  ：表示标准错误(stderr)<br>&amp;  ：表示等同于的意思，2&gt;&amp;1，表示2的输出重定向等同于1</p>
 </blockquote>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#1、禁止标准输出
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#1、禁止标准输出</span>
 
-[root@zhoucentos log]# cat filename
+<span class="token punctuation">[</span>root@zhoucentos log<span class="token punctuation">]</span><span class="token comment"># cat filename</span>
 wo ai wo jia
-[root@zhoucentos log]# cat filename &gt;&#x2F;dev&#x2F;null
+<span class="token punctuation">[</span>root@zhoucentos log<span class="token punctuation">]</span><span class="token comment"># cat filename >/dev/null</span>
 
-#2、禁止标准错误
+<span class="token comment">#2、禁止标准错误</span>
 
-[root@zhoucentos log]# rm filename1 
-rm: 无法删除&quot;filename1&quot;: 没有那个文件或目录
-[root@zhoucentos log]# rm filename1 2&gt;&#x2F;dev&#x2F;null
+<span class="token punctuation">[</span>root@zhoucentos log<span class="token punctuation">]</span><span class="token comment"># rm filename1 </span>
+rm: 无法删除<span class="token string">"filename1"</span><span class="token builtin class-name">:</span> 没有那个文件或目录
+<span class="token punctuation">[</span>root@zhoucentos log<span class="token punctuation">]</span><span class="token comment"># rm filename1 2>/dev/null</span>
 
-#3、禁止标准输出和标准错误
+<span class="token comment">#3、禁止标准输出和标准错误</span>
 
-[root@zhoucentos log]# rm filename1
-rm: 无法删除&quot;filename1&quot;: 没有那个文件或目录
-[root@zhoucentos log]# rm filename1 &gt;&#x2F;dev&#x2F;null 2&gt;&amp;1
+<span class="token punctuation">[</span>root@zhoucentos log<span class="token punctuation">]</span><span class="token comment"># rm filename1</span>
+rm: 无法删除<span class="token string">"filename1"</span><span class="token builtin class-name">:</span> 没有那个文件或目录
+<span class="token punctuation">[</span>root@zhoucentos log<span class="token punctuation">]</span><span class="token comment"># rm filename1 >/dev/null 2>&amp;1</span>
 
-#4、清除文件的内容
+<span class="token comment">#4、清除文件的内容</span>
 
-[root@zhoucentos log]# cat filename
+<span class="token punctuation">[</span>root@zhoucentos log<span class="token punctuation">]</span><span class="token comment"># cat filename</span>
 wo ai wo jia
-[root@zhoucentos log]# cat &#x2F;dev&#x2F;null &gt; filename
-[root@zhoucentos log]# cat filename
+<span class="token punctuation">[</span>root@zhoucentos log<span class="token punctuation">]</span><span class="token comment"># cat /dev/null > filename</span>
+<span class="token punctuation">[</span>root@zhoucentos log<span class="token punctuation">]</span><span class="token comment"># cat filename</span>
 
-command &gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp; &#x3D;&#x3D; command 1&gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;
+<span class="token builtin class-name">command</span> <span class="token operator">></span>/dev/null <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span> <span class="token operator">==</span> <span class="token builtin class-name">command</span> <span class="token operator"><span class="token file-descriptor important">1</span>></span>/dev/null <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
 
-#1)command:表示shell命令或者为一个可执行程序
-#2)&gt;:表示重定向到哪里
-#3)&#x2F;dev&#x2F;null:表示Linux的空设备文件
-#4)2:表示标准错误输出
-#5)&amp;1:&amp;表示等同于的意思,2&gt;&amp;1,表示2的输出重定向等于于1
-#6)&amp;:表示后台执行,即这条指令执行在后台运行
+<span class="token comment">#1)command:表示shell命令或者为一个可执行程序</span>
+<span class="token comment">#2)>:表示重定向到哪里</span>
+<span class="token comment">#3)/dev/null:表示Linux的空设备文件</span>
+<span class="token comment">#4)2:表示标准错误输出</span>
+<span class="token comment">#5)&amp;1:&amp;表示等同于的意思,2>&amp;1,表示2的输出重定向等于于1</span>
+<span class="token comment">#6)&amp;:表示后台执行,即这条指令执行在后台运行</span>
 
-#1&gt;&#x2F;dev&#x2F;null:表示标准输出重定向到空设备文件,也就是不输出任何信息到终端,不显示任何信息。 
-#2&gt;&amp;1:表示标准错误输出重定向等同于标准输出,因为之前标准输出已经重定向到了空设备文件,所以标准错误输出也重定向到空设备文件。
+<span class="token comment">#1>/dev/null:表示标准输出重定向到空设备文件,也就是不输出任何信息到终端,不显示任何信息。 </span>
+<span class="token comment">#2>&amp;1:表示标准错误输出重定向等同于标准输出,因为之前标准输出已经重定向到了空设备文件,所以标准错误输出也重定向到空设备文件。</span>
 
-#这条命令的意思就是在后台执行这个程序,并将错误输出2重定向到标准输出1,然后将标准输出1全部放到&#x2F;dev&#x2F;null文件,也就是清空. 
-#所以可以看出” &gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 “常用来避免shell命令或者程序等运行中有内容输出。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment">#这条命令的意思就是在后台执行这个程序,并将错误输出2重定向到标准输出1,然后将标准输出1全部放到/dev/null文件,也就是清空. </span>
+<span class="token comment">#所以可以看出” >/dev/null 2>&amp;1 “常用来避免shell命令或者程序等运行中有内容输出。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="if-判断"><a href="#if-判断" class="headerlink" title="if 判断"></a>if 判断</h2><ol>
 <li>条件测试的表达式：</li>
 </ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">    [ expression ]  # 括号两端必须要有空格
-    [[ expression ]] # 括号两端必须要有空格
-    test expression
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">    <span class="token punctuation">[</span> expression <span class="token punctuation">]</span>  <span class="token comment"># 括号两端必须要有空格</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span> expression <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment"># 括号两端必须要有空格</span>
+    <span class="token builtin class-name">test</span> expression
 组合测试条件：
 
--a  # : and
--o  # : or
-!   # :  非<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+-a  <span class="token comment"># : and</span>
+-o  <span class="token comment"># : or</span>
+<span class="token operator">!</span>   <span class="token comment"># :  非</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ol start="2">
 <li>整数比较：</li>
 </ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">-eq # 测试两个整数是否相等
--ne # 测试两个整数是否不等
--gt # 测试一个数是否大于另一个数
--lt # 测试一个数是否小于另一个数
--ge # 大于或等于
--le # 小于或等于
-# 命令间的逻辑关系
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-eq <span class="token comment"># 测试两个整数是否相等</span>
+-ne <span class="token comment"># 测试两个整数是否不等</span>
+-gt <span class="token comment"># 测试一个数是否大于另一个数</span>
+-lt <span class="token comment"># 测试一个数是否小于另一个数</span>
+-ge <span class="token comment"># 大于或等于</span>
+-le <span class="token comment"># 小于或等于</span>
+<span class="token comment"># 命令间的逻辑关系</span>
 
-&amp;&amp;  # 逻辑与：
-        # 第一个条件为假 第二个条件不用在判断，最总结果已经有
-        # 第一个条件为真，第二个条件必须得判断
+<span class="token operator">&amp;&amp;</span>  <span class="token comment"># 逻辑与：</span>
+        <span class="token comment"># 第一个条件为假 第二个条件不用在判断，最总结果已经有</span>
+        <span class="token comment"># 第一个条件为真，第二个条件必须得判断</span>
 
-|| # 逻辑或<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">||</span> <span class="token comment"># 逻辑或</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ol start="3">
 <li>字符串比较</li>
 </ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">&#x3D;&#x3D; # 等于  两边要有空格
-!&#x3D; # 不等
-&gt;  # 大于
-&lt;  # 小于<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">==</span> <span class="token comment"># 等于  两边要有空格</span>
+<span class="token operator">!=</span> <span class="token comment"># 不等</span>
+<span class="token operator">></span>  <span class="token comment"># 大于</span>
+<span class="token operator">&lt;</span>  <span class="token comment"># 小于</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ol start="4">
 <li>文件测试</li>
 </ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">-z string 测试指定字符是否为空，空着真，非空为假
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-z string 测试指定字符是否为空，空着真，非空为假
 -n string 测试指定字符串是否为不空，空为假 非空为真
 -e FILE 测试文件是否存在
--f file 测试文件是否为普通文件
--d file 测试指定路径是否为目录
--r file 测试文件对当前用户是否可读
--w file 测试文件对当前用户是否可写
--x file 测试文件对当前用户是都可执行
+-f <span class="token function">file</span> 测试文件是否为普通文件
+-d <span class="token function">file</span> 测试指定路径是否为目录
+-r <span class="token function">file</span> 测试文件对当前用户是否可读
+-w <span class="token function">file</span> 测试文件对当前用户是否可写
+-x <span class="token function">file</span> 测试文件对当前用户是都可执行
 -z  是否为空  为空则为真
 -a  是否不空<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="iconv-命令"><a href="#iconv-命令" class="headerlink" title="iconv 命令"></a>iconv 命令</h2><p><code>iconv</code> 命令是<code>linux</code>下用于文件转编码的常用命令，对于同时使用windows系统和linux系统的同学来说文件转编码也是经常遇到的操作。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"> # 输入&#x2F;输出格式规范：
-  -f, --from-code&#x3D;名称     #原始文本编$$码
-  -t, --to-code&#x3D;名称         #输出编码
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"> <span class="token comment"># 输入/输出格式规范：</span>
+  -f, --from-code<span class="token operator">=</span>名称     <span class="token comment">#原始文本编$$码</span>
+  -t, --to-code<span class="token operator">=</span>名称         <span class="token comment">#输出编码</span>
 
-# 信息：
-  -l, --list                 　　 #列举所有已知的字符集
+<span class="token comment"># 信息：</span>
+  -l, --list                 　　 <span class="token comment">#列举所有已知的字符集</span>
 
-# 输出控制：
-  -c                         　　#从输出中忽略无效的字符
-  -o, --output&#x3D;FILE        #输出文件
-  -s, --silent                   #关闭警告
-      --verbose                #打印进度信息
-  -?, --help                    #给出该系统求助列表
-      --usage                   #给出简要的用法信息
-  -V, --version                #打印程序版本号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># 输出控制：</span>
+  -c                         　　<span class="token comment">#从输出中忽略无效的字符</span>
+  -o, --output<span class="token operator">=</span>FILE        <span class="token comment">#输出文件</span>
+  -s, --silent                   <span class="token comment">#关闭警告</span>
+      --verbose                <span class="token comment">#打印进度信息</span>
+  -?, --help                    <span class="token comment">#给出该系统求助列表</span>
+      --usage                   <span class="token comment">#给出简要的用法信息</span>
+  -V, --version                <span class="token comment">#打印程序版本号</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h2 id="SCP"><a href="#SCP" class="headerlink" title="SCP"></a>SCP</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">
-#  本地向服务器上传文件
-scp -r &#x2F;path&#x2F;to&#x2F;file username@host:&#x2F;path&#x2F;to.file
+<h2 id="SCP"><a href="#SCP" class="headerlink" title="SCP"></a>SCP</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+<span class="token comment">#  本地向服务器上传文件</span>
+<span class="token function">scp</span> -r /path/to/file username@host:/path/to.file
 
-# 从服务器下载文件
+<span class="token comment"># 从服务器下载文件</span>
 
-scp -r username@host:&#x2F;path&#x2F;to.file &#x2F;path&#x2F;to&#x2F;file
+<span class="token function">scp</span> -r username@host:/path/to.file /path/to/file
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -548,6 +568,25 @@ scp -r username@host:&#x2F;path&#x2F;to.file &#x2F;path&#x2F;to&#x2F;file
     
     
     
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
 
       <footer class="post-footer">
           <div class="post-tags">
@@ -658,10 +697,6 @@ scp -r username@host:&#x2F;path&#x2F;to.file &#x2F;path&#x2F;to&#x2F;file
       </div>
   </nav>
 </div>
-  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
-    Chat
-  </a>
-  </div>
 
 
 
@@ -689,6 +724,18 @@ scp -r username@host:&#x2F;path&#x2F;to.file &#x2F;path&#x2F;to&#x2F;file
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">majm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">60k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:40</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
@@ -708,6 +755,7 @@ scp -r username@host:&#x2F;path&#x2F;to.file &#x2F;path&#x2F;to&#x2F;file
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
