@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-  
-  <title>Kafka 入门 | majm的博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"majunmin.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
   <meta name="description" content="英文文档 | 中文文档  Kafka 是由 LinkedIn 开发的一个分布式的消息系统，使用 Scala 编写，它以可水平扩展和高吞吐率而被广泛使用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kafka 入门">
@@ -25,89 +38,220 @@
 <meta property="article:tag" content="kafka">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://majunmin.github.io/post/Kafka-%E5%85%A5%E9%97%A8/speed.png">
-  
-    <link rel="alternate" href="/atom.xml" title="majm的博客" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 6.0.0"></head>
+<link rel="canonical" href="https://majunmin.github.io/post/Kafka-%E5%85%A5%E9%97%A8.html">
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">majm的博客</a>
-      </h1>
-      
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Kafka 入门 | majm的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://majunmin.github.io"></form>
-      </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">majm的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-Kafka-入门" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post/Kafka-%E5%85%A5%E9%97%A8.html" class="article-date">
-  <time datetime="2019-04-28T07:08:15.000Z" itemprop="datePublished">2019-04-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/kafka/">kafka</a>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
   </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Kafka 入门
-    </h1>
-  
+</div>
+    </header>
 
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://majunmin.github.io/post/Kafka-%E5%85%A5%E9%97%A8.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="majm">
+      <meta itemprop="description" content="做一些简单的笔记">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="majm的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kafka 入门
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-28 15:08:15" itemprop="dateCreated datePublished" datetime="2019-04-28T15:08:15+08:00">2019-04-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-03 23:51:22" itemprop="dateModified" datetime="2022-03-03T23:51:22+08:00">2022-03-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/kafka/" itemprop="url" rel="index"><span itemprop="name">kafka</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
       </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
         <p><a target="_blank" rel="noopener" href="https://kafka.apache.org/">英文文档</a> <em>|</em> <a target="_blank" rel="noopener" href="http://kafka.apachecn.org/">中文文档</a></p>
-<blockquote><span class="custom-blockquote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg" data-reactroot="">
-<path fill="" d="M22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C13.8 22 15.5 21.5 17 20.6L22 22L20.7 17C21.5 15.5 22 13.8 22 12Z" undefined="1"></path>
-<path fill="" d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z" undefined="1"></path>
-<path fill="" d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z" undefined="1"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M17 8.5C15.23 8.97 14.07 10.84 14.01 13.27C14 13.33 14 13.4 14 13.47V13.5"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M9 8.5C7.23 8.97 6.07 10.84 6.01 13.27C6 13.33 6 13.4 6 13.47V13.5"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"></path>
-</svg>
-</span><p>Kafka 是由 LinkedIn 开发的一个分布式的消息系统，使用 Scala 编写，它以可水平扩展和高吞吐率而被广泛使用。</p></blockquote>
+<blockquote>
+<p>Kafka 是由 LinkedIn 开发的一个分布式的消息系统，使用 Scala 编写，它以可水平扩展和高吞吐率而被广泛使用。</p>
+</blockquote>
 <span id="more"></span>
 
 <h2 id="Mac-安装kafka"><a href="#Mac-安装kafka" class="headerlink" title="Mac 安装kafka"></a>Mac 安装kafka</h2><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 会自动 安装会依赖zookeeper
@@ -139,18 +283,11 @@ kafka-console-consume --bootstrap-server localhost:2181 --topic test --from-begi
 &#x2F;usr&#x2F;local&#x2F;etc&#x2F;kafka&#x2F;zookeeper.properties<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="Kafka-架构"><a href="#Kafka-架构" class="headerlink" title="Kafka 架构"></a>Kafka 架构</h2><p><strong>BrokerKafka</strong> 集群包含一个或多个服务器，这种服务器被称为 broker<br><strong>Topic</strong> 逻辑上的概念,每条发布到 Kafka 集群的消息都有一个类别，这个类别被称为 Topic。（物理上不同 Topic 的消息分开存储，逻辑上一个 Topic 的消息虽然保存于一个或多个 broker 上但用户只需指定消息的 Topic 即可生产或消费数据而不必关心数据存于何处）<br><strong>Partition</strong> 是物理上的概念，每个 Topic 包含一个或多个 Partition.<br><strong>Producer</strong> 负责发布消息到 Kafka broker<br><strong>Consumer</strong> 消息消费者，向 Kafka broker 读取消息的客户端。<br><strong>Consumer Group</strong> 每个 Consumer 属于一个特定的 Consumer Group（可为每个 Consumer 指定 group name，若不指定 group name 则属于默认的 group）。</p>
-<blockquote><span class="custom-blockquote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg" data-reactroot="">
-<path fill="" d="M22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C13.8 22 15.5 21.5 17 20.6L22 22L20.7 17C21.5 15.5 22 13.8 22 12Z" undefined="1"></path>
-<path fill="" d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z" undefined="1"></path>
-<path fill="" d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z" undefined="1"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M17 8.5C15.23 8.97 14.07 10.84 14.01 13.27C14 13.33 14 13.4 14 13.47V13.5"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M9 8.5C7.23 8.97 6.07 10.84 6.01 13.27C6 13.33 6 13.4 6 13.47V13.5"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"></path>
-</svg>
-</span><p>对于传统的 message queue 而言，一般会删除已经被消费的消息，而 Kafka 集群会保留所有的消息，无论其被消费与否。<br>当然，因为磁盘限制，不可能永久保留所有数据（实际上也没必要），因此 Kafka 提供两种策略删除旧数据。</p>
 <blockquote>
-<p>一是基于时间，<br>二是基于 Partition 文件大小。</p></blockquote>
+<p>对于传统的 message queue 而言，一般会删除已经被消费的消息，而 Kafka 集群会保留所有的消息，无论其被消费与否。<br>当然，因为磁盘限制，不可能永久保留所有数据（实际上也没必要），因此 Kafka 提供两种策略删除旧数据。</p>
+<blockquote>
+<p>一是基于时间，<br>二是基于 Partition 文件大小。</p>
+</blockquote>
 <p>例如可以通过配置 $KAFKA_HOME&#x2F;config&#x2F;server.properties，让 Kafka 删除一周前的数据，也可在 Partition 文件超过 1GB 时删除旧数据</p>
 </blockquote>
 <h2 id="Kafka-特性"><a href="#Kafka-特性" class="headerlink" title="Kafka 特性"></a>Kafka 特性</h2><ol>
@@ -192,16 +329,9 @@ kafka-console-consume --bootstrap-server localhost:2181 --topic test --from-begi
 <p>属性: 1字节， 目前只是用了 最低三位 用于保存消息压缩类型，其余五位未使用。<br>     0 无压缩  1 gzip  2 Snappy 3 LZ4</p>
 <ul>
 <li><p>为什么 kafka 消息缓存放在了页缓存,而不是放在 java 堆上</p>
-<blockquote><span class="custom-blockquote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg" data-reactroot="">
-<path fill="" d="M22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C13.8 22 15.5 21.5 17 20.6L22 22L20.7 17C21.5 15.5 22 13.8 22 12Z" undefined="1"></path>
-<path fill="" d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z" undefined="1"></path>
-<path fill="" d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z" undefined="1"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M17 8.5C15.23 8.97 14.07 10.84 14.01 13.27C14 13.33 14 13.4 14 13.47V13.5"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M9 8.5C7.23 8.97 6.07 10.84 6.01 13.27C6 13.33 6 13.4 6 13.47V13.5"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"></path>
-</svg>
-</span><p>JMM 中,对象内存开销相当大。 堆上的数据量越大，GC的性能会下降很多<br>JAVA操作系统默认开启了页缓存机制，也就是说对上保存的对象很可能在页缓存中保留一份，开销大<br>Kafka 直接使用 ByteBuffer,而不是直接使用对象，占用空间少<br>大量使用页缓存而不是使用堆内存，当kafka broker进程崩溃时，堆上数据会消失一部分，而页缓存中的数据依然存在</p></blockquote>
+<blockquote>
+<p>JMM 中,对象内存开销相当大。 堆上的数据量越大，GC的性能会下降很多<br>JAVA操作系统默认开启了页缓存机制，也就是说对上保存的对象很可能在页缓存中保留一份，开销大<br>Kafka 直接使用 ByteBuffer,而不是直接使用对象，占用空间少<br>大量使用页缓存而不是使用堆内存，当kafka broker进程崩溃时，堆上数据会消失一部分，而页缓存中的数据依然存在</p>
+</blockquote>
 </li>
 </ul>
 <h3 id="topic"><a href="#topic" class="headerlink" title="topic"></a>topic</h3><p>Topic 是一个逻辑概念,是一个逻辑概念，我们通常用topic来区分业务，</p>
@@ -233,153 +363,209 @@ kafka-console-consume --bootstrap-server localhost:2181 --topic test --from-begi
 <h3 id="审计数据收集"><a href="#审计数据收集" class="headerlink" title="审计数据收集"></a>审计数据收集</h3><h3 id="日志收集"><a href="#日志收集" class="headerlink" title="日志收集"></a>日志收集</h3><p>kafka 最常用的 使用方式,日志收集 汇总 统计</p>
 <h3 id="Event-Sourcing"><a href="#Event-Sourcing" class="headerlink" title="Event Sourcing"></a>Event Sourcing</h3><h3 id="流式处理"><a href="#流式处理" class="headerlink" title="流式处理"></a>流式处理</h3><p>spark streaming, apache fliink, apache storm</p>
 
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="https://majunmin.github.io/post/Kafka-%E5%85%A5%E9%97%A8.html" data-id="clamitdez0012m9nrepcgf1ry" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kafka/" rel="tag">kafka</a></li></ul>
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/kafka/" rel="tag"># kafka</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/Spring-Bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.html" rel="prev" title="Spring Bean生命周期">
+      <i class="fa fa-chevron-left"></i> Spring Bean生命周期
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/Apache-AB%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html" rel="next" title="Apache-AB性能测试工具">
+      Apache-AB性能测试工具 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-%E5%AE%89%E8%A3%85kafka"><span class="nav-number">1.</span> <span class="nav-text">Mac 安装kafka</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka-%E6%9E%B6%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">Kafka 架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka-%E7%89%B9%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">Kafka 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">4.</span> <span class="nav-text">Kafka 基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Message"><span class="nav-number">4.1.</span> <span class="nav-text">Message</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#topic"><span class="nav-number">4.2.</span> <span class="nav-text">topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#partation"><span class="nav-number">4.3.</span> <span class="nav-text">partation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#offset"><span class="nav-number">4.4.</span> <span class="nav-text">offset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#replica"><span class="nav-number">4.5.</span> <span class="nav-text">replica</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leader-%E5%92%8C-follower"><span class="nav-number">4.6.</span> <span class="nav-text">Leader 和 follower</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ISR"><span class="nav-number">4.7.</span> <span class="nav-text">ISR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka-%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">5.</span> <span class="nav-text">Kafka 使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97"><span class="nav-number">5.1.</span> <span class="nav-text">消息队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E8%A1%8C%E4%B8%BA%E6%97%A5%E5%BF%97%E8%BF%BD%E8%B8%AA"><span class="nav-number">5.2.</span> <span class="nav-text">网络行为日志追踪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A1%E8%AE%A1%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86"><span class="nav-number">5.3.</span> <span class="nav-text">审计数据收集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86"><span class="nav-number">5.4.</span> <span class="nav-text">日志收集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-Sourcing"><span class="nav-number">5.5.</span> <span class="nav-text">Event Sourcing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E5%BC%8F%E5%A4%84%E7%90%86"><span class="nav-number">5.6.</span> <span class="nav-text">流式处理</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">majm</p>
+  <div class="site-description" itemprop="description">做一些简单的笔记</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">majm</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
     </footer>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/post/Apache-AB%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Apache-AB性能测试工具
-        
-      </div>
-    </a>
-  
-  
-    <a href="/post/Spring-Bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.html" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Spring Bean生命周期</div>
-    </a>
-  
-</nav>
 
   
-</article>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/bigdata/">bigdata</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/golang/">golang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jvm/">jvm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/">kafka</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/consumer/">consumer</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/">maven</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/%E9%94%81/">锁</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a></li></ul>
-    </div>
-  </div>
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ApplicationContext/" rel="tag">ApplicationContext</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeanFactory/" rel="tag">BeanFactory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNSResolver/" rel="tag">DNSResolver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intelij/" rel="tag">Intelij</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aop/" rel="tag">aop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apacheAB/" rel="tag">apacheAB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" rel="tag">bean生命周期</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bigcache/" rel="tag">bigcache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bigdata/" rel="tag">bigdata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cache/" rel="tag">cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos7/" rel="tag">centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clickhouse/" rel="tag">clickhouse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/consumer/" rel="tag">consumer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/context/" rel="tag">context</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/convey/" rel="tag">convey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-compose/" rel="tag">docker-compose</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/etcd/" rel="tag">etcd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastcache/" rel="tag">fastcache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gateway/" rel="tag">gateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-build/" rel="tag">go build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/" rel="tag">golang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gomock/" rel="tag">gomock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gomonkey/" rel="tag">gomonkey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grpc/" rel="tag">grpc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/idea/" rel="tag">idea</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image/" rel="tag">image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jstat/" rel="tag">jstat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/" rel="tag">jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafak/" rel="tag">kafak</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/md/" rel="tag">md</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/producer/" rel="tag">producer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/" rel="tag">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trace/" rel="tag">trace</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="tag">位运算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" rel="tag">动态代理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E9%97%B4/" rel="tag">区间</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B6%E5%8F%91/" rel="tag">并发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag">快捷键</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" rel="tag">性能测试工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93/" rel="tag">架构整洁之道</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%A5%E8%AF%A2%E8%AE%A1%E5%88%92/" rel="tag">查询计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/" rel="tag">源码剖析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">逆波兰表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%81/" rel="tag">锁</a></li></ul>
-    </div>
-  </div>
+
+
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/ApplicationContext/" style="font-size: 10px;">ApplicationContext</a> <a href="/tags/BeanFactory/" style="font-size: 10px;">BeanFactory</a> <a href="/tags/DNSResolver/" style="font-size: 10px;">DNSResolver</a> <a href="/tags/Intelij/" style="font-size: 10px;">Intelij</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/aop/" style="font-size: 10px;">aop</a> <a href="/tags/apacheAB/" style="font-size: 10px;">apacheAB</a> <a href="/tags/bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" style="font-size: 10px;">bean生命周期</a> <a href="/tags/bigcache/" style="font-size: 10px;">bigcache</a> <a href="/tags/bigdata/" style="font-size: 12.5px;">bigdata</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/cache/" style="font-size: 15px;">cache</a> <a href="/tags/centos7/" style="font-size: 10px;">centos7</a> <a href="/tags/clickhouse/" style="font-size: 10px;">clickhouse</a> <a href="/tags/consumer/" style="font-size: 10px;">consumer</a> <a href="/tags/context/" style="font-size: 12.5px;">context</a> <a href="/tags/convey/" style="font-size: 10px;">convey</a> <a href="/tags/docker/" style="font-size: 12.5px;">docker</a> <a href="/tags/docker-compose/" style="font-size: 10px;">docker-compose</a> <a href="/tags/etcd/" style="font-size: 10px;">etcd</a> <a href="/tags/fastcache/" style="font-size: 10px;">fastcache</a> <a href="/tags/gateway/" style="font-size: 10px;">gateway</a> <a href="/tags/go/" style="font-size: 12.5px;">go</a> <a href="/tags/go-build/" style="font-size: 10px;">go build</a> <a href="/tags/golang/" style="font-size: 20px;">golang</a> <a href="/tags/gomock/" style="font-size: 10px;">gomock</a> <a href="/tags/gomonkey/" style="font-size: 10px;">gomonkey</a> <a href="/tags/grpc/" style="font-size: 10px;">grpc</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/idea/" style="font-size: 10px;">idea</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/jstat/" style="font-size: 10px;">jstat</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/kafak/" style="font-size: 10px;">kafak</a> <a href="/tags/kafka/" style="font-size: 15px;">kafka</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/maven/" style="font-size: 12.5px;">maven</a> <a href="/tags/md/" style="font-size: 10px;">md</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/producer/" style="font-size: 10px;">producer</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/tags/test/" style="font-size: 17.5px;">test</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/trace/" style="font-size: 10px;">trace</a> <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" style="font-size: 10px;">位运算</a> <a href="/tags/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" style="font-size: 10px;">动态代理</a> <a href="/tags/%E5%8C%BA%E9%97%B4/" style="font-size: 10px;">区间</a> <a href="/tags/%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">并发</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 12.5px;">微服务</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">性能测试工具</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 12.5px;">架构</a> <a href="/tags/%E6%9E%B6%E6%9E%84%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93/" style="font-size: 10px;">架构整洁之道</a> <a href="/tags/%E6%9F%A5%E8%AF%A2%E8%AE%A1%E5%88%92/" style="font-size: 10px;">查询计划</a> <a href="/tags/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/" style="font-size: 10px;">源码剖析</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.5px;">算法</a> <a href="/tags/%E7%B4%A2%E5%BC%95/" style="font-size: 10px;">索引</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">读书笔记</a> <a href="/tags/%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 10px;">逆波兰表达式</a> <a href="/tags/%E9%94%81/" style="font-size: 10px;">锁</a>
-    </div>
-  </div>
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li></ul>
-    </div>
-  </div>
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/post/fastcache%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.html">fastcache源码分析</a>
-          </li>
-        
-          <li>
-            <a href="/post/%E5%A4%A7%E6%95%B0%E6%8D%AE-%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%A4%A7%E5%AE%BD%E8%A1%A8.html">大数据-数据仓库大宽表</a>
-          </li>
-        
-          <li>
-            <a href="/post/golang%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96.html">golang如何避免循环依赖</a>
-          </li>
-        
-          <li>
-            <a href="/post/Go-Test-Gomonkey%E4%BD%BF%E7%94%A8.html">Go-Test-Gomonkey使用</a>
-          </li>
-        
-          <li>
-            <a href="/post/Go-Test-Convey%E4%BD%BF%E7%94%A8.html">Go-Test-Convey使用</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2024 majm<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
