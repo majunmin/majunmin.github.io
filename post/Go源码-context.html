@@ -1,1 +1,867 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><link href="/static/css/chunk-libs.eebac533.css" rel="stylesheet"><link href="/static/css/app.0d31776f.css" rel="stylesheet"><!-- hexo injector head_end start --><script rel="prefetch" async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/components/prism-core.js" data-manual></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/plugins/toolbar/prism-toolbar.min.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/themes/prism.min.css"/><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/plugins/toolbar/prism-toolbar.min.css"/><link rel="stylesheet" href="https://fonts.loli.net/css?family=Rubik" /><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.2/gitalk.min.js"></script><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.2/gitalk.min.css"/><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.0.0"></head><body id="body-container"><noscript><strong>We're sorry but Aurora Blog doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script>(function(e){function t(t){for(var a,n,u=t[0],i=t[1],c=t[2],l=0,p=[];l<u.length;l++)n=u[l],Object.prototype.hasOwnProperty.call(o,n)&&o[n]&&p.push(o[n][0]),o[n]=0;for(a in i)Object.prototype.hasOwnProperty.call(i,a)&&(e[a]=i[a]);f&&f(t);while(p.length)p.shift()();return s.push.apply(s,c||[]),r()}function r(){for(var e,t=0;t<s.length;t++){for(var r=s[t],a=!0,n=1;n<r.length;n++){var u=r[n];0!==o[u]&&(a=!1)}a&&(s.splice(t--,1),e=i(i.s=r[0]))}return e}var a={},n={runtime:0},o={runtime:0},s=[];function u(e){return i.p+"static/js/"+({404:"404",about:"about",archives:"archives",categories:"categories",page:"page",post:"post",result:"result",tags:"tags"}[e]||e)+"."+{404:"00d640a8",about:"024aacd1",archives:"574ac664",categories:"90aa5475",page:"a02618ad",post:"cebfbaa4",result:"39470350",tags:"2ad613f5"}[e]+".js"}function i(t){if(a[t])return a[t].exports;var r=a[t]={i:t,l:!1,exports:{}};return e[t].call(r.exports,r,r.exports,i),r.l=!0,r.exports}i.e=function(e){var t=[],r={404:1,about:1,archives:1,categories:1,page:1,post:1,result:1,tags:1};n[e]?t.push(n[e]):0!==n[e]&&r[e]&&t.push(n[e]=new Promise((function(t,r){for(var a="static/css/"+({404:"404",about:"about",archives:"archives",categories:"categories",page:"page",post:"post",result:"result",tags:"tags"}[e]||e)+"."+{404:"1a6cd5bd",about:"32dfa3b0",archives:"c0d49bd5",categories:"10e2be12",page:"749ad047",post:"9f951a60",result:"10e2be12",tags:"10e2be12"}[e]+".css",o=i.p+a,s=document.getElementsByTagName("link"),u=0;u<s.length;u++){var c=s[u],l=c.getAttribute("data-href")||c.getAttribute("href");if("stylesheet"===c.rel&&(l===a||l===o))return t()}var p=document.getElementsByTagName("style");for(u=0;u<p.length;u++){c=p[u],l=c.getAttribute("data-href");if(l===a||l===o)return t()}var f=document.createElement("link");f.rel="stylesheet",f.type="text/css",f.onload=t,f.onerror=function(t){var a=t&&t.target&&t.target.src||o,s=new Error("Loading CSS chunk "+e+" failed.\n("+a+")");s.code="CSS_CHUNK_LOAD_FAILED",s.request=a,delete n[e],f.parentNode.removeChild(f),r(s)},f.href=o;var d=document.getElementsByTagName("head")[0];d.appendChild(f)})).then((function(){n[e]=0})));var a=o[e];if(0!==a)if(a)t.push(a[2]);else{var s=new Promise((function(t,r){a=o[e]=[t,r]}));t.push(a[2]=s);var c,l=document.createElement("script");l.charset="utf-8",l.timeout=120,i.nc&&l.setAttribute("nonce",i.nc),l.src=u(e);var p=new Error;c=function(t){l.onerror=l.onload=null,clearTimeout(f);var r=o[e];if(0!==r){if(r){var a=t&&("load"===t.type?"missing":t.type),n=t&&t.target&&t.target.src;p.message="Loading chunk "+e+" failed.\n("+a+": "+n+")",p.name="ChunkLoadError",p.type=a,p.request=n,r[1](p)}o[e]=void 0}};var f=setTimeout((function(){c({type:"timeout",target:l})}),12e4);l.onerror=l.onload=c,document.head.appendChild(l)}return Promise.all(t)},i.m=e,i.c=a,i.d=function(e,t,r){i.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},i.r=function(e){"undefined"!==typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(e,t){if(1&t&&(e=i(e)),8&t)return e;if(4&t&&"object"===typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(i.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var a in e)i.d(r,a,function(t){return e[t]}.bind(null,a));return r},i.n=function(e){var t=e&&e.__esModule?function(){return e["default"]}:function(){return e};return i.d(t,"a",t),t},i.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},i.p="/",i.oe=function(e){throw console.error(e),e};var c=window["webpackJsonp"]=window["webpackJsonp"]||[],l=c.push.bind(c);c.push=t,c=c.slice();for(var p=0;p<c.length;p++)t(c[p]);var f=l;r()})([]);</script><script src="/static/js/chunk-libs.dc6146cd.js"></script><script src="/static/js/app.6d2c358d.js"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Go源码-context | majm的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在go服务器中,通常 每个传入的请求都会在自己的goroutine中进行处理. 请求处理程序通常会启动额外的goroutine来访问数据库 或者第三方服务.处理请求的一组goroutine通常需要访问特定于请求的值: 例如userid, request_id, token,timeout…,当请求被取消或者超时时,所有处理该请求的goroutine都应该快速退出. 以便系统可以快速回收他们正在使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go源码-context">
+<meta property="og:url" content="https://majunmin.github.io/post/Go%E6%BA%90%E7%A0%81-context.html">
+<meta property="og:site_name" content="majm的博客">
+<meta property="og:description" content="在go服务器中,通常 每个传入的请求都会在自己的goroutine中进行处理. 请求处理程序通常会启动额外的goroutine来访问数据库 或者第三方服务.处理请求的一组goroutine通常需要访问特定于请求的值: 例如userid, request_id, token,timeout…,当请求被取消或者超时时,所有处理该请求的goroutine都应该快速退出. 以便系统可以快速回收他们正在使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://majunmin.github.io/Go%E6%BA%90%E7%A0%81-context/context.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/majunmin/image/etcd/20220903100716.png">
+<meta property="article:published_time" content="2022-08-30T15:39:07.000Z">
+<meta property="article:modified_time" content="2022-10-11T04:01:23.554Z">
+<meta property="article:author" content="majm">
+<meta property="article:tag" content="golang">
+<meta property="article:tag" content="context">
+<meta property="article:tag" content="源码剖析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://majunmin.github.io/Go%E6%BA%90%E7%A0%81-context/context.png">
+  
+    <link rel="alternate" href="/atom.xml" title="majm的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">majm的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://majunmin.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Go源码-context" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post/Go%E6%BA%90%E7%A0%81-context.html" class="article-date">
+  <time datetime="2022-08-30T15:39:07.000Z" itemprop="datePublished">2022-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Go源码-context
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在go服务器中,通常 每个传入的请求都会在自己的<code>goroutine</code>中进行处理. 请求处理程序通常会启动额外的<code>goroutine</code>来访问数据库 或者第三方服务.<br>处理请求的一组<code>goroutine</code>通常需要访问特定于请求的值: 例如<code>userid</code>, <code>request_id</code>, <code>token</code>,<code>timeout</code>…,当请求被取消或者超时时,所有处理该请求的goroutine都应该快速退出. 以便系统可以快速回收他们正在使用的任何资源.</p>
+<p><a target="_blank" rel="noopener" href="https://pkg.go.dev/context">context</a> 是 go 1.14 引入 的一个概念. 用于解决上述问题.</p>
+<span id="more"></span>
+
+<h2 id="context-源码解析"><a href="#context-源码解析" class="headerlink" title="context 源码解析"></a>context 源码解析</h2><p><img src="/./Go%E6%BA%90%E7%A0%81-context/context.png" alt="context"></p>
+<h3 id="context-Context"><a href="#context-Context" class="headerlink" title="context.Context"></a>context.Context</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go">
+<span class="token comment">// Context 是协程安全的,context 的方法可以被多个协程同时调用</span>
+<span class="token keyword">type</span> Context <span class="token keyword">interface</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token comment">// </span>
+	<span class="token function">Deadline</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>deadline time<span class="token punctuation">.</span>Time<span class="token punctuation">,</span> ok <span class="token builtin">bool</span><span class="token punctuation">)</span>
+
+	<span class="token comment">// 返回一个 channel,当 这个 context 被取消时,这个channel 会写入一个 struct</span>
+	<span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;-</span><span class="token keyword">chan</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+
+	<span class="token comment">// Done 还没有被关闭， 返回  nil</span>
+    <span class="token comment">// 如果  Done  已经被关闭, 返回 error:</span>
+    <span class="token comment">// - Canceled</span>
+    <span class="token comment">// - DeadlineExceeded</span>
+    <span class="token comment">// 一旦返回 error,这个方法之后就是幂等的</span>
+	<span class="token function">Err</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">error</span>
+
+	<span class="token comment">// </span>
+	<span class="token function">Value</span><span class="token punctuation">(</span>key any<span class="token punctuation">)</span> any
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<ol>
+<li><p><code>Deadline</code><br>如果 该 Context 被设置了超时，该函数返回  <code>true &amp; 对应的超时时间</code>， 否则 返回 <code>false &amp; nil</code>.</p>
+</li>
+<li><p><code>Done</code></p>
+</li>
+</ol>
+<p>返回一个只读 Channel, 但context 主动取消或者 自动超时取消时，该 context 以及 该context 的所有 子context 的 Done channel 都会被 close.<br>级联取消所有的子过程.</p>
+<ol start="3">
+<li><code>Err()</code></li>
+</ol>
+<p><code>Done()</code> 返回的 channel被 close 之前 会返回nil.<br>在 close 之后会返回error(表示比关闭的原因).</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// Canceled is the error returned by Context.Err when the context is canceled.</span>
+<span class="token keyword">var</span> Canceled <span class="token operator">=</span> errors<span class="token punctuation">.</span><span class="token function">New</span><span class="token punctuation">(</span><span class="token string">"context canceled"</span><span class="token punctuation">)</span>
+<span class="token comment">// DeadlineExceeded is the error returned by Context.Err when the context's</span>
+<span class="token comment">// deadline passes.</span>
+<span class="token keyword">var</span> DeadlineExceeded <span class="token builtin">error</span> <span class="token operator">=</span> deadlineExceededError<span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<ol start="4">
+<li><code>Value(key any) any</code></li>
+</ol>
+<p>返回绑定在 该 context 上 给定 key 对应的 value.  如果没有 返回 nil.</p>
+<p>为了防止Key冲突,最好将 key设置为 非导出类型,然后为其定义访问器.(这在许多开源项目中都有影子)</p>
+<p>key可是任意可比较的类型.</p>
+<p>下面是一个 context 共享 User 信息的 一个例子.</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> user
+<span class="token keyword">import</span> <span class="token string">"context"</span>
+
+<span class="token comment">// User 是 要存储在Context中的value 的类型.</span>
+<span class="token keyword">type</span> User <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span><span class="token operator">...</span><span class="token punctuation">&#125;</span>
+
+<span class="token comment">// key 被定义为非导出类型 为了防止与其他包冲突</span>
+<span class="token comment">// key is an unexported type for keys defined in this package.</span>
+<span class="token comment">// This prevents collisions with keys defined in other packages.</span>
+<span class="token keyword">type</span> key <span class="token builtin">int</span>
+
+<span class="token comment">// userKey 用来关联 请求中的user信息, 绑定在 context上.他是非导出的.</span>
+<span class="token comment">// 通过  NewContext &amp; FromContext 来设置和读取  user.User 信息， 而不是直接使用 userKey.</span>
+<span class="token comment">// userKey is the key for user.User values in Contexts. It is</span>
+<span class="token comment">// unexported; clients use user.NewContext and user.FromContext</span>
+<span class="token comment">// instead of using this key directly.</span>
+<span class="token keyword">var</span> userKey key
+
+<span class="token comment">// 携带 value</span>
+<span class="token comment">// NewContext returns a new Context that carries value u.</span>
+<span class="token keyword">func</span> <span class="token function">NewContext</span><span class="token punctuation">(</span>ctx context<span class="token punctuation">.</span>Context<span class="token punctuation">,</span> u <span class="token operator">*</span>User<span class="token punctuation">)</span> context<span class="token punctuation">.</span>Context <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> context<span class="token punctuation">.</span><span class="token function">WithValue</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> userKey<span class="token punctuation">,</span> u<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//读取 context 中的 存储的 user信息</span>
+<span class="token comment">// FromContext returns the User value stored in ctx, if any.</span>
+<span class="token keyword">func</span> <span class="token function">FromContext</span><span class="token punctuation">(</span>ctx context<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">*</span>User<span class="token punctuation">,</span> <span class="token builtin">bool</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    u<span class="token punctuation">,</span> ok <span class="token operator">:=</span> ctx<span class="token punctuation">.</span><span class="token function">Value</span><span class="token punctuation">(</span>userKey<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token operator">*</span>User<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> u<span class="token punctuation">,</span> ok
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>context.Context 的实现.<br><img src="https://cdn.jsdelivr.net/gh/majunmin/image/etcd/20220903100716.png"></p>
+<h3 id="1-emptyContext"><a href="#1-emptyContext" class="headerlink" title="1. emptyContext"></a>1. emptyContext</h3><p>emtptyContext 不是一个结构体,而是一个int类型,这样每一个值 都有独立的地址. 是 Context 的一个空的实现</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> <span class="token punctuation">(</span>
+	background <span class="token operator">=</span> <span class="token function">new</span><span class="token punctuation">(</span>emptyCtx<span class="token punctuation">)</span>
+	todo       <span class="token operator">=</span> <span class="token function">new</span><span class="token punctuation">(</span>emptyCtx<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>context.Background() 通常被用作根节点,不能被取消,也不会超时.<br>通过 <code>WithCancel</code> 从 <code>context.Background()</code> 派生出的 Context 要注意在对应过程完结后及时 cancel, 否则会造成 Context 泄露.</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// An emptyCtx is never canceled, has no values, and has no deadline. It is not</span>
+<span class="token comment">// struct&#123;&#125;, since vars of this type must have distinct addresses.</span>
+<span class="token keyword">type</span> emptyCtx <span class="token builtin">int</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span><span class="token operator">*</span>emptyCtx<span class="token punctuation">)</span> <span class="token function">Deadline</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>deadline time<span class="token punctuation">.</span>Time<span class="token punctuation">,</span> ok <span class="token builtin">bool</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">return</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span><span class="token operator">*</span>emptyCtx<span class="token punctuation">)</span> <span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;-</span><span class="token keyword">chan</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">return</span> <span class="token boolean">nil</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span><span class="token operator">*</span>emptyCtx<span class="token punctuation">)</span> <span class="token function">Err</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">return</span> <span class="token boolean">nil</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span><span class="token operator">*</span>emptyCtx<span class="token punctuation">)</span> <span class="token function">Value</span><span class="token punctuation">(</span>key any<span class="token punctuation">)</span> any <span class="token punctuation">&#123;</span>
+	<span class="token keyword">return</span> <span class="token boolean">nil</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>e <span class="token operator">*</span>emptyCtx<span class="token punctuation">)</span> <span class="token function">String</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">string</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">switch</span> e <span class="token punctuation">&#123;</span>
+	<span class="token keyword">case</span> background<span class="token punctuation">:</span>
+		<span class="token keyword">return</span> <span class="token string">"context.Background"</span>
+	<span class="token keyword">case</span> todo<span class="token punctuation">:</span>
+		<span class="token keyword">return</span> <span class="token string">"context.TODO"</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> <span class="token string">"unknown empty Context"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h3 id="2-context-cancelCtx"><a href="#2-context-cancelCtx" class="headerlink" title="2. context.cancelCtx"></a>2. context.cancelCtx</h3><p>context核心实现在这里,包括树形结构的构建 以及 进行级联取消.</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// A cancelCtx can be canceled. When canceled, it also cancels any children</span>
+<span class="token comment">// that implement canceler.</span>
+<span class="token keyword">type</span> cancelCtx <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+	Context
+
+	mu       sync<span class="token punctuation">.</span>Mutex            <span class="token comment">// protects following fields 保护下面的字段</span>
+	done     atomic<span class="token punctuation">.</span>Value          <span class="token comment">// of chan struct&#123;&#125;, created lazily, closed by first cancel call</span>
+	children <span class="token keyword">map</span><span class="token punctuation">[</span>canceler<span class="token punctuation">]</span><span class="token keyword">struct</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token comment">// set to nil by the first cancel call</span>
+	err      <span class="token builtin">error</span>                 <span class="token comment">// set to non-nil by the first cancel call</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 递归查找 parentCtx 中第一个  cancelCtx</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>c <span class="token operator">*</span>cancelCtx<span class="token punctuation">)</span> <span class="token function">Value</span><span class="token punctuation">(</span>key any<span class="token punctuation">)</span> any <span class="token punctuation">&#123;</span>
+	<span class="token keyword">if</span> key <span class="token operator">==</span> <span class="token operator">&amp;</span>cancelCtxKey <span class="token punctuation">&#123;</span> <span class="token comment">// </span>
+		<span class="token keyword">return</span> c
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> <span class="token function">value</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span>Context<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>c <span class="token operator">*</span>cancelCtx<span class="token punctuation">)</span> <span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;-</span><span class="token keyword">chan</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token punctuation">&#123;</span>
+	d <span class="token operator">:=</span> c<span class="token punctuation">.</span>done<span class="token punctuation">.</span><span class="token function">Load</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> d <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> d<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	c<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">defer</span> c<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	d <span class="token operator">=</span> c<span class="token punctuation">.</span>done<span class="token punctuation">.</span><span class="token function">Load</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> d <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		d <span class="token operator">=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+		c<span class="token punctuation">.</span>done<span class="token punctuation">.</span><span class="token function">Store</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> d<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>c <span class="token operator">*</span>cancelCtx<span class="token punctuation">)</span> <span class="token function">Err</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">&#123;</span>
+	c<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	err <span class="token operator">:=</span> c<span class="token punctuation">.</span>err
+	c<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span> err
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// cancel closes c.done, cancels each of c's children, and, if</span>
+<span class="token comment">// removeFromParent is true, removes c from its parent's children.</span>
+<span class="token comment">// cancel  关闭 c.done, 关闭 context 及其所有子节点. 如果  removeFromParent = true, 那么将会把 context 从起 父节点移除.</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>c <span class="token operator">*</span>cancelCtx<span class="token punctuation">)</span> <span class="token function">cancel</span><span class="token punctuation">(</span>removeFromParent <span class="token builtin">bool</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">if</span> err <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">panic</span><span class="token punctuation">(</span><span class="token string">"context: internal error: missing cancel error"</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token comment">// process</span>
+	c<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> c<span class="token punctuation">.</span>err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		c<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token keyword">return</span> <span class="token comment">// already canceled</span>
+	<span class="token punctuation">&#125;</span>
+	c<span class="token punctuation">.</span>err <span class="token operator">=</span> err
+	d<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> c<span class="token punctuation">.</span>done<span class="token punctuation">.</span><span class="token function">Load</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> d <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		c<span class="token punctuation">.</span>done<span class="token punctuation">.</span><span class="token function">Store</span><span class="token punctuation">(</span>closedchan<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">close</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token comment">// 遍历子节点,  递归调用 子节点的 cancel()</span>
+	<span class="token keyword">for</span> child <span class="token operator">:=</span> <span class="token keyword">range</span> c<span class="token punctuation">.</span>children <span class="token punctuation">&#123;</span>
+		<span class="token comment">// NOTE: acquiring the child's lock while holding parent's lock.</span>
+		child<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	c<span class="token punctuation">.</span>children <span class="token operator">=</span> <span class="token boolean">nil</span>
+	c<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	<span class="token comment">// c.Context 保存的是其 父节点</span>
+	<span class="token keyword">if</span> removeFromParent <span class="token punctuation">&#123;</span>
+		<span class="token function">removeChild</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span>Context<span class="token punctuation">,</span> c<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>cancelContext.Value() 方法  遇到特殊key<code>cancelCtxKey</code> 时会返回自身, 其实这是 复用了  <code>Value()</code>的 回溯逻辑(后面<code>回溯树构建</code>中会用到).<br>从而在 context树种回溯遍历时, 可以找到给定context中的第一个祖先 <code>cancelContext</code>实例.</p>
+<p><code>WithCancel</code>:<br><code>WithCancel()</code> 通过 调用<code>propagateCancel()</code>  实现回溯树的构建.</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">
+<span class="token comment">// WithCancel returns a copy of parent with a new Done channel. The returned</span>
+<span class="token comment">// context's Done channel is closed when the returned cancel function is called</span>
+<span class="token comment">// or when the parent context's Done channel is closed, whichever happens first.</span>
+<span class="token comment">//</span>
+<span class="token comment">// Canceling this context releases resources associated with it, so code should</span>
+<span class="token comment">// call cancel as soon as the operations running in this Context complete.</span>
+<span class="token keyword">func</span> <span class="token function">WithCancel</span><span class="token punctuation">(</span>parent Context<span class="token punctuation">)</span> <span class="token punctuation">(</span>ctx Context<span class="token punctuation">,</span> cancel CancelFunc<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">if</span> parent <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">panic</span><span class="token punctuation">(</span><span class="token string">"cannot create context from nil parent"</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	c <span class="token operator">:=</span> <span class="token function">newCancelCtx</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span>
+	<span class="token function">propagateCancel</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token operator">&amp;</span>c<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> <span class="token operator">&amp;</span>c<span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> c<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">,</span> Canceled<span class="token punctuation">)</span> <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// propagateCancel arranges for child to be canceled when parent is.</span>
+<span class="token keyword">func</span> <span class="token function">propagateCancel</span><span class="token punctuation">(</span>parent Context<span class="token punctuation">,</span> child canceler<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	done <span class="token operator">:=</span> parent<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> done <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> <span class="token comment">// parent is never canceled</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token comment">// 如果父节点已经被取消, 级联取消当前子节点.</span>
+	<span class="token keyword">select</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">case</span> <span class="token operator">&lt;-</span>done<span class="token punctuation">:</span>
+		<span class="token comment">// parent is already canceled</span>
+		child<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span> parent<span class="token punctuation">.</span><span class="token function">Err</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+		<span class="token keyword">return</span>
+	<span class="token keyword">default</span><span class="token punctuation">:</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token comment">// 否则: </span>
+	<span class="token keyword">if</span> p<span class="token punctuation">,</span> ok <span class="token operator">:=</span> <span class="token function">parentCancelCtx</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span><span class="token punctuation">;</span> ok <span class="token punctuation">&#123;</span> <span class="token comment">//  如果是 cancelCtx 类型,那就简单了， 将 curCtx 放到  parent.child 里面.</span>
+		p<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token keyword">if</span> p<span class="token punctuation">.</span>err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+			<span class="token comment">// 父节点已经被取消</span>
+			child<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span> p<span class="token punctuation">.</span>err<span class="token punctuation">)</span>
+		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span> p<span class="token punctuation">.</span>children <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+				p<span class="token punctuation">.</span>children <span class="token operator">=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">map</span><span class="token punctuation">[</span>canceler<span class="token punctuation">]</span><span class="token keyword">struct</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token comment">// lazy create</span>
+			<span class="token punctuation">&#125;</span>
+			p<span class="token punctuation">.</span>children<span class="token punctuation">[</span>child<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+		p<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>                                    <span class="token comment">//  如果 不是 cancelCtx类型, 就开启一个协程监听  parent 与 curCtx 是否有取消操作</span>
+		atomic<span class="token punctuation">.</span><span class="token function">AddInt32</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>goroutines<span class="token punctuation">,</span> <span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+		<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">select</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">case</span> <span class="token operator">&lt;-</span>parent<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+				child<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span> parent<span class="token punctuation">.</span><span class="token function">Err</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+			<span class="token keyword">case</span> <span class="token operator">&lt;-</span>child<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+
+
+<span class="token comment">// 当 parent 时cancelCtx时才会调用此方法.</span>
+<span class="token comment">// 通过 调用 `parent.Value(&amp;cancelCtxKey)` 找到最里面的  cancelCtx, </span>
+<span class="token comment">// 然后检查  parent.Done == cancelCtx.Done(). </span>
+<span class="token comment">// 如果 不匹配, 说明 cancelCtx 被包裹在了一个 自定义实现中,提供不同的 done通道. </span>
+<span class="token comment">// </span>
+<span class="token comment">// </span>
+<span class="token comment">// parentCancelCtx returns the underlying *cancelCtx for parent.</span>
+<span class="token comment">// It does this by looking up parent.Value(&amp;cancelCtxKey) to find</span>
+<span class="token comment">// the innermost enclosing *cancelCtx and then checking whether</span>
+<span class="token comment">// parent.Done() matches that *cancelCtx. (If not, the *cancelCtx</span>
+<span class="token comment">// has been wrapped in a custom implementation providing a</span>
+<span class="token comment">// different done channel, in which case we should not bypass it.)</span>
+<span class="token keyword">func</span> <span class="token function">parentCancelCtx</span><span class="token punctuation">(</span>parent Context<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">*</span>cancelCtx<span class="token punctuation">,</span> <span class="token builtin">bool</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	done <span class="token operator">:=</span> parent<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> done <span class="token operator">==</span> closedchan <span class="token operator">||</span> done <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> <span class="token boolean">nil</span><span class="token punctuation">,</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token comment">// 传入</span>
+	p<span class="token punctuation">,</span> ok <span class="token operator">:=</span> parent<span class="token punctuation">.</span><span class="token function">Value</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>cancelCtxKey<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token operator">*</span>cancelCtx<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token operator">!</span>ok <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> <span class="token boolean">nil</span><span class="token punctuation">,</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span>
+	pdone<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> p<span class="token punctuation">.</span>done<span class="token punctuation">.</span><span class="token function">Load</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> pdone <span class="token operator">!=</span> done <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> <span class="token boolean">nil</span><span class="token punctuation">,</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> p<span class="token punctuation">,</span> <span class="token boolean">true</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-context-timerCtx"><a href="#3-context-timerCtx" class="headerlink" title="3. context.timerCtx"></a>3. context.timerCtx</h3><p>超时取消, 顾名思义,  内部应该会有一个定时执行的函数, 调用 cancel().<br>这里包含两种取消模式: 1. 主动调用  cancel() 2. 时间到了, 执行 cancel()</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// timerCtx  携带了一个 timer 和一个 deadline.</span>
+<span class="token comment">// timerCtx 内嵌了一个  cancelCtx  复用其  `Done()`  and `Err()`.</span>
+<span class="token comment">// 当时间到了的时候,会调用  cacnelCtx 的 cancel() 执行取消</span>
+<span class="token comment">// A timerCtx carries a timer and a deadline. It embeds a cancelCtx to</span>
+<span class="token comment">// implement Done and Err. It implements cancel by stopping its timer then</span>
+<span class="token comment">// delegating to cancelCtx.cancel.</span>
+<span class="token keyword">type</span> timerCtx <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+	cancelCtx
+	timer <span class="token operator">*</span>time<span class="token punctuation">.</span>Timer <span class="token comment">// Under cancelCtx.mu.</span>
+
+	deadline time<span class="token punctuation">.</span>Time
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>c <span class="token operator">*</span>timerCtx<span class="token punctuation">)</span> <span class="token function">Deadline</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>deadline time<span class="token punctuation">.</span>Time<span class="token punctuation">,</span> ok <span class="token builtin">bool</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">return</span> c<span class="token punctuation">.</span>deadline<span class="token punctuation">,</span> <span class="token boolean">true</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>c <span class="token operator">*</span>timerCtx<span class="token punctuation">)</span> <span class="token function">String</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">string</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">return</span> <span class="token function">contextName</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span>cancelCtx<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">".WithDeadline("</span> <span class="token operator">+</span>
+		c<span class="token punctuation">.</span>deadline<span class="token punctuation">.</span><span class="token function">String</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" ["</span> <span class="token operator">+</span>
+		time<span class="token punctuation">.</span><span class="token function">Until</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span>deadline<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">String</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"])"</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>c <span class="token operator">*</span>timerCtx<span class="token punctuation">)</span> <span class="token function">cancel</span><span class="token punctuation">(</span>removeFromParent <span class="token builtin">bool</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	c<span class="token punctuation">.</span>cancelCtx<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> removeFromParent <span class="token punctuation">&#123;</span>
+		<span class="token comment">// Remove this timerCtx from its parent cancelCtx's children.</span>
+		<span class="token function">removeChild</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span>cancelCtx<span class="token punctuation">.</span>Context<span class="token punctuation">,</span> c<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	c<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> c<span class="token punctuation">.</span>timer <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		c<span class="token punctuation">.</span>timer<span class="token punctuation">.</span><span class="token function">Stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		c<span class="token punctuation">.</span>timer <span class="token operator">=</span> <span class="token boolean">nil</span>
+	<span class="token punctuation">&#125;</span>
+	c<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>创建一个 timerCtx:</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">WithTimeout</span><span class="token punctuation">(</span>parent Context<span class="token punctuation">,</span> timeout time<span class="token punctuation">.</span>Duration<span class="token punctuation">)</span> <span class="token punctuation">(</span>Context<span class="token punctuation">,</span> CancelFunc<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">return</span> <span class="token function">WithDeadline</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span>timeout<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token function">WithDeadline</span><span class="token punctuation">(</span>parent Context<span class="token punctuation">,</span> d time<span class="token punctuation">.</span>Time<span class="token punctuation">)</span> <span class="token punctuation">(</span>Context<span class="token punctuation">,</span> CancelFunc<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">if</span> parent <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">panic</span><span class="token punctuation">(</span><span class="token string">"cannot create context from nil parent"</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">if</span> cur<span class="token punctuation">,</span> ok <span class="token operator">:=</span> parent<span class="token punctuation">.</span><span class="token function">Deadline</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> ok <span class="token operator">&amp;&amp;</span> cur<span class="token punctuation">.</span><span class="token function">Before</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">// The current deadline is already sooner than the new one.</span>
+		<span class="token keyword">return</span> <span class="token function">WithCancel</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	c <span class="token operator">:=</span> <span class="token operator">&amp;</span>timerCtx<span class="token punctuation">&#123;</span>
+		cancelCtx<span class="token punctuation">:</span> <span class="token function">newCancelCtx</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span><span class="token punctuation">,</span>
+		deadline<span class="token punctuation">:</span>  d<span class="token punctuation">,</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token comment">// 下卖弄会分析， 回溯树的构建</span>
+	<span class="token function">propagateCancel</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> c<span class="token punctuation">)</span>
+	dur <span class="token operator">:=</span> time<span class="token punctuation">.</span><span class="token function">Until</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
+
+	<span class="token comment">// 如果已经超时了, 直接取消</span>
+	<span class="token keyword">if</span> dur <span class="token operator">&lt;=</span> <span class="token number">0</span> <span class="token punctuation">&#123;</span>
+		c<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">,</span> DeadlineExceeded<span class="token punctuation">)</span> <span class="token comment">// deadline has already passed</span>
+		<span class="token keyword">return</span> c<span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> c<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span> Canceled<span class="token punctuation">)</span> <span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+	c<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">defer</span> c<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> c<span class="token punctuation">.</span>err <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">// 添加一个延时任务</span>
+		c<span class="token punctuation">.</span>timer <span class="token operator">=</span> time<span class="token punctuation">.</span><span class="token function">AfterFunc</span><span class="token punctuation">(</span>dur<span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			c<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">,</span> DeadlineExceeded<span class="token punctuation">)</span>
+		<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> c<span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> c<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">,</span> Canceled<span class="token punctuation">)</span> <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-valueCtx"><a href="#4-valueCtx" class="headerlink" title="4. valueCtx"></a>4. valueCtx</h3><p>创建:</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">
+<span class="token comment">// WithValue returns a copy of parent in which the value associated with key is</span>
+<span class="token comment">// val.</span>
+<span class="token comment">//</span>
+<span class="token comment">// Use context Values only for request-scoped data that transits processes and</span>
+<span class="token comment">// APIs, not for passing optional parameters to functions.</span>
+<span class="token comment">//</span>
+<span class="token comment">// The provided key must be comparable and should not be of type</span>
+<span class="token comment">// string or any other built-in type to avoid collisions between</span>
+<span class="token comment">// packages using context. Users of WithValue should define their own</span>
+<span class="token comment">// types for keys. To avoid allocating when assigning to an</span>
+<span class="token comment">// interface&#123;&#125;, context keys often have concrete type</span>
+<span class="token comment">// struct&#123;&#125;. Alternatively, exported context key variables' static</span>
+<span class="token comment">// type should be a pointer or interface.</span>
+<span class="token keyword">func</span> <span class="token function">WithValue</span><span class="token punctuation">(</span>parent Context<span class="token punctuation">,</span> key<span class="token punctuation">,</span> val any<span class="token punctuation">)</span> Context <span class="token punctuation">&#123;</span>
+	<span class="token keyword">if</span> parent <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">panic</span><span class="token punctuation">(</span><span class="token string">"cannot create context from nil parent"</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">if</span> key <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">panic</span><span class="token punctuation">(</span><span class="token string">"nil key"</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">if</span> <span class="token operator">!</span>reflectlite<span class="token punctuation">.</span><span class="token function">TypeOf</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Comparable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">panic</span><span class="token punctuation">(</span><span class="token string">"key is not comparable"</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> <span class="token operator">&amp;</span>valueCtx<span class="token punctuation">&#123;</span>parent<span class="token punctuation">,</span> key<span class="token punctuation">,</span> val<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// A valueCtx carries a key-value pair. It implements Value for that key and</span>
+<span class="token comment">// delegates all other calls to the embedded Context.</span>
+<span class="token keyword">type</span> valueCtx <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+	Context
+	key<span class="token punctuation">,</span> val any
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="5-1-构建-context-树"><a href="#5-1-构建-context-树" class="headerlink" title="5.1.  构建 context 树"></a>5.1.  构建 context 树</h3><p>树的构建 级联取消的不分 基础代码在 <code>cancelCtx</code> 中, timerCtx和 <code>valuectx</code> 都会引用 cancelCtx 这部分代码.</p>
+<p><code>WithCancel()</code> 创建了 一个 Donechannel 和 拷贝了parentCtx.<br>当  <code>parentCtx 被取消</code> 或者 <code>当前context 的 cancel() 被调用</code>, 当前 <code>context.Done()</code> 的channel将会被 close.</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">
+<span class="token keyword">func</span> <span class="token function">WithCancel</span><span class="token punctuation">(</span>parent Context<span class="token punctuation">)</span> <span class="token punctuation">(</span>ctx Context<span class="token punctuation">,</span> cancel CancelFunc<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">if</span> parent <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">panic</span><span class="token punctuation">(</span><span class="token string">"cannot create context from nil parent"</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	c <span class="token operator">:=</span> <span class="token function">newCancelCtx</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span>
+	<span class="token function">propagateCancel</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> <span class="token operator">&amp;</span>c<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> <span class="token operator">&amp;</span>c<span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> c<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">,</span> Canceled<span class="token punctuation">)</span> <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol>
+<li>子 context 持有 父 context 的引用.</li>
+<li>context 持有 其 所有子节点(子context) 的引用.</li>
+</ol>
+<p><code>propagateCancel()</code>: 保证当parentCtx 被取消时,遍历取消 childCtx, 构建一个回溯树.</p>
+<ul>
+<li>监听 parentContext.Done(), 收到取消信号时,级联取消子节点</li>
+</ul>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// propagateCancel arranges for child to be canceled when parent is.</span>
+<span class="token keyword">func</span> <span class="token function">propagateCancel</span><span class="token punctuation">(</span>parent Context<span class="token punctuation">,</span> child canceler<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token comment">// parent.Done() 返回nil， 说明 parentContext 根本无法取消</span>
+	<span class="token comment">// 1. 比如 context.Background() || context.TODO()</span>
+	done <span class="token operator">:=</span> parent<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> done <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> <span class="token comment">// parent is never canceled</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token comment">// 2. 判断 parentContext 已经取消 </span>
+	<span class="token keyword">select</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">case</span> <span class="token operator">&lt;-</span>done<span class="token punctuation">:</span>
+		<span class="token comment">// parent is already canceled</span>
+		child<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span> parent<span class="token punctuation">.</span><span class="token function">Err</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+		<span class="token keyword">return</span>
+	<span class="token keyword">default</span><span class="token punctuation">:</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token comment">// parentCancelCtx  用于获取底层可取消的 Context(cancelContext)</span>
+	<span class="token comment">// 如果 parent Context 本身就是 *cancelCtx 或者是标准库中基于 cancelCtx 衍生的 Context 会返回 true</span>
+	<span class="token comment">// 如果 parent Context 已经取消/或者根本无法取消 会返回 false</span>
+	<span class="token comment">// 如果 parent Context 无法转换为一个 *cancelCtx 也会返回 false</span>
+	<span class="token comment">// 如果 parent Context 是一个自定义深度包装的 cancelCtx(自己定义了 done channel) 则也会返回 false</span>
+	<span class="token comment">// </span>
+	<span class="token comment">// ok 为 true 说明 parent Context 为 标准库的 cancelCtx 或者至少可以完全转换为 *cancelCtx</span>
+	<span class="token keyword">if</span> p<span class="token punctuation">,</span> ok <span class="token operator">:=</span> <span class="token function">parentCancelCtx</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span><span class="token punctuation">;</span> ok <span class="token punctuation">&#123;</span>
+		p<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 加锁  double check</span>
+		<span class="token comment">// 所以并发加锁情况下如果 parent Context 的 err 不为空说明已经被取消了</span>
+		<span class="token keyword">if</span> p<span class="token punctuation">.</span>err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+			<span class="token comment">// parent has already been canceled</span>
+			child<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span> p<span class="token punctuation">.</span>err<span class="token punctuation">)</span>
+		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+			<span class="token comment">// 如果 parent Context没有被取消, 就将 自身 context 加入到 parentContext.children 中,建立关联</span>
+			<span class="token comment">// 当 parentContext被取消时, 会遍历  parent.children, 一次调用  child.cancel() </span>
+			<span class="token comment">// 所以 -> p.children 中所有的 context 都可以转化为  cancelCtx 节点.</span>
+			<span class="token keyword">if</span> p<span class="token punctuation">.</span>children <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+				p<span class="token punctuation">.</span>children <span class="token operator">=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">map</span><span class="token punctuation">[</span>canceler<span class="token punctuation">]</span><span class="token keyword">struct</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+			<span class="token punctuation">&#125;</span>
+			p<span class="token punctuation">.</span>children<span class="token punctuation">[</span>child<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+		p<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">// ok 为false 说明 parent Context 已经取消 || 根本无法取消 || 无法转换为一个 	`cancelContext` || 是一个自定义的深度包装的 `cancelCtx`</span>
+		atomic<span class="token punctuation">.</span><span class="token function">AddInt32</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>goroutines<span class="token punctuation">,</span> <span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+		<span class="token comment">// 由于代码一开始已经判断了 parentContext 已经取消  和  根本无法取消 的两种情况.</span>
+		<span class="token comment">// 所以这里  &lt;- parent.Done() 并不会产生 panic</span>
+		<span class="token comment">//</span>
+		<span class="token comment">// 后两种情况下 无法通过  parentContext.child(map) 建立关联, 只能通过 一个 goroutine 完成 级联取消操作.</span>
+		<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">select</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">case</span> <span class="token operator">&lt;-</span>parent<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+				child<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span> parent<span class="token punctuation">.</span><span class="token function">Err</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+			<span class="token keyword">case</span> <span class="token operator">&lt;-</span>child<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><code>parentCancelCtx()</code>:  parentCancelCtx  用于获取底层可取消的 Context(cancelContext)</p>
+<ul>
+<li>如果 parent Context 本身就是 *cancelCtx 或者是标准库中基于 cancelCtx 衍生的 Context 会返回 true</li>
+<li>如果 parent Context 已经取消&#x2F;或者根本无法取消 会返回 false</li>
+<li>如果 parent Context 无法转换为一个 *cancelCtx 也会返回 false</li>
+<li>如果 parent Context 是一个自定义深度包装的 cancelCtx(自己定义了 done channel) 则也会返回 false</li>
+</ul>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// parentCancelCtx returns the underlying *cancelCtx for parent.</span>
+<span class="token comment">// It does this by looking up parent.Value(&amp;cancelCtxKey) to find</span>
+<span class="token comment">// the innermost enclosing *cancelCtx and then checking whether</span>
+<span class="token comment">// parent.Done() matches that *cancelCtx. (If not, the *cancelCtx</span>
+<span class="token comment">// has been wrapped in a custom implementation providing a</span>
+<span class="token comment">// different done channel, in which case we should not bypass it.)</span>
+<span class="token keyword">func</span> <span class="token function">parentCancelCtx</span><span class="token punctuation">(</span>parent Context<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">*</span>cancelCtx<span class="token punctuation">,</span> <span class="token builtin">bool</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	done <span class="token operator">:=</span> parent<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token comment">// 1.</span>
+	<span class="token comment">// parentContext.Done()   == nil 说明不是一个 cancelContext</span>
+	<span class="token comment">// parentContext.Done()   == closedchan(一个可复用的表示关闭), 说明 parentContext  已经被关闭了.</span>
+	<span class="token keyword">if</span> done <span class="token operator">==</span> closedchan <span class="token operator">||</span> done <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> <span class="token boolean">nil</span><span class="token punctuation">,</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token comment">// 2.</span>
+	<span class="token comment">// parentContex 无法转换为一个   cancelCtx</span>
+	p<span class="token punctuation">,</span> ok <span class="token operator">:=</span> parent<span class="token punctuation">.</span><span class="token function">Value</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>cancelCtxKey<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token operator">*</span>cancelCtx<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token operator">!</span>ok <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> <span class="token boolean">nil</span><span class="token punctuation">,</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token comment">// 3. </span>
+	<span class="token comment">// 经过上面的判断后，说明 parent context 可以被转换为 *cancelCtx，这时存在多种情况:</span>
+	<span class="token comment">//   - parent context 就是 *cancelCtx</span>
+	<span class="token comment">//   - parent context 是标准库中的 timerCtx</span>
+	<span class="token comment">//   - parent context 是个自己自定义包装的 cancelCtx</span>
+	<span class="token comment">//</span>
+	<span class="token comment">// 针对这 3 种情况需要进行判断，判断方法就是: </span>
+	<span class="token comment">//   判断 parent context 通过 Done() 方法获取的 done channel 与 Value 查找到的 context 的 done channel 是否一致</span>
+	<span class="token comment">// </span>
+	<span class="token comment">// 一致情况说明 parent context 为 cancelCtx 或 timerCtx 或 自定义的 cancelCtx 且未重写 Done()，</span>
+	<span class="token comment">// 这种情况下可以认为拿到了底层的 *cancelCtx</span>
+	<span class="token comment">// </span>
+	<span class="token comment">// 不一致情况说明 parent context 是一个自定义的 cancelCtx 且重写了 Done(), 并且并未返回标准 `*cancelCtx` 的</span>
+	<span class="token comment">// 的 done channel，这种情况需要单独处理，故返回 nil, false</span>
+	pdone<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> p<span class="token punctuation">.</span>done<span class="token punctuation">.</span><span class="token function">Load</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> pdone <span class="token operator">!=</span> done <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> <span class="token boolean">nil</span><span class="token punctuation">,</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> p<span class="token punctuation">,</span> <span class="token boolean">true</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="5-2-级联取消-cancel"><a href="#5-2-级联取消-cancel" class="headerlink" title="5.2 级联取消 cancel"></a>5.2 级联取消 cancel</h3><p>级联取消的关键函数是<code> cancelCtx.cancel()</code>,  在 当前 cancelCtx 取消时,需要级联取消  以该context为根节点的 context树中所有context,<br>并将 cancelCtx 从 其父节点摘除,以便让 GC 回收该 cancelCtx 子树的所有资源.</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// cancel closes c.done, cancels each of c's children, and, if</span>
+<span class="token comment">// removeFromParent is true, removes c from its parent's children.</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>c <span class="token operator">*</span>cancelCtx<span class="token punctuation">)</span> <span class="token function">cancel</span><span class="token punctuation">(</span>removeFromParent <span class="token builtin">bool</span><span class="token punctuation">,</span> err <span class="token builtin">error</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+	<span class="token comment">// err == nil,那么 直接 panic</span>
+	<span class="token comment">// 这么做的目的是因为 `cancel()`是个私有方法，标准库内任何调用 `cancel()`</span>
+    <span class="token comment">// 的方法保证了一定会传入 err, 如果没传那就是非正常调用,所以可以直接 panic</span>
+	<span class="token keyword">if</span> err <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">panic</span><span class="token punctuation">(</span><span class="token string">"context: internal error: missing cancel error"</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	c<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token comment">// 已经被取消了, 防止重复调用 cancel()</span>
+	<span class="token keyword">if</span> c<span class="token punctuation">.</span>err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		c<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token keyword">return</span> <span class="token comment">// already canceled</span>
+	<span class="token punctuation">&#125;</span>
+	c<span class="token punctuation">.</span>err <span class="token operator">=</span> err
+	d<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> c<span class="token punctuation">.</span>done<span class="token punctuation">.</span><span class="token function">Load</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+	<span class="token comment">// 判断 c.done 是否为 nil，因为 context.WithCancel 创建 cancelContext 时, c.done是延迟初始化的, 所以可能为nil</span>
+	<span class="token comment">// 如果 c.done == nil, 将其赋值为 可 复用的  closechan.</span>
+	<span class="token keyword">if</span> d <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		c<span class="token punctuation">.</span>done<span class="token punctuation">.</span><span class="token function">Store</span><span class="token punctuation">(</span>closedchan<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">close</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token comment">// 如果当前 Context 下面还有关联的 child Context，且这些 child Context 都是</span>
+	<span class="token comment">// 可以转换成 *cancelCtx 的 Context(见上面的 propagateCancel()分析).</span>
+	<span class="token comment">// 那么直接遍历 childre map，并且调用 child Context 的 cancel 即可</span>
+	<span class="token comment">// 如果关联的 child Context 不能转换成 *cancelCtx，那么由 propagateCancel 方法</span>
+	<span class="token comment">// 中已经创建了单独的 Goroutine 来关闭这些 child Context</span>
+	<span class="token keyword">for</span> child <span class="token operator">:=</span> <span class="token keyword">range</span> c<span class="token punctuation">.</span>children <span class="token punctuation">&#123;</span>
+		<span class="token comment">// NOTE: acquiring the child's lock while holding parent's lock.</span>
+		child<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span> <span class="token comment">// 递归调用 子context cancel</span>
+	<span class="token punctuation">&#125;</span>
+	c<span class="token punctuation">.</span>children <span class="token operator">=</span> <span class="token boolean">nil</span>
+	c<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">if</span> removeFromParent <span class="token punctuation">&#123;</span>
+		<span class="token function">removeChild</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span>Context<span class="token punctuation">,</span> c<span class="token punctuation">)</span> <span class="token comment">//从 parent 中找出 curContext</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// removeChild removes a context from its parent.</span>
+<span class="token keyword">func</span> <span class="token function">removeChild</span><span class="token punctuation">(</span>parent Context<span class="token punctuation">,</span> child canceler<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	p<span class="token punctuation">,</span> ok <span class="token operator">:=</span> <span class="token function">parentCancelCtx</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token operator">!</span>ok <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span>
+	<span class="token punctuation">&#125;</span>
+	p<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> p<span class="token punctuation">.</span>children <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">delete</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>children<span class="token punctuation">,</span> child<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	p<span class="token punctuation">.</span>mu<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token function">parentCancelCtx</span><span class="token punctuation">(</span>parent Context<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">*</span>cancelCtx<span class="token punctuation">,</span> <span class="token builtin">bool</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	done <span class="token operator">:=</span> parent<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> done <span class="token operator">==</span> closedchan <span class="token operator">||</span> done <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> <span class="token boolean">nil</span><span class="token punctuation">,</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span>
+	p<span class="token punctuation">,</span> ok <span class="token operator">:=</span> parent<span class="token punctuation">.</span><span class="token function">Value</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>cancelCtxKey<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token operator">*</span>cancelCtx<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token operator">!</span>ok <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> <span class="token boolean">nil</span><span class="token punctuation">,</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span>
+	pdone<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> p<span class="token punctuation">.</span>done<span class="token punctuation">.</span><span class="token function">Load</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> pdone <span class="token operator">!=</span> done <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> <span class="token boolean">nil</span><span class="token punctuation">,</span> <span class="token boolean">false</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> p<span class="token punctuation">,</span> <span class="token boolean">true</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<hr>
+<p><a target="_blank" rel="noopener" href="https://mritd.com/2021/06/27/golang-context-source-code">Golang Context 源码分析</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://majunmin.github.io/post/Go%E6%BA%90%E7%A0%81-context.html" data-id="clamitdev000pm9nr8ux57b2n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/context/" rel="tag">context</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/golang/" rel="tag">golang</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/" rel="tag">源码剖析</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/post/Go-Context-%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Go Context 使用场景
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Trace.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">微服务 Trace</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/bigdata/">bigdata</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/golang/">golang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jvm/">jvm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/">kafka</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/kafka/consumer/">consumer</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/">maven</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/%E9%94%81/">锁</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ApplicationContext/" rel="tag">ApplicationContext</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeanFactory/" rel="tag">BeanFactory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNSResolver/" rel="tag">DNSResolver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intelij/" rel="tag">Intelij</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aop/" rel="tag">aop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apacheAB/" rel="tag">apacheAB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" rel="tag">bean生命周期</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bigcache/" rel="tag">bigcache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bigdata/" rel="tag">bigdata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cache/" rel="tag">cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos7/" rel="tag">centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clickhouse/" rel="tag">clickhouse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/consumer/" rel="tag">consumer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/context/" rel="tag">context</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/convey/" rel="tag">convey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-compose/" rel="tag">docker-compose</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/etcd/" rel="tag">etcd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fastcache/" rel="tag">fastcache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gateway/" rel="tag">gateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-build/" rel="tag">go build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/" rel="tag">golang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gomock/" rel="tag">gomock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gomonkey/" rel="tag">gomonkey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grpc/" rel="tag">grpc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/idea/" rel="tag">idea</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image/" rel="tag">image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jstat/" rel="tag">jstat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/" rel="tag">jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafak/" rel="tag">kafak</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/md/" rel="tag">md</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/producer/" rel="tag">producer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/" rel="tag">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trace/" rel="tag">trace</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="tag">位运算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" rel="tag">动态代理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E9%97%B4/" rel="tag">区间</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B6%E5%8F%91/" rel="tag">并发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag">快捷键</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" rel="tag">性能测试工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93/" rel="tag">架构整洁之道</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%A5%E8%AF%A2%E8%AE%A1%E5%88%92/" rel="tag">查询计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/" rel="tag">源码剖析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">逆波兰表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%81/" rel="tag">锁</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/ApplicationContext/" style="font-size: 10px;">ApplicationContext</a> <a href="/tags/BeanFactory/" style="font-size: 10px;">BeanFactory</a> <a href="/tags/DNSResolver/" style="font-size: 10px;">DNSResolver</a> <a href="/tags/Intelij/" style="font-size: 10px;">Intelij</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/aop/" style="font-size: 10px;">aop</a> <a href="/tags/apacheAB/" style="font-size: 10px;">apacheAB</a> <a href="/tags/bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" style="font-size: 10px;">bean生命周期</a> <a href="/tags/bigcache/" style="font-size: 10px;">bigcache</a> <a href="/tags/bigdata/" style="font-size: 12.5px;">bigdata</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/cache/" style="font-size: 15px;">cache</a> <a href="/tags/centos7/" style="font-size: 10px;">centos7</a> <a href="/tags/clickhouse/" style="font-size: 10px;">clickhouse</a> <a href="/tags/consumer/" style="font-size: 10px;">consumer</a> <a href="/tags/context/" style="font-size: 12.5px;">context</a> <a href="/tags/convey/" style="font-size: 10px;">convey</a> <a href="/tags/docker/" style="font-size: 12.5px;">docker</a> <a href="/tags/docker-compose/" style="font-size: 10px;">docker-compose</a> <a href="/tags/etcd/" style="font-size: 10px;">etcd</a> <a href="/tags/fastcache/" style="font-size: 10px;">fastcache</a> <a href="/tags/gateway/" style="font-size: 10px;">gateway</a> <a href="/tags/go/" style="font-size: 12.5px;">go</a> <a href="/tags/go-build/" style="font-size: 10px;">go build</a> <a href="/tags/golang/" style="font-size: 20px;">golang</a> <a href="/tags/gomock/" style="font-size: 10px;">gomock</a> <a href="/tags/gomonkey/" style="font-size: 10px;">gomonkey</a> <a href="/tags/grpc/" style="font-size: 10px;">grpc</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/idea/" style="font-size: 10px;">idea</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/jstat/" style="font-size: 10px;">jstat</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/kafak/" style="font-size: 10px;">kafak</a> <a href="/tags/kafka/" style="font-size: 15px;">kafka</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/maven/" style="font-size: 12.5px;">maven</a> <a href="/tags/md/" style="font-size: 10px;">md</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/producer/" style="font-size: 10px;">producer</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/tags/test/" style="font-size: 17.5px;">test</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/trace/" style="font-size: 10px;">trace</a> <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" style="font-size: 10px;">位运算</a> <a href="/tags/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" style="font-size: 10px;">动态代理</a> <a href="/tags/%E5%8C%BA%E9%97%B4/" style="font-size: 10px;">区间</a> <a href="/tags/%E5%B9%B6%E5%8F%91/" style="font-size: 10px;">并发</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 12.5px;">微服务</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">性能测试工具</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 12.5px;">架构</a> <a href="/tags/%E6%9E%B6%E6%9E%84%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93/" style="font-size: 10px;">架构整洁之道</a> <a href="/tags/%E6%9F%A5%E8%AF%A2%E8%AE%A1%E5%88%92/" style="font-size: 10px;">查询计划</a> <a href="/tags/%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90/" style="font-size: 10px;">源码剖析</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.5px;">算法</a> <a href="/tags/%E7%B4%A2%E5%BC%95/" style="font-size: 10px;">索引</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">读书笔记</a> <a href="/tags/%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 10px;">逆波兰表达式</a> <a href="/tags/%E9%94%81/" style="font-size: 10px;">锁</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post/fastcache%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.html">fastcache源码分析</a>
+          </li>
+        
+          <li>
+            <a href="/post/%E5%A4%A7%E6%95%B0%E6%8D%AE-%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%A4%A7%E5%AE%BD%E8%A1%A8.html">大数据-数据仓库大宽表</a>
+          </li>
+        
+          <li>
+            <a href="/post/golang%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96.html">golang如何避免循环依赖</a>
+          </li>
+        
+          <li>
+            <a href="/post/Go-Test-Gomonkey%E4%BD%BF%E7%94%A8.html">Go-Test-Gomonkey使用</a>
+          </li>
+        
+          <li>
+            <a href="/post/Go-Test-Convey%E4%BD%BF%E7%94%A8.html">Go-Test-Convey使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2024 majm<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
