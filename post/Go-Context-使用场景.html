@@ -12,24 +12,24 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"majunmin.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"majunmin.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="context 使用场景1 超时控制实际使用中, context 经常和 select 关键字一起使用. 用于监听  context 结束 取消. import ( 	&quot;context&quot; 	&quot;fmt&quot; 	&quot;time&quot; )  func testTimeout() &amp;#123; 	timerCtx, cancelFunc :&#x3D; context.WithTimeout(context.Backgroun">
+  <meta name="description" content="context 使用场景">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go Context 使用场景">
 <meta property="og:url" content="https://majunmin.github.io/post/Go-Context-%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF.html">
 <meta property="og:site_name" content="majm的博客">
-<meta property="og:description" content="context 使用场景1 超时控制实际使用中, context 经常和 select 关键字一起使用. 用于监听  context 结束 取消. import ( 	&quot;context&quot; 	&quot;fmt&quot; 	&quot;time&quot; )  func testTimeout() &amp;#123; 	timerCtx, cancelFunc :&#x3D; context.WithTimeout(context.Backgroun">
+<meta property="og:description" content="context 使用场景">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/majunmin/image/etcd/20220903095430.png">
 <meta property="article:published_time" content="2022-08-31T03:04:55.000Z">
-<meta property="article:modified_time" content="2022-09-03T07:45:14.726Z">
+<meta property="article:modified_time" content="2024-02-06T11:05:07.064Z">
 <meta property="article:author" content="majm">
 <meta property="article:tag" content="golang">
 <meta property="article:tag" content="context">
@@ -138,11 +138,6 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-rss">
-
-    <a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
-
-  </li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -228,7 +223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-03 15:45:14" itemprop="dateModified" datetime="2022-09-03T15:45:14+08:00">2022-09-03</time>
+                <time title="修改时间：2024-02-06 19:05:07" itemprop="dateModified" datetime="2024-02-06T19:05:07+08:00">2024-02-06</time>
               </span>
 
           <br>
@@ -256,7 +251,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="context-使用场景"><a href="#context-使用场景" class="headerlink" title="context 使用场景"></a>context 使用场景</h2><h3 id="1-超时控制"><a href="#1-超时控制" class="headerlink" title="1 超时控制"></a>1 超时控制</h3><p>实际使用中, context 经常和 select 关键字一起使用. 用于监听  context 结束 取消.</p>
+        <h2 id="context-使用场景"><a href="#context-使用场景" class="headerlink" title="context 使用场景"></a>context 使用场景</h2><span id="more"></span>
+
+<h3 id="1-超时控制"><a href="#1-超时控制" class="headerlink" title="1 超时控制"></a>1 超时控制</h3><p>实际使用中, context 经常和 select 关键字一起使用. 用于监听  context 结束 取消.</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">import</span> <span class="token punctuation">(</span>
 	<span class="token string">"context"</span>
 	<span class="token string">"fmt"</span>
@@ -481,6 +478,7 @@ ctx5 <span class="token operator">:=</span> conetext<span class="token punctuati
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -590,13 +588,11 @@ ctx5 <span class="token operator">:=</span> conetext<span class="token punctuati
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-      <span class="post-meta-item-text">站点总字数：</span>
     <span title="站点总字数">60k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     <span title="站点阅读时长">3:40</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
@@ -617,7 +613,6 @@ ctx5 <span class="token operator">:=</span> conetext<span class="token punctuati
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -657,6 +652,26 @@ ctx5 <span class="token operator">:=</span> conetext<span class="token punctuati
   
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '9ecd2d5ce0adb0ff67df',
+      clientSecret: '3014bdb6e994b3bc0354e3c1629553c2bfbcfaed',
+      repo        : 'blog-comments',
+      owner       : 'majunmin',
+      admin       : ['majunmin'],
+      id          : 'e69636a5cc8bbdd1c7cff870280089c7',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
