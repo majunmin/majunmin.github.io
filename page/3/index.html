@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"majunmin.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"majunmin.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="做一些简单的笔记">
@@ -45,6 +45,15 @@
 
   <title>majm的博客</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8DL8SZP3Q"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-H8DL8SZP3Q');
+      }
+    </script>
 
 
 
@@ -75,7 +84,7 @@
 </noscript>
 
 <link rel="alternate" href="/atom.xml" title="majm的博客" type="application/atom+xml">
-</head>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -217,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-11 14:03:50" itemprop="dateModified" datetime="2023-05-11T14:03:50+08:00">2023-05-11</time>
+                <time title="修改时间：2024-02-06 19:14:30" itemprop="dateModified" datetime="2024-02-06T19:14:30+08:00">2024-02-06</time>
               </span>
 
           <br>
@@ -245,21 +254,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="《架构整洁之道》-读书笔记-7-11章"><a href="#《架构整洁之道》-读书笔记-7-11章" class="headerlink" title="《架构整洁之道》-读书笔记:7-11章"></a>《架构整洁之道》-读书笔记:7-11章</h1><p>架构整洁之道: 第 7-11 章 主要讲的是 设计原则, <code>SOLID</code>,<br><code>SOLID</code> 的主要作用是告诉我们如何将数据和函数组织称为类,以及如何将这些类链接起来组合成一个程序.</p>
-<p>软件构建中层模块主要目标如下:</p>
-<ul>
-<li>使软件可容忍被改动.</li>
-<li>是软件更容易被理解.</li>
-<li>构建在多个系统中复用的组件.</li>
-</ul>
-<p><code>SOLID</code> 原则应该紧贴于代码实现之上,这些原则主要是帮助我们定义软件架构中组件和模块的.</p>
-<ul>
-<li>SRP  Single Resposibility Principle<br>每个软件应该有且仅有一个被修改的理由.</li>
-<li>OCP  Open Close Principle<br>如果软件系统想要更容易被改变,那么设计就必须允许新增代码来修改系统行为,而非只能靠修改原来的代码.</li>
-<li>LSP  Liskov Substitution Principle<br>利用可替换的组件构建软件系统,那么这些组件就必须遵循同一个约定,以便让谢谢组件可以相互替换.</li>
-<li>ISP  Interface Segregation Principle<br>在设计中避免不必要的依赖.</li>
-<li>DIP  Depencency Inverse Principle<br>高层策略性的代码不应该依赖实现底层细节的代码,恰恰相反,那些实现底层细节的代码应该依赖高层策略性的代码.</li>
-</ul>
+          <h1 id="《架构整洁之道》-读书笔记-7-11章"><a href="#《架构整洁之道》-读书笔记-7-11章" class="headerlink" title="《架构整洁之道》-读书笔记:7-11章"></a>《架构整洁之道》-读书笔记:7-11章</h1>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/%E3%80%8A%E6%9E%B6%E6%9E%84%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93%E3%80%8B-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-7-11%E7%AB%A0.html#more" rel="contents">
@@ -402,7 +397,7 @@ Ctrl + G :            选中下一个相同的内容
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-11 12:01:22" itemprop="dateModified" datetime="2022-10-11T12:01:22+08:00">2022-10-11</time>
+                <time title="修改时间：2024-02-06 19:13:54" itemprop="dateModified" datetime="2024-02-06T19:13:54+08:00">2024-02-06</time>
               </span>
 
           <br>
@@ -411,7 +406,7 @@ Ctrl + G :            选中下一个相同的内容
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>626</span>
+              <span>627</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -431,147 +426,14 @@ Ctrl + G :            选中下一个相同的内容
 
       
           <p>线段树是经常用来维护区间信息的数据结构,<br>线段树可以在 O(logN) 的时间复杂度内实现<code>单点修改</code>,<code>区间修改</code>,<code>区间查询</code>(<code>区间求和</code>,<code>区间最大值</code>,<code>区间最小值</code>) 等操作.</p>
-<h2 id="线段树的数据结构"><a href="#线段树的数据结构" class="headerlink" title="线段树的数据结构"></a>线段树的数据结构</h2><p><img src="/./%E7%AE%97%E6%B3%95-%E7%BA%BF%E6%AE%B5%E6%A0%91/%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" alt="线段树数据结构"></p>
-<p>线段树是一种近似的完全二叉树,每个节点代表一个区间,节点的权值. 根节点是整个区间.每个节点的左孩子是该节点所代表的的区间的左半部分,右孩子是右半部分.</p>
-<p>线段树采用 类似堆的 数组  来存储数据.</p>
-<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><ul>
-<li>每个区间的长度是区间内整数的个数;</li>
-<li>叶子节点长度为1,不能再分;</li>
-<li>若一个结点对应的区间是[left,right], <code>mid = (left + right) / 2</code> 则其子区间对应的节点分别是[left,mid]和[mid+1,right];</li>
-<li>线段树的高度是;log2(right- left + 1)</li>
-<li>线段树把区间上的任意一条线段都分成不超过 <code>2log2N</code></li>
-</ul>
-<h3 id="线段树的定义"><a href="#线段树的定义" class="headerlink" title="线段树的定义"></a>线段树的定义</h3><h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><p>​</p>
-<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> <span class="token punctuation">(</span>
-	rootIndex <span class="token operator">=</span> <span class="token number">1</span>
-<span class="token punctuation">)</span>
-
-<span class="token comment">// index = 1 开始编号</span>
-<span class="token keyword">type</span> Segment <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
-	left  <span class="token builtin">int</span> <span class="token comment">// 区间起始点</span>
-	right <span class="token builtin">int</span> <span class="token comment">// 区间 结束点</span>
-	count <span class="token builtin">int</span> <span class="token comment">// 统计值</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">type</span> SegmentTree <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
-	m        <span class="token builtin">int</span>
-	segments <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">*</span>Segment
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">func</span> <span class="token function">NewSegmentTree</span><span class="token punctuation">(</span>m <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">*</span>SegmentTree <span class="token punctuation">&#123;</span>
-	<span class="token keyword">return</span> <span class="token operator">&amp;</span>SegmentTree<span class="token punctuation">&#123;</span>
-		m<span class="token punctuation">:</span>        m<span class="token punctuation">,</span>
-		segments<span class="token punctuation">:</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">*</span>Segment<span class="token punctuation">,</span> <span class="token number">4</span><span class="token operator">*</span>m<span class="token punctuation">)</span><span class="token punctuation">,</span>
-	<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">func</span> <span class="token punctuation">(</span>st <span class="token operator">*</span>SegmentTree<span class="token punctuation">)</span> <span class="token function">buildSegmentTreeInternal</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">,</span> i <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-
-	st<span class="token punctuation">.</span>segments<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>Segment<span class="token punctuation">&#123;</span>
-		left<span class="token punctuation">:</span>  left<span class="token punctuation">,</span>
-		right<span class="token punctuation">:</span> right<span class="token punctuation">,</span>
-		count<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-	<span class="token punctuation">&#125;</span>
-	<span class="token keyword">if</span> left <span class="token operator">==</span> right <span class="token punctuation">&#123;</span>
-		<span class="token keyword">return</span>
-	<span class="token punctuation">&#125;</span>
-	mid <span class="token operator">:=</span> left <span class="token operator">+</span> <span class="token punctuation">(</span>right<span class="token operator">-</span>left<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span>
-	st<span class="token punctuation">.</span><span class="token function">buildSegmentTreeInternal</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> mid<span class="token punctuation">,</span> i<span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span>
-	st<span class="token punctuation">.</span><span class="token function">buildSegmentTreeInternal</span><span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> right<span class="token punctuation">,</span> i<span class="token operator">*</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">func</span> <span class="token punctuation">(</span>st <span class="token operator">*</span>SegmentTree<span class="token punctuation">)</span> <span class="token function">insert</span><span class="token punctuation">(</span>data <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	left<span class="token punctuation">,</span> right <span class="token operator">:=</span> <span class="token number">1</span><span class="token punctuation">,</span> st<span class="token punctuation">.</span>m
-	i <span class="token operator">:=</span> rootIndex
-	<span class="token keyword">for</span> left <span class="token operator">&lt;</span> right <span class="token punctuation">&#123;</span>
-		mid <span class="token operator">:=</span> left <span class="token operator">+</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
-		st<span class="token punctuation">.</span>segments<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>count<span class="token operator">++</span>
-		<span class="token keyword">if</span> data <span class="token operator">&lt;=</span> mid <span class="token punctuation">&#123;</span>
-			right <span class="token operator">=</span> mid
-			i <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> i
-		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-			left <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span>
-			i <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">*</span>i <span class="token operator">+</span> <span class="token number">1</span>
-		<span class="token punctuation">&#125;</span>
-	<span class="token punctuation">&#125;</span>
-	st<span class="token punctuation">.</span>segments<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>count<span class="token operator">++</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">func</span> <span class="token punctuation">(</span>st <span class="token operator">*</span>SegmentTree<span class="token punctuation">)</span> <span class="token function">delete</span><span class="token punctuation">(</span>data <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	left<span class="token punctuation">,</span> right <span class="token operator">:=</span> <span class="token number">1</span><span class="token punctuation">,</span> st<span class="token punctuation">.</span>m
-	i <span class="token operator">:=</span> rootIndex
-
-	<span class="token keyword">for</span> left <span class="token operator">&lt;</span> right <span class="token punctuation">&#123;</span>
-		st<span class="token punctuation">.</span>segments<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>count<span class="token operator">--</span>
-		mid <span class="token operator">:=</span> left <span class="token operator">+</span> <span class="token punctuation">(</span>right<span class="token operator">-</span>left<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span>
-		<span class="token keyword">if</span> data <span class="token operator">&lt;=</span> mid <span class="token punctuation">&#123;</span>
-			right <span class="token operator">=</span> mid
-			i <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> i
-		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-			left <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span>
-			i <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">*</span>i <span class="token operator">+</span> <span class="token number">1</span>
-		<span class="token punctuation">&#125;</span>
-	<span class="token punctuation">&#125;</span>
-	st<span class="token punctuation">.</span>segments<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>count<span class="token operator">--</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token comment">// query</span>
-<span class="token keyword">func</span> <span class="token punctuation">(</span>st <span class="token operator">*</span>SegmentTree<span class="token punctuation">)</span> <span class="token function">count</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">&#123;</span>
-	<span class="token keyword">return</span> st<span class="token punctuation">.</span><span class="token function">countInternal</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">,</span> rootIndex<span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">func</span> <span class="token punctuation">(</span>st <span class="token operator">*</span>SegmentTree<span class="token punctuation">)</span> <span class="token function">countInternal</span><span class="token punctuation">(</span>left <span class="token builtin">int</span><span class="token punctuation">,</span> right <span class="token builtin">int</span><span class="token punctuation">,</span> index <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">&#123;</span>
-	<span class="token comment">// terminate</span>
-	seg <span class="token operator">:=</span> st<span class="token punctuation">.</span>segments<span class="token punctuation">[</span>index<span class="token punctuation">]</span>
-	<span class="token keyword">if</span> seg<span class="token punctuation">.</span>left <span class="token operator">==</span> left <span class="token operator">&amp;&amp;</span> seg<span class="token punctuation">.</span>right <span class="token operator">==</span> right <span class="token punctuation">&#123;</span>
-		<span class="token keyword">return</span> seg<span class="token punctuation">.</span>count
-	<span class="token punctuation">&#125;</span>
-
-	mid <span class="token operator">:=</span> seg<span class="token punctuation">.</span>left <span class="token operator">+</span> <span class="token punctuation">(</span>seg<span class="token punctuation">.</span>right<span class="token operator">-</span>seg<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token operator">>></span><span class="token number">1</span>
-	<span class="token keyword">if</span> mid <span class="token operator">>=</span> right <span class="token punctuation">&#123;</span>
-		<span class="token comment">//区间在左子节点</span>
-		<span class="token keyword">return</span> st<span class="token punctuation">.</span><span class="token function">countInternal</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">*</span>index<span class="token punctuation">)</span>
-	<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> mid <span class="token operator">&lt;</span> left <span class="token punctuation">&#123;</span>
-		<span class="token comment">// 区间在右子节点</span>
-		<span class="token keyword">return</span> st<span class="token punctuation">.</span><span class="token function">countInternal</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">*</span>index<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-	<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-		<span class="token keyword">return</span> st<span class="token punctuation">.</span><span class="token function">countInternal</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> mid<span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">*</span>index<span class="token punctuation">)</span> <span class="token operator">+</span>
-			st<span class="token punctuation">.</span><span class="token function">countInternal</span><span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> right<span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">*</span>index<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-	<span class="token punctuation">&#125;</span>
-
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">func</span> <span class="token punctuation">(</span>st <span class="token operator">*</span>SegmentTree<span class="token punctuation">)</span> <span class="token function">getKth</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">,</span> k <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">&#123;</span>
-	<span class="token keyword">return</span> st<span class="token punctuation">.</span><span class="token function">getKthInternal</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">,</span> rootIndex<span class="token punctuation">,</span> k<span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">func</span> <span class="token punctuation">(</span>st <span class="token operator">*</span>SegmentTree<span class="token punctuation">)</span> <span class="token function">getKthInternal</span><span class="token punctuation">(</span>left <span class="token builtin">int</span><span class="token punctuation">,</span> right <span class="token builtin">int</span><span class="token punctuation">,</span> index <span class="token builtin">int</span><span class="token punctuation">,</span> k <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">&#123;</span>
-	seg <span class="token operator">:=</span> st<span class="token punctuation">.</span>segments<span class="token punctuation">[</span>index<span class="token punctuation">]</span>
-	<span class="token keyword">if</span> left <span class="token operator">==</span> seg<span class="token punctuation">.</span>left <span class="token operator">&amp;&amp;</span> right <span class="token operator">==</span> seg<span class="token punctuation">.</span>right <span class="token punctuation">&#123;</span>
-		<span class="token keyword">if</span> k <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">&#123;</span>
-			<span class="token comment">//第 Kth 大值不存在</span>
-			<span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
-		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-			<span class="token keyword">return</span> seg<span class="token punctuation">.</span>left
-		<span class="token punctuation">&#125;</span>
-	<span class="token punctuation">&#125;</span>
-	rightSeg <span class="token operator">:=</span> st<span class="token punctuation">.</span>segments<span class="token punctuation">[</span><span class="token number">2</span><span class="token operator">*</span>index<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span>
-	mid <span class="token operator">:=</span> left <span class="token operator">+</span> <span class="token punctuation">(</span>right<span class="token operator">-</span>left<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span>
-	<span class="token keyword">if</span> rightSeg<span class="token punctuation">.</span>count <span class="token operator">></span> k <span class="token punctuation">&#123;</span>
-		<span class="token keyword">return</span> st<span class="token punctuation">.</span><span class="token function">getKthInternal</span><span class="token punctuation">(</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> right<span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">*</span>index<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> k<span class="token punctuation">)</span>
-	<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-		<span class="token keyword">return</span> st<span class="token punctuation">.</span><span class="token function">getKthInternal</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> mid<span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">*</span>index<span class="token punctuation">,</span> k<span class="token operator">-</span>rightSeg<span class="token punctuation">.</span>count<span class="token punctuation">)</span>
-	<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-<hr>
-<p>[参考]<br><a target="_blank" rel="noopener" href="https://oi-wiki.org/ds/seg/">线段树</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/34150142">知乎-线段树</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/%E7%AE%97%E6%B3%95-%E7%BA%BF%E6%AE%B5%E6%A0%91.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -866,7 +728,7 @@ Ctrl + G :            选中下一个相同的内容
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-07 14:36:00" itemprop="dateModified" datetime="2023-04-07T14:36:00+08:00">2023-04-07</time>
+                <time title="修改时间：2024-02-06 19:15:27" itemprop="dateModified" datetime="2024-02-06T19:15:27+08:00">2024-02-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -884,7 +746,7 @@ Ctrl + G :            选中下一个相同的内容
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>233</span>
+              <span>234</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -904,22 +766,14 @@ Ctrl + G :            选中下一个相同的内容
 
       
           <p>在 hexo 中使用 图片, 有如下几种方式:</p>
-<h2 id="1-在-资源目录下-创建图片"><a href="#1-在-资源目录下-创建图片" class="headerlink" title="1. 在 资源目录下 创建图片"></a>1. 在 资源目录下 创建图片</h2><ol>
-<li>hexo 配置文件 <code>_config.yml</code></li>
-</ol>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">post_asset_folder</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment"># 创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>当执行命令 <code>hexo new &quot;title&quot;</code> 会创建一个 与文章名相同的目录, 这个目录也称为 文章资源文件.<br>在资源文件下创建 一张图片 <code>image.png</code>,在文章中 按理说 <code>![image](image.png)</code>这样引用就可以了,但是 现在好像不能用了. 需要引入其他的插件</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">npm install hexo-renderer-marked<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>安装后,在 <code>_config.yml</code> 文件写入如下配置:</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">post_asset_folder</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment"># 创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹</span>
-<span class="token key atrule">marked</span><span class="token punctuation">:</span>
-  <span class="token key atrule">prependRoot</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token key atrule">postAsset</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>之后就可以在使用<code>![](image.png)</code>的方式愉快的插入图片了.</p>
-<h2 id="2-使用图床"><a href="#2-使用图床" class="headerlink" title="2. 使用图床"></a>2. 使用图床</h2><h2 id="3-picGo-github-JsDeliver-构建免费图床"><a href="#3-picGo-github-JsDeliver-构建免费图床" class="headerlink" title="3. picGo +  github + JsDeliver  构建免费图床"></a>3. picGo +  github + JsDeliver  构建免费图床</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/hexo%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -961,10 +815,16 @@ Ctrl + G :            选中下一个相同的内容
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-03-03 23:26:10 / 修改时间：23:48:46" itemprop="dateCreated datePublished" datetime="2022-03-03T23:26:10+08:00">2022-03-03</time>
+              <time title="创建时间：2022-03-03 23:26:10" itemprop="dateCreated datePublished" datetime="2022-03-03T23:26:10+08:00">2022-03-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-02-06 19:15:56" itemprop="dateModified" datetime="2024-02-06T19:15:56+08:00">2024-02-06</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -981,7 +841,7 @@ Ctrl + G :            选中下一个相同的内容
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>248</span>
+              <span>249</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1001,52 +861,14 @@ Ctrl + G :            选中下一个相同的内容
 
       
           <p>最近升级 node版本后,执行  <code>hexo d</code> 就会报错:</p>
-<pre class="line-numbers language-none"><code class="language-none">NFO  Copying files from public folder...
-FATAL &#123;
-  err: TypeError [ERR_INVALID_ARG_TYPE]: The &quot;mode&quot; argument must be integer. Received an instance of Object<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>之后查看其他文档 和 官方文档, 说明要升级  <code>hexo-cli</code> 的版本</p>
-<p><img src="/post/%E5%8D%87%E7%BA%A7hexo-cli%E7%9A%84%E7%89%88%E6%9C%AC/hexo-nodeVersion.png" alt="hexo-nodeVersion"></p>
-<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">&#x2F;&#x2F;以下指令均在Hexo目录下操作，先定位到Hexo目录
-&#x2F;&#x2F;查看当前版本，判断是否需要升级
-hexo version
-
-&#x2F;&#x2F;全局升级hexo-cli
-npm i hexo-cli -g
-
-&#x2F;&#x2F;再次查看版本，看hexo-cli是否升级成功,第一次未更新成功
-hexo version
-
-&#x2F;&#x2F;安装npm-check，若已安装可以跳过
-npm install -g npm-check
-
-&#x2F;&#x2F;检查系统插件是否需要升级
-npm-check
-
-&#x2F;&#x2F;安装npm-upgrade，若已安装可以跳过
-npm install -g npm-upgrade
-
-&#x2F;&#x2F;更新package.json   -- 这里会提示 更新 hexo版本
-npm-upgrade
-
-&#x2F;&#x2F;更新全局插件
-npm update -g
-
-&#x2F;&#x2F;更新系统插件
-&gt; npm update --save
-
-&#x2F;&#x2F;再次查看版本，判断是否升级成功
-&gt; hexo version
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-
-<hr>
-<p>参考<br><a target="_blank" rel="noopener" href="https://novnan.github.io/Hexo/update_hexo/">Hexo版本升级指南</a><br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官方文档</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/%E5%8D%87%E7%BA%A7hexo-cli%E7%9A%84%E7%89%88%E6%9C%AC.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1388,6 +1210,7 @@ npm update -g
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -1400,6 +1223,65 @@ npm update -g
 
 
 <script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
 
 
 
@@ -1424,10 +1306,32 @@ npm update -g
 
 
 
+    <div id="pjax">
   
 
   
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: '32px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 
 
+    </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

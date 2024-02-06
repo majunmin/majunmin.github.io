@@ -52,7 +52,7 @@
     <link href="https://majunmin.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE-%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%A4%A7%E5%AE%BD%E8%A1%A8.html"/>
     <id>https://majunmin.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE-%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%A4%A7%E5%AE%BD%E8%A1%A8.html</id>
     <published>2023-03-01T13:17:02.000Z</published>
-    <updated>2023-03-01T15:59:43.086Z</updated>
+    <updated>2024-02-06T11:19:30.523Z</updated>
     
     
     <summary type="html">&lt;p&gt;什么是大宽表, 为什么要使用大宽表, 大宽表有什么优缺点,  设计大宽表要注意什么?&lt;/p&gt;</summary>
@@ -100,16 +100,10 @@
     <link href="https://majunmin.github.io/post/Go-Test-Gomonkey%E4%BD%BF%E7%94%A8.html"/>
     <id>https://majunmin.github.io/post/Go-Test-Gomonkey%E4%BD%BF%E7%94%A8.html</id>
     <published>2022-11-14T11:54:08.000Z</published>
-    <updated>2022-11-14T11:54:08.621Z</updated>
+    <updated>2024-02-06T11:05:45.388Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;golang的单测, 有一些约定, 例如文件名是  xxx.go, 测试文件名必须是 xxx_test.go, 且测试函数的方法名 都是以 &lt;code&gt;Test&lt;/code&gt;开头, 使用&lt;code&gt;go test&lt;/code&gt; 命令,</summary>
-        
-      
+    <summary type="html">&lt;p&gt;golang的单测, 有一些约定, 例如文件名是  xxx.go, 测试文件名必须是 xxx_test.go, 且测试函数的方法名 都是以 &lt;code&gt;Test&lt;/code&gt;开头, 使用&lt;code&gt;go test&lt;/code&gt; 命令, 有时发现mock不住,一般都是内联(简短)函数mock失败,可以执行的时候加上编译条件禁止内联 &lt;code&gt;-gcflags=all=-l&lt;/code&gt;.&lt;/p&gt;</summary>
     
     
     
@@ -129,20 +123,12 @@
     <link href="https://majunmin.github.io/post/Go-Test-Convey%E4%BD%BF%E7%94%A8.html"/>
     <id>https://majunmin.github.io/post/Go-Test-Convey%E4%BD%BF%E7%94%A8.html</id>
     <published>2022-11-14T11:53:51.000Z</published>
-    <updated>2022-11-14T11:53:51.655Z</updated>
+    <updated>2024-02-06T11:06:04.582Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/smartystreets/goconvey&quot;&gt;Convey&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/smartystreets/goconvey/wiki&quot;&gt;Wiki&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Feature:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;直接与  &lt;code&gt;go test&lt;/code&gt; 集成&lt;/li&gt;
-&lt;li&gt;全自动的 WEBUI(与 go test 一起工作)&lt;/li&gt;
-&lt;li&gt;大量的回归测试&lt;/li&gt;
-&lt;li&gt;展示测试覆盖率&lt;/li&gt;
-&lt;li&gt;可读的,彩色控制台输出(可以被其他人理解)&lt;/li&gt;
-&lt;li&gt;测试代码自动生成&lt;/li&gt;
-&lt;li&gt;桌面通知(optional)&lt;/li&gt;
-&lt;li&gt;立即打开问题行.&lt;/li&gt;
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/smartystreets/goconvey&quot;&gt;Convey&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/smartystreets/goconvey/wiki&quot;&gt;Wiki&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</summary>
     
     
@@ -303,16 +289,10 @@
     <link href="https://majunmin.github.io/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Trace.html"/>
     <id>https://majunmin.github.io/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Trace.html</id>
     <published>2022-08-18T04:46:07.000Z</published>
-    <updated>2022-08-29T08:51:32.897Z</updated>
+    <updated>2024-02-06T11:14:02.120Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Spection-Trace-语义&quot;&gt;&lt;a href=&quot;#Spection-Trace-语义&quot; class=&quot;headerlink&quot; title=&quot;Spection  Trace 语义&quot;&gt;&lt;/a&gt;Spection  Trace 语义&lt;/h2&gt;&lt;h3</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;Spection-Trace-语义&quot;&gt;&lt;a href=&quot;#Spection-Trace-语义&quot; class=&quot;headerlink&quot; title=&quot;Spection  Trace 语义&quot;&gt;&lt;/a&gt;Spection  Trace 语义&lt;/h2&gt;</summary>
     
     
     
@@ -328,16 +308,12 @@
     <link href="https://majunmin.github.io/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1-API-Gateway.html"/>
     <id>https://majunmin.github.io/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1-API-Gateway.html</id>
     <published>2022-08-17T02:52:25.000Z</published>
-    <updated>2022-08-29T08:55:33.248Z</updated>
+    <updated>2024-02-06T11:14:13.805Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;什么是-API网关&quot;&gt;&lt;a href=&quot;#什么是-API网关&quot; class=&quot;headerlink&quot; title=&quot;什么是 API网关&quot;&gt;&lt;/a&gt;什么是 API网关&lt;/h2&gt;&lt;p&gt;API网关是一个服务器,是系统的唯一入口. </summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;什么是-API网关&quot;&gt;&lt;a href=&quot;#什么是-API网关&quot; class=&quot;headerlink&quot; title=&quot;什么是 API网关&quot;&gt;&lt;/a&gt;什么是 API网关&lt;/h2&gt;&lt;p&gt;API网关是一个服务器,是系统的唯一入口.  从面向对象设计的角度看，它与外观模式类似.&lt;/p&gt;
+&lt;p&gt;API网关封装了系统内部架构,为每个客户端提供一个定制的API.它可能还具有其它职责,如身份验证、监控、负载均衡、缓存、协议转换、限流熔断、静态响应处理.&lt;/p&gt;
+&lt;p&gt;API网关方式的核心要点是: 所有的客户端和消费端都通过统一的网关接入微服务,在网关层处理所有的非业务功能. 通常，网关也是提供&lt;code&gt;REST/HTTP&lt;/code&gt;的访问API.&lt;/p&gt;</summary>
     
     
     
@@ -353,16 +329,10 @@
     <link href="https://majunmin.github.io/post/awesome-blog.html"/>
     <id>https://majunmin.github.io/post/awesome-blog.html</id>
     <published>2022-08-16T12:45:48.000Z</published>
-    <updated>2022-09-08T05:02:48.272Z</updated>
+    <updated>2024-02-06T11:17:35.582Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;golang&quot;&gt;&lt;a href=&quot;#golang&quot; class=&quot;headerlink&quot; title=&quot;golang&quot;&gt;&lt;/a&gt;golang&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://geektutu.com/&quot;&gt;极客兔兔&lt;/a&gt;&lt;br&gt;&lt;a</summary>
-        
-      
+    <summary type="html">&lt;p&gt;记录一些比较优秀的博客,值得学习. 😄&lt;/p&gt;</summary>
     
     
     
@@ -475,19 +445,10 @@
     <link href="https://majunmin.github.io/post/%E4%BD%8D%E8%BF%90%E7%AE%97-%E5%9F%BA%E7%A1%80.html"/>
     <id>https://majunmin.github.io/post/%E4%BD%8D%E8%BF%90%E7%AE%97-%E5%9F%BA%E7%A1%80.html</id>
     <published>2022-07-19T15:29:47.000Z</published>
-    <updated>2022-07-23T04:15:53.391Z</updated>
+    <updated>2024-02-06T11:17:01.317Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
-
-
-&lt;h2 id=&quot;异或操作&quot;&gt;&lt;a href=&quot;#异或操作&quot; class=&quot;headerlink&quot; title=&quot;异或操作&quot;&gt;&lt;/a&gt;异或操作&lt;/h2&gt;&lt;pre class=&quot;line-numbers</summary>
-        
-      
+    <summary type="html">&lt;p&gt;算法中位运算的一些常见操作&lt;/p&gt;</summary>
     
     
     

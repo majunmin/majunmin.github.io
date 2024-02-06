@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"majunmin.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"majunmin.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="什么是 API网关API网关是一个服务器,是系统的唯一入口.  从面向对象设计的角度看，它与外观模式类似. API网关封装了系统内部架构,为每个客户端提供一个定制的API.它可能还具有其它职责,如身份验证、监控、负载均衡、缓存、协议转换、限流熔断、静态响应处理. API网关方式的核心要点是: 所有的客户端和消费端都通过统一的网关接入微服务,在网关层处理所有的非业务功能. 通常，网关也是提供REST">
@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/majunmin/image/etcd/20220818200500.png">
 <meta property="article:published_time" content="2022-08-17T02:52:25.000Z">
-<meta property="article:modified_time" content="2022-08-29T08:55:33.248Z">
+<meta property="article:modified_time" content="2024-02-06T11:14:13.805Z">
 <meta property="article:author" content="majm">
 <meta property="article:tag" content="微服务">
 <meta property="article:tag" content="gateway">
@@ -51,6 +51,15 @@
 
   <title>微服务:API Gateway | majm的博客</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8DL8SZP3Q"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-H8DL8SZP3Q');
+      }
+    </script>
 
 
 
@@ -81,7 +90,7 @@
 </noscript>
 
 <link rel="alternate" href="/atom.xml" title="majm的博客" type="application/atom+xml">
-</head>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -223,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-29 16:55:33" itemprop="dateModified" datetime="2022-08-29T16:55:33+08:00">2022-08-29</time>
+                <time title="修改时间：2024-02-06 19:14:13" itemprop="dateModified" datetime="2024-02-06T19:14:13+08:00">2024-02-06</time>
               </span>
 
           <br>
@@ -232,7 +241,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>625</span>
+              <span>626</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -254,6 +263,10 @@
         <h2 id="什么是-API网关"><a href="#什么是-API网关" class="headerlink" title="什么是 API网关"></a>什么是 API网关</h2><p>API网关是一个服务器,是系统的唯一入口.  从面向对象设计的角度看，它与外观模式类似.</p>
 <p>API网关封装了系统内部架构,为每个客户端提供一个定制的API.它可能还具有其它职责,如身份验证、监控、负载均衡、缓存、协议转换、限流熔断、静态响应处理.</p>
 <p>API网关方式的核心要点是: 所有的客户端和消费端都通过统一的网关接入微服务,在网关层处理所有的非业务功能. 通常，网关也是提供<code>REST/HTTP</code>的访问API.</p>
+<span id="more"></span>
+
+
+
 <h2 id="网关应该具有那些能力"><a href="#网关应该具有那些能力" class="headerlink" title="网关应该具有那些能力"></a>网关应该具有那些能力</h2><p>微服务网关作为微服务后端服务的统一入口, 它可以统筹管理后端服务,主要分为<code>数据平面</code>和<code>控制平面</code>:</p>
 <p><code>数据平面</code>主要功能是接入用户的HTTP请求和微服务被拆分后的聚合.使用微服务网关统一对外暴露后端服务的API和契约,路由和过滤功能正是网关的核心能力模块.另外,<strong>微服务网关可以实现拦截机制和专注跨横切面的功能</strong>,包括协议转换、安全认证、熔断限流、灰度发布、日志管理、流量监控等.</p>
 <p><code>控制平面</code>主要功能是对后端服务做统一的管控和配置管理.例如,可以控制网关的弹性伸缩; 可以统一下发配置; 可以对网关服务添加标签; 可以在微服务网关上通过配置Swagger功能统一将后端服务的API契约暴露给使用方, 完成文档服务, 提高工作效率和降低沟通成本.</p>
@@ -537,6 +550,7 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -549,6 +563,65 @@
 
 
 <script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
 
 
 
@@ -573,9 +646,30 @@
 
 
 
+    <div id="pjax">
   
 
   
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: '32px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
@@ -597,5 +691,6 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 });
 </script>
 
+    </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

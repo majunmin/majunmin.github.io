@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"majunmin.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"majunmin.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="做一些简单的笔记">
@@ -45,6 +45,15 @@
 
   <title>majm的博客</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8DL8SZP3Q"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-H8DL8SZP3Q');
+      }
+    </script>
 
 
 
@@ -75,7 +84,7 @@
 </noscript>
 
 <link rel="alternate" href="/atom.xml" title="majm的博客" type="application/atom+xml">
-</head>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -304,7 +313,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-29 16:51:32" itemprop="dateModified" datetime="2022-08-29T16:51:32+08:00">2022-08-29</time>
+                <time title="修改时间：2024-02-06 19:14:02" itemprop="dateModified" datetime="2024-02-06T19:14:02+08:00">2024-02-06</time>
               </span>
 
           <br>
@@ -313,7 +322,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>457</span>
+              <span>458</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -332,26 +341,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Spection-Trace-语义"><a href="#Spection-Trace-语义" class="headerlink" title="Spection  Trace 语义"></a>Spection  Trace 语义</h2><h3 id="Trace"><a href="#Trace" class="headerlink" title="Trace"></a>Trace</h3><p>代表一个调用链.</p>
-<p>通常， 一个 Trace 可以被理解为一系列span 组成的有向无环图(DAG), span 之间的边称为  Reference.</p>
-<h3 id="Span"><a href="#Span" class="headerlink" title="Span"></a>Span</h3><p><code>Span</code> 表示一个跨进程的 RPC 或者进程内部的一个过程.</p>
-<p>每个span 可以包含一些状态:<br><code>operate_name</code><br><code>start_timestampe</code><br><code>end_timestamp</code><br><code>Tags</code>: 一系列 kv 集合<br><code>Logs</code>: 一系列 kv 集合,并且携带时间戳<br><code>SpanContext</code>:<br><code>Reference</code>: 通过 SpanContext 关联其他 Span</p>
-<h3 id="SpanContext"><a href="#SpanContext" class="headerlink" title="SpanContext"></a>SpanContext</h3><p>SpanContext  封装了一个可以用来指向特定 Span 的状态,用于在进程间(内)传递. 通过在进程间传递,在分布式环境中构建一个DAG图.</p>
-<p>span 必须去提供方法访问 <code>SpanContext</code>,<code>SpanContext</code> 代表跨越进程边界,传递到下级Span的状态.(包含  <code>trace_id</code> <code>span_id</code> <code>sampled</code> 元组).</p>
-<p><code>SpanContext</code> 在跨越进程边界,和在追踪图中创建边界的时候会使用.</p>
-<h3 id="Logs"><a href="#Logs" class="headerlink" title="Logs"></a>Logs</h3><p> 每个<code>Span</code>可以进行多次Logs操作,每一次Logs操作, 都需要一个带<code>时间戳</code>的时间名称, 以及可选的任意大小的存储结构.<br><a target="_blank" rel="noopener" href="https://github.com/opentracing/specification/blob/master/semantic_conventions.md#log-fields-table">Standard LogKeys</a></p>
-<h3 id="Tags"><a href="#Tags" class="headerlink" title="Tags"></a>Tags</h3><p>每个 <code>Span</code> 可以有多个键值对(key:value)形式的<code>Tags</code>, <code>Tags</code>是没有时间戳的,支持简单的对<code>Span</code>进行注解和补充.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/opentracing/specification/blob/master/semantic_conventions.md#span-tags-table">Standard Tags</a></p>
-<h3 id="Baggage"><a href="#Baggage" class="headerlink" title="Baggage"></a>Baggage</h3><p><code>Baggage</code> 是存储在 <code>SpanContext</code> 中的一个键值对(SpanContext)集合. 它会在一条追踪链路上的所有span内全局传输. 在这种情况下, <code>Baggage</code>会随着Trace一同传播.(<code>Baggage</code>可理解为随着<code>trace</code>运行过程传送的行李).</p>
-<p><code>Baggage</code> 拥有强大功能,也会有很大的消耗.  由于Baggage的全局传输,如果包含的数量量太大，或者元素太多，它将降低系统的吞吐量或增加RPC的延迟.</p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>Reference 有两种类型:</p>
-<ul>
-<li>ChildOf</li>
-<li>FollowsFrom</li>
-</ul>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://opentracing-contrib.github.io/opentracing-specification-zh/specification.html">OpenTracing语义标准</a><br><a target="_blank" rel="noopener" href="https://opentracing.io/specification/">The OpenTracing Semantic Specification</a><br><a target="_blank" rel="noopener" href="https://github.com/opentracing/specification/blob/master/specification.md">The OpenTracing Semantic Specification-github</a></p>
-
+          <h2 id="Spection-Trace-语义"><a href="#Spection-Trace-语义" class="headerlink" title="Spection  Trace 语义"></a>Spection  Trace 语义</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1-Trace.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -401,7 +399,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-29 16:55:33" itemprop="dateModified" datetime="2022-08-29T16:55:33+08:00">2022-08-29</time>
+                <time title="修改时间：2024-02-06 19:14:13" itemprop="dateModified" datetime="2024-02-06T19:14:13+08:00">2024-02-06</time>
               </span>
 
           <br>
@@ -410,7 +408,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>625</span>
+              <span>626</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -432,98 +430,14 @@
           <h2 id="什么是-API网关"><a href="#什么是-API网关" class="headerlink" title="什么是 API网关"></a>什么是 API网关</h2><p>API网关是一个服务器,是系统的唯一入口.  从面向对象设计的角度看，它与外观模式类似.</p>
 <p>API网关封装了系统内部架构,为每个客户端提供一个定制的API.它可能还具有其它职责,如身份验证、监控、负载均衡、缓存、协议转换、限流熔断、静态响应处理.</p>
 <p>API网关方式的核心要点是: 所有的客户端和消费端都通过统一的网关接入微服务,在网关层处理所有的非业务功能. 通常，网关也是提供<code>REST/HTTP</code>的访问API.</p>
-<h2 id="网关应该具有那些能力"><a href="#网关应该具有那些能力" class="headerlink" title="网关应该具有那些能力"></a>网关应该具有那些能力</h2><p>微服务网关作为微服务后端服务的统一入口, 它可以统筹管理后端服务,主要分为<code>数据平面</code>和<code>控制平面</code>:</p>
-<p><code>数据平面</code>主要功能是接入用户的HTTP请求和微服务被拆分后的聚合.使用微服务网关统一对外暴露后端服务的API和契约,路由和过滤功能正是网关的核心能力模块.另外,<strong>微服务网关可以实现拦截机制和专注跨横切面的功能</strong>,包括协议转换、安全认证、熔断限流、灰度发布、日志管理、流量监控等.</p>
-<p><code>控制平面</code>主要功能是对后端服务做统一的管控和配置管理.例如,可以控制网关的弹性伸缩; 可以统一下发配置; 可以对网关服务添加标签; 可以在微服务网关上通过配置Swagger功能统一将后端服务的API契约暴露给使用方, 完成文档服务, 提高工作效率和降低沟通成本.</p>
-<ul>
-<li>限流</li>
-<li>熔断</li>
-<li>安全</li>
-<li>缓存</li>
-<li>重试</li>
-<li>负载均衡</li>
-<li>反向路由</li>
-<li>认证,鉴权</li>
-<li>日志收集</li>
-<li>监控</li>
-<li>IP列表:黑名单,白名单</li>
-<li>流量染色</li>
-<li>协议转换</li>
-<li>API管理</li>
-</ul>
-<p>下图 是 Kong 官方  的一个简单架构图.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/majunmin/image/etcd/20220818200500.png"></p>
-<h2 id="常见的开源网关对比"><a href="#常见的开源网关对比" class="headerlink" title="常见的开源网关对比"></a>常见的开源网关对比</h2><table>
-<thead>
-<tr>
-<th>功能</th>
-<th>Apache APISIX</th>
-<th>Kong</th>
-<th>Tyk</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>项目归属</td>
-<td>Apache</td>
-<td>Kong Inc</td>
-<td></td>
-</tr>
-<tr>
-<td>技术架构</td>
-<td>Nginx + etcd</td>
-<td>Nginx + postgres</td>
-<td>Golang + Redis</td>
-</tr>
-<tr>
-<td>部署模式</td>
-<td>单机&amp;集群</td>
-<td>单机&amp;集群</td>
-<td>单机&amp;集群</td>
-</tr>
-<tr>
-<td>单核Qps(开启限流和 prometheus)</td>
-<td>18,000</td>
-<td>1700</td>
-<td></td>
-</tr>
-<tr>
-<td>平均延时</td>
-<td>0.2ms</td>
-<td>2ms</td>
-<td></td>
-</tr>
-<tr>
-<td>配置生效时间</td>
-<td>时间通知, 低于 1ms</td>
-<td>定时轮询 5s</td>
-<td></td>
-</tr>
-<tr>
-<td>支持配置回滚</td>
-<td>[x]</td>
-<td>[]</td>
-<td></td>
-</tr>
-<tr>
-<td>热插件更新</td>
-<td>[x]</td>
-<td>[]</td>
-<td></td>
-</tr>
-<tr>
-<td>用户自定义负载均衡算法，路由</td>
-<td>[x]</td>
-<td>[]</td>
-<td>[]</td>
-</tr>
-<tr>
-<td>控制台</td>
-<td>[x]</td>
-<td>[]</td>
-<td>[]</td>
-</tr>
-</tbody></table>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/%E5%BE%AE%E6%9C%8D%E5%8A%A1-API-Gateway.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -573,7 +487,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-08 13:02:48" itemprop="dateModified" datetime="2022-09-08T13:02:48+08:00">2022-09-08</time>
+                <time title="修改时间：2024-02-06 19:17:35" itemprop="dateModified" datetime="2024-02-06T19:17:35+08:00">2024-02-06</time>
               </span>
 
           <br>
@@ -582,7 +496,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>205</span>
+              <span>221</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -601,16 +515,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="golang"><a href="#golang" class="headerlink" title="golang"></a>golang</h2><p><a target="_blank" rel="noopener" href="https://geektutu.com/">极客兔兔</a><br><a target="_blank" rel="noopener" href="https://eddycjy.gitbook.io/golang/">跟煎鱼学Go</a><br><a target="_blank" rel="noopener" href="https://changkun.de/blog/">O神的博客</a><br><a target="_blank" rel="noopener" href="https://xargin.com/">曹大的博客</a></p>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><p><a target="_blank" rel="noopener" href="https://mercyblitz.github.io/">小马哥的技术博客</a><br>田小波的技术博客</p>
-<h2 id="Architech"><a href="#Architech" class="headerlink" title="Architech"></a>Architech</h2><p><a target="_blank" rel="noopener" href="https://cleancoders.com/">cleancoders</a><br><a target="_blank" rel="noopener" href="https://www.jdon.com/">解道</a><br><a target="_blank" rel="noopener" href="http://icyfenix.cn/summary/">凤凰架构</a></p>
-<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p><a target="_blank" rel="noopener" href="https://frimin.com/">FRIMIN</a><br><a target="_blank" rel="noopener" href="https://linux.vbird.org/">鸟哥的首页</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/vamei/">Vamei</a></p>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p><a target="_blank" rel="noopener" href="https://tanxinyu.work/">谭新宇</a><br><a target="_blank" rel="noopener" href="https://labuladong.github.io/algo/">LABULADONG 的算法网站</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/v_JULY_v">结构之法算法之道</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/kuangbin/">kuangbin - 博客园</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/acm_cxlove">acm_cxlove</a><br><a target="_blank" rel="noopener" href="https://www.shuizilong.com/house/">某岛</a><br><a target="_blank" rel="noopener" href="http://blog.acmicpc.info/">ACMer 博客瀑布流</a><br><a target="_blank" rel="noopener" href="https://godweiyang.com/categories/">伟阳的博客</a></p>
-<h2 id="大厂博客"><a href="#大厂博客" class="headerlink" title="大厂博客"></a>大厂博客</h2><p><a target="_blank" rel="noopener" href="https://tech.meituan.com/">美团技术团队</a><br><a target="_blank" rel="noopener" href="http://140.205.61.252/">阿里中间件团队博客</a><br><a target="_blank" rel="noopener" href="https://tech.youzan.com/">有赞技术团队</a><br><a target="_blank" rel="noopener" href="https://insights.thoughtworks.cn/">Thoughtworks洞见</a><br><a target="_blank" rel="noopener" href="https://xiaomi-info.github.io/">小米信息部技术团队</a><br><a target="_blank" rel="noopener" href="https://tech.ipalfish.com/blog/">伴鱼技术团队</a></p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p><a target="_blank" rel="noopener" href="https://maiyang.me/">茶歇驿站</a><br><a target="_blank" rel="noopener" href="https://www.qtmuniao.com/">木鸟杂记</a><br><a target="_blank" rel="noopener" href="https://shuyi.tech/">陈树义的博客</a><br><a target="_blank" rel="noopener" href="https://coolshell.cn/">左耳朵耗子的博客</a></p>
-<h2 id="Golang-书籍"><a href="#Golang-书籍" class="headerlink" title="Golang 书籍"></a><strong>Golang 书籍</strong></h2><p><a target="_blank" rel="noopener" href="http://books.studygolang.com/gopl-zh/">Go语言圣经（中文版）</a><br><a target="_blank" rel="noopener" href="https://golang.coding3min.com/">Go语言精进之路</a><br><a target="_blank" rel="noopener" href="https://golang.design/under-the-hood/">Go 语言原本</a><br><a target="_blank" rel="noopener" href="https://chai2010.cn/advanced-go-programming-book/">Go语言高级编程(Advanced Go Programming)</a><br><a target="_blank" rel="noopener" href="https://draveness.me/golang/">语言设计与实现</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.bookstack.cn/read/qcrao-Go-Questions/README.md">Go 语言问题集(Go Questions)</a></p>
-
+          <p>记录一些比较优秀的博客,值得学习. 😄</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/awesome-blog.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1090,7 +1003,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-23 12:15:53" itemprop="dateModified" datetime="2022-07-23T12:15:53+08:00">2022-07-23</time>
+                <time title="修改时间：2024-02-06 19:17:01" itemprop="dateModified" datetime="2024-02-06T19:17:01+08:00">2024-02-06</time>
               </span>
 
           <br>
@@ -1099,7 +1012,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>230</span>
+              <span>247</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1118,56 +1031,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <span id="more"></span>
-
-
-<h2 id="异或操作"><a href="#异或操作" class="headerlink" title="异或操作"></a>异或操作</h2><pre class="line-numbers language-none"><code class="language-none">x ^ 0  &#x3D; x
-x ^ 1s &#x3D; ~x  &#x2F;&#x2F; 1s  &#x3D; ~0
-x ^ ~x &#x3D; 1s
-x ^ x  &#x3D; 0
-c &#x3D; a ^ b  &#x3D;&gt; a ^ c &#x3D; b,  b ^ c &#x3D; a    &#x2F;&#x2F; 交换两个数
-a ^ b ^ c &#x3D; a ^ (b ^ c) &#x3D; (a ^ b) ^ c  &#x2F;&#x2F; associate<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="指定位置的-位运算"><a href="#指定位置的-位运算" class="headerlink" title="指定位置的 位运算"></a>指定位置的 位运算</h2><ol>
-<li>将 x 最右边的 n位清零  :   <code>x &amp; (~0 &lt;&lt; n)</code></li>
-<li>获取 x 的第n位的值(1|0):   <code>(x &gt;&gt; n) &amp; 1</code></li>
-<li>获取 x 的第n位的幂值   :    <code>x &amp;(1 &lt;&lt; n)</code></li>
-<li>仅将第 n 位置 1       :    <code>x | (1&lt;&lt; n)</code></li>
-<li>仅将第 n 位置 0       :    <code>x &amp; ~(1&lt;&lt; n)</code></li>
-<li>仅将第 n 位取反       :    <code>x ^ (1&lt;&lt; n)</code></li>
-<li>将x最高位至第n(含)位清零:    <code>x&amp;((1&lt;&lt;n) - 1)</code></li>
-<li>获取x  最右边的 1     :     <code>x &amp; -x</code> (lowbit操作)</li>
-</ol>
-<ul>
-<li>a      &#x3D; 00110100</li>
-<li>~a     &#x3D; 11001011</li>
-<li>-a     &#x3D; 11001100</li>
-<li>a &amp; -a &#x3D; 00000100</li>
-</ul>
-<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><ol>
-<li>判断奇偶</li>
-</ol>
-<ul>
-<li>x % 2 &#x3D;&#x3D; 0  &#x3D;&gt;   (x &amp; 1) &#x3D;&#x3D; 0</li>
-<li>x % 2 &#x3D;&#x3D; 1  &#x3D;&gt;   (x &amp; 1) &#x3D;&#x3D; 1</li>
-</ul>
-<ol start="2">
-<li><p>x &gt;&gt; 1 &#x3D;&#x3D; x &#x2F; 2<br>mid &#x3D; (left + right) &#x2F; 2   &#x3D;&#x3D; mid &#x3D; (left + right) &gt;&gt; 1 </p>
-</li>
-<li><p>x &#x3D; x &amp;(x-1)  清零最低位的1</p>
-</li>
-<li><p>x &amp; -x       得到最低位的 1 </p>
-</li>
-<li><p>x &amp; ~x  &#x3D;&#x3D; 0</p>
-</li>
-</ol>
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><ul>
-<li>bloomFilter</li>
-<li></li>
-</ul>
-
+          <p>算法中位运算的一些常见操作</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/%E4%BD%8D%E8%BF%90%E7%AE%97-%E5%9F%BA%E7%A1%80.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1325,6 +1197,7 @@ a ^ b ^ c &#x3D; a ^ (b ^ c) &#x3D; (a ^ b) ^ c  &#x2F;&#x2F; associate<span ari
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -1337,6 +1210,65 @@ a ^ b ^ c &#x3D; a ^ (b ^ c) &#x3D; (a ^ b) ^ c  &#x2F;&#x2F; associate<span ari
 
 
 <script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
 
 
 
@@ -1361,10 +1293,32 @@ a ^ b ^ c &#x3D; a ^ (b ^ c) &#x3D; (a ^ b) ^ c  &#x2F;&#x2F; associate<span ari
 
 
 
+    <div id="pjax">
   
 
   
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: '32px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 
 
+    </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
